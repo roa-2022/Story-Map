@@ -81,19 +81,21 @@ Example seed content:
 ```js
 [
   { 
-    id: 1
-    sinopsis: 
-    story_txt :
-    photo_url:
+    id: 1 
+    title: Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu
+    sinopsis: "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one
+    story_txt :"The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one
+    photo_url: https://en.wikipedia.org/wiki/K%C5%8Dauau#/media/File:Kooauau.png
     location:
     
     },
   { 
     
-    id: 1
-    sinopsis: 
-    story_txt :
-    photo_url:
+    id: 2
+    title: Tāne Mahuta
+    sinopsis: Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today.
+    story_txt : Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today.
+    photo_url: https://en.wikipedia.org/wiki/T%C4%81ne_Mahuta#/media/File:00_29_0496_Waipoua_Forest_NZ_-_Kauri_Baum_Tane_Mahuta.jpg
     location:
   },
 ]
