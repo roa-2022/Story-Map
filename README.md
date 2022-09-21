@@ -104,6 +104,8 @@ Example seed content:
   },
 ]
 ```
+## DB diagram
+![db-diagram](https://user-images.githubusercontent.com/99714877/191626174-d4841d07-bf1c-4770-b621-231000b3b2cb.png)
 
 ## User Stories
 
