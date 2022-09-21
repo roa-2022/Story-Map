@@ -63,15 +63,17 @@ Check out and retro. Sprints  2 per day
 
 ## Wireframes
 
-![Story-Map](https://user-images.githubusercontent.com/99714877/191629132-f97db5fc-d95d-433f-a469-a68d04b6413c.jpg)
-
-![Story-Map (5)](https://user-images.githubusercontent.com/99714877/191629146-57b14df8-c3eb-4901-a28f-e1d31925d9a3.jpg)
+![Story-Map (5)](https://user-images.githubusercontent.com/99714877/191629480-945260b9-fad7-4979-9c59-1ae4a68714bb.jpg)
 
 
-![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191629160-c304303f-f4b8-43dc-a0cc-a4638d522072.jpg)
+![Story-Map (5)](https://user-images.githubusercontent.com/99714877/191629488-3fe91dd8-a037-4930-b57d-39a667e49c28.jpg)
 
 
-![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629169-9328ba15-d37c-413e-864f-4fa00e21609e.jpg)
+![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191629510-72336dbc-d64e-4e8a-97a3-eca01f96af12.jpg)
+
+
+![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629529-a57cb85b-f3a0-4685-92f0-0f503c178909.jpg)
+
 
 
 ## Redux store
