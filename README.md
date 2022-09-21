@@ -108,11 +108,11 @@ Example seed content:
 ## User Stories
 
 ### MMVP
-As a user, I would like to be able view the home page, with a clear understanding of what the site is, and what i can expect from the experience
-As a user, I would like to view a list of collected stories
-As a user, from the list of collected stories, I would like to select and view a single story
-As a user, I would like to filter stories by region
-As a user, I would like to add a story to the collection (no authentication yet)
+* As a user, I would like to be able view the home page, with a clear understanding of what the site is, and what i can expect from the experience
+* As a user, I would like to view a list of collected stories
+* As a user, from the list of collected stories, I would like to select and view a single story
+* As a user, I would like to filter stories by region
+* As a user, I would like to add a story to the collection (no authentication yet)
 
 ### MVP
 	
