@@ -107,5 +107,28 @@ Example seed content:
 
 ## User Stories
 
+### MMVP
+As a user, I would like to be able view the home page, with a clear understanding of what the site is, and what i can expect from the experience
+As a user, I would like to view a list of collected stories
+As a user, from the list of collected stories, I would like to select and view a single story
+As a user, I would like to filter stories by region
+As a user, I would like to add a story to the collection (no authentication yet)
+
+### MVP
+	
+* As a user, I would like to choose whether I view the collection of stories from a list, or from a map [can we word this so it’s like…. I want to be able to do either? Or that I can do both?]
+* As a user, when I view the map, I want to be able to click on pins to view a list of stories from regions surrounding the pin
+* I want to be able to click a pin on the map to view the entire story
+
+AUTHENTICATION
+* As a user, I want to be able log in to the site, in order to add stories safely
+* As an admin, I want to be able to have authority to accept or decline entries to the collection of stories
+* As a user, I want to be able to save stories that I find interesting or important to my profile
+* As a user, I would like to have the power to delete my stories
+* As an admin, I would like to have the power to delete entries
+* As a user, I would like to be able to have input on Iwi relations and ties to the selected story
+
+### STRETCH
+* As a user, I would like to post an upvote to stories I enjoy, I can only post one upvote
 
 
