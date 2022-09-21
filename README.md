@@ -87,7 +87,7 @@ table 1 ex
 
 Example seed content: 
 
-xample seed content: 
+
 ```js
 [
   { 
@@ -103,6 +103,7 @@ xample seed content:
     story:text
   },
 ]
+```
 
 ## User Stories
 
