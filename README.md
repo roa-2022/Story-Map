@@ -83,8 +83,8 @@ Example seed content:
   { 
     id: 1 
     title: Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu
-    sinopsis: "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one
-    story_txt :"The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one
+    sinopsis: The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one.
+    story_txt : The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one.
     photo_url: https://en.wikipedia.org/wiki/K%C5%8Dauau#/media/File:Kooauau.png
     location:
     
