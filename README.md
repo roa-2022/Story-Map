@@ -74,16 +74,6 @@ Check out and retro. Sprints  2 per day
 | ?| ?| -- | -- |
 | ?| ? | -- | -- |
 
-table 1 ex
-
-| (table name) ||
-|---|---|
-| id | increments |
-| locationId| str |
-| title | str |
-| storyText| str |
-
-
 
 Example seed content: 
 
@@ -91,16 +81,20 @@ Example seed content:
 ```js
 [
   { 
-    id: 1,
-    locationId: '2',
-    title: 'title here',
-    story:text
+    id: 1
+    sinopsis: 
+    story_txt :
+    photo_url:
+    location:
     
+    },
+  { 
     
-    id: 2,
-    locationId: '3',
-    title: 'title here',
-    story:text
+    id: 1
+    sinopsis: 
+    story_txt :
+    photo_url:
+    location:
   },
 ]
 ```
