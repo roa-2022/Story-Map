@@ -71,8 +71,8 @@ Check out and retro. Sprints  2 per day
 |---|---|---|---|
 | /api/v1/stories | GET | -- | Array of stories objects |
 | /api/v1/movies | POST | New story object | Object containing new id |
-| ?| ?| -- | -- |
-| ?| ? | -- | -- |
+| /api/v1/| ?| -- | -- |
+| /api/v1/| ? | -- | -- |
 
 
 Example seed content: 
