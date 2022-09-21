@@ -105,7 +105,7 @@ Example seed content:
 ]
 ```
 ## DB diagram
-![db-diagram](https://user-images.githubusercontent.com/99714877/191626174-d4841d07-bf1c-4770-b621-231000b3b2cb.png)
+![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191626378-82295c94-c75f-46f8-ad4b-cf06ba29dc60.png)
 
 ## User Stories
 
