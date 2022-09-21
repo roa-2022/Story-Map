@@ -55,3 +55,56 @@ Check out and retro. Sprints  2 per day
 
  Lunch:  around 12/12.30 duration will last, depending on the duration.
 
+# Planing
+
+## The Idea
+
+## External API? Data Base?
+
+## Wireframes
+
+## Redux store
+
+## Routes
+
+| path | method | data | response |
+|---|---|---|---|
+| /api/v1/stories | GET | -- | Array of stories objects |
+| /api/v1/movies | POST | New story object | Object containing new id |
+| ?| ?| -- | -- |
+| ?| ? | -- | -- |
+
+table 1 ex
+
+| (table name) ||
+|---|---|
+| id | increments |
+| locationId| str |
+| title | str |
+| storyText| str |
+
+
+
+Example seed content: 
+
+xample seed content: 
+```js
+[
+  { 
+    id: 1,
+    locationId: '2',
+    title: 'title here',
+    story:text
+    
+    
+    id: 2,
+    locationId: '3',
+    title: 'title here',
+    story:text
+  },
+]
+
+## User Stories
+
+
+
