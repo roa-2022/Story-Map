@@ -63,16 +63,20 @@ Check out and retro. Sprints  2 per day
 
 ## Wireframes
 
-<Home />
+*<Home />
+
 ![Story-Map](https://user-images.githubusercontent.com/99714877/191629622-e9bf5ba8-9f9b-462c-9b8f-11c741ce88ed.jpg)
 
-<Stories /> 
+*<Stories /> 
+
 ![Story-Map (5)](https://user-images.githubusercontent.com/99714877/191629488-3fe91dd8-a037-4930-b57d-39a667e49c28.jpg)
 
-<SingleStory />
+*<SingleStory />
+
 ![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191629510-72336dbc-d64e-4e8a-97a3-eca01f96af12.jpg)
 
-<AddStory />
+*<AddStory />
+
 ![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629529-a57cb85b-f3a0-4685-92f0-0f503c178909.jpg)
 
 
