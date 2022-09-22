@@ -1,4 +1,4 @@
-import { getOneStory } from '../apis/stories'
+import { getOneStory, getStories } from '../apis/stories'
 
 export const SET_STORY = 'SET_STORY'
 
@@ -13,6 +13,23 @@ export function fetchOneStory(id) {
   return (dispatch) => {
     return getOneStory(id).then((story) => {
       dispatch(setStory(story))
+    })
+  }
+}
+
+export const SET_STORIES = 'SET_STORIES'
+
+export function setStories(stories) {
+  return {
+    type: SET_STORIES,
+    payload: stories,
+  }
+}
+
+export function fetchStories() {
+  return (dispatch) => {
+    return getStories().then((stories) => {
+      dispatch(setStories(stories))
     })
   }
 }
