@@ -1,11 +1,20 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import Home from './Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
 
+import { useAuth0 } from '@auth0/auth0-react'
+import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
+import { useCacheUser } from '../auth0-utils'
+
 function App() {
+  useCacheUser()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0()
   return (
     <>
       <header className="header">
