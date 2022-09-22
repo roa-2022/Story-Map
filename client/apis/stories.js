@@ -1,6 +1,12 @@
 import request from 'superagent'
 
-const rootUrl = '/api/v1/stories'
+const rootUrl = '/api/v1/stories/'
+
+export function getOneStory(id) {
+  return request.get(rootUrl + id).then((res) => {
+    return res.body
+  })
+}
 
 export function getOneStory(id) {
   return request.get(rootUrl + id).then((res) => {
@@ -8,7 +14,7 @@ export function getOneStory(id) {
   })
 }
 export function getStories() {
-  return request.get(rootUrl + '/stories').then((res) => {
+  return request.get(rootUrl).then((res) => {
     return res.body.stories
   })
 }
