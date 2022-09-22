@@ -8,7 +8,7 @@ router.get('/eng/:region', (req, res) => {
     const region = req.params.region
     db.searchEnglish(region)
     .then((results) => {
-        res.json(results[0])
+        res.json(results)
     })
     .catch((err) => {
         console.log(err.message)
@@ -20,7 +20,7 @@ router.get('/maori/:region', (req, res) => {
     const region = req.params.region
     db.searchMaori(region)
       .then((results) => {
-        res.json(results[0])
+        res.json(results)
       })
       .catch((err) => {
         console.log(err)
