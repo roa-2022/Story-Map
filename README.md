@@ -1,15 +1,15 @@
 # Final Project Plan
 
-## HS
+## Human Skills
 
-## Wellbeing: Stress profiles and needs
+### Wellbeing: Stress profiles and needs
 * Amy:  is going through SOT interviews. Needs to be shown empathy and is prompt to chat about what's going on for her with HS or talk to other team members.
 * Tyrone: When stressed, he gets quiet and pulls back from participating. He needs to go on walks and cookies.
 * Matthew E -  His stress levels are ok now, but when he's stressed,  matt losses focus and don't overthink about other people. He needs to be asked what he's up to.
 * Matthew T: under stress, he talks faster than usual. He needs the team to emphasise the need for breaks.
 * Yani: When you see her frowning, not taking breaks and talking sharp, she's stressed. Ask her to go for walks or take a break. She needs affirmation words and a pat on the back.
 
-## Expectation setting and agreements:
+### Expectation setting and agreements:
 
 * What do we each want out of this time? 
 
@@ -57,7 +57,7 @@ Check out and retro. Sprints  2 per day
 
  Lunch:  around 12/12.30 duration will last, depending on the duration.
 
-# Tech Planing
+# Tech Planning
 
 ## The Idea
 
