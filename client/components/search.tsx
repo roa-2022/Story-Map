@@ -14,8 +14,8 @@ export default function search() {
     }
     
     const maoriFunc = () => {
-        dispatch(fetchMaoriSearchedRegions(region))
-        console.log(region);
+        dispatch(fetchMaoriSearchedRegions(maoriRegion))
+        console.log(maoriRegion);
         
     }
 
@@ -33,6 +33,9 @@ export default function search() {
          </label>
          <button onClick={maoriFunc}>Click</button>
      </div>
+     <input type= "file" id = "img" accept= "image/png, image/jpg" ></input>
+     <div id="imageField"></div>
+
     </>
   )
 }
