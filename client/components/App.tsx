@@ -4,7 +4,7 @@ import Home from './Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
-import Search from './Search'
+import Search from './search'
 
 function App() {
   return (
