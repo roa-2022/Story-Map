@@ -81,7 +81,7 @@ exports.seed = async function(knex) {
         },
       { 
         id: 2015,
-        eng_name:' West Coast',
+        eng_name:'West Coast',
         maori_name: 'Te Tai Poutini',
       },
        { 
