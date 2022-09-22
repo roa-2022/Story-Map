@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect} from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import Home from './Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
 
+
+import { fetchGetRegions} from '../actions/regions'
+
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchGetRegions())
+  }, [])
+
   return (
     <>
       <header className="header">

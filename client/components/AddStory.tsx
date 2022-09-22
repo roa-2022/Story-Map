@@ -1,19 +1,25 @@
-import React, { useState, useRef } from 'react'
-import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {fetchAddStory} from '../actions/addStory'
+
 
 
 
 function AddStory() {
   const dispatch = useDispatch()
 
-  const [dataForm, setDataForm] = useState('')
-
   
+  const [dataForm, setDataForm] = useState({})
+
+  const allRegions = useSelector((store: any) => store.regions)
+  console.log(allRegions[0]?.id)
+  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // dispatch(fetchAddVenue(dataForm))
+    dispatch(fetchAddStory(dataForm))
   }
 
   const handleChange = (e) => {
@@ -32,28 +38,28 @@ function AddStory() {
         <div className="form-container">
           <form className="grid-stacked" onSubmit={handleSubmit}>
             <div className="input-group">
-              <label htmlFor="type">region </label>
-              <select name="type" id="type" onChange={handleChange}>
+              <label htmlFor="region_id">region </label>
+              <select name="region_id" id="type" onChange={handleChange}>
                 <option value="DEFAULT">Select an Option</option>
-                <option defaultValue="">New Zealand</option>
-                <option value="">North Island</option>
-                <option value="">South Island</option>
-                <option value="">Northland</option>
-                <option value="">Auckland</option>
-                <option value="">Waikato</option>
-                <option value="">Bay of Plenty</option>
-                <option value="">Gisborne</option>
-                <option value="">Hawke's Bay</option>
-                <option value="">Taranaki</option>
-                <option value="">Manawatū-Whanganui</option>
-                <option value="">Wellington</option>
-                <option value="">Tasman</option>
-                <option value="">Nelson</option>
-                <option value="">Marlborough</option>
-                <option value="">West Coast</option>
-                <option value="">Canterbury</option>
-                <option value="">Otago</option>
-                <option value="">Southland</option>
+                <option value={allRegions[0]?.id}>New Zealand</option>
+                <option value={allRegions[1]?.id}>North Island</option>
+                <option value={allRegions[2]?.id}>South Island</option>
+                <option value={allRegions[3]?.id}>Northland</option>
+                <option value={allRegions[4]?.id}>Auckland</option>
+                <option value={allRegions[5]?.id}>Waikato</option>
+                <option value={allRegions[6]?.id}>Bay of Plenty</option>
+                <option value={allRegions[7]?.id}>Gisborne</option>
+                <option value={allRegions[8]?.id}>Hawke's Bay</option>
+                <option value={allRegions[9]?.id}>Taranaki</option>
+                <option value={allRegions[10]?.id}>Manawatū-Whanganui</option>
+                <option value={allRegions[11]?.id}>Wellington</option>
+                <option value={allRegions[12]?.id}>Tasman</option>
+                <option value={allRegions[13]?.id}>Nelson</option>
+                <option value={allRegions[14]?.id}>Marlborough</option>
+                <option value={allRegions[15]?.id}>West Coast</option>
+                <option value={allRegions[16]?.id}>Canterbury</option>
+                <option value={allRegions[17]?.id}>Otago</option>
+                <option value={allRegions[18]?.id}>Southland</option>
               </select>
             </div>
             <div className="input-group">

@@ -13,3 +13,10 @@ export function getStories() {
     return res.body.stories
   })
 }
+
+// Add a Story
+
+export async function addStoryApi(data) {
+  const req = await request.post(rootUrl).send(data)
+  return req.body
+}

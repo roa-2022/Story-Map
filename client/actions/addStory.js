@@ -1,6 +1,4 @@
-import { 
-  addStoryAPI
-} from '../apis/addStory'
+import { } from '../apis/stories'
 
 export const ADD_STORY ='ADD_STORY'
 
