@@ -4,7 +4,6 @@ import Home from './Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
-import Search from './search'
 
 function App() {
   return (
@@ -20,7 +19,7 @@ function App() {
       <section className="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stories" element={<Search />} />
+          <Route path="/stories" element={<Stories />} />
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/add" element={<AddStory/>} />
         </Routes>
