@@ -1,7 +1,11 @@
 import React from 'react'
 
 function AddStory() {
-  return <></>
+  return (
+    <>
+      <h1>hi</h1>
+    </>
+  )
 }
 
 export default AddStory
