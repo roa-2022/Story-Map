@@ -1,15 +1,13 @@
 import React from 'react'
+import Search from './Search'
 
 
 function Stories() {
-  return 
-  <>
-  <div>
-    <h3>Stories</h3>
-    <div>
-
-    </div>
-  </div>
-  </>
+  return (
+    <>
+      <Search />
+    </>
+  )
+}
 
 export default Stories
