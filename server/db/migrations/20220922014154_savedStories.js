@@ -1,4 +1,3 @@
-
 exports.up = function (knex) {
   return knex.schema.createTable('saved_stories', (table) => {
     table.increments('id')
@@ -6,7 +5,6 @@ exports.up = function (knex) {
     table.string('user_id').references('users.id')
   })
 }
-
 
 exports.down = function (knex) {
   return knex.schema.dropTable('saved_stories')

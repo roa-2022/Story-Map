@@ -19,7 +19,7 @@ function AddStory() {
     // })
   }
   return (
-    <>
+  
       <section className="add-container">
         <div className="add-box"></div>
         <div className="add-box">
@@ -75,7 +75,6 @@ function AddStory() {
           </div>
         </div>
       </section>
-    </>
   )
 }
 
