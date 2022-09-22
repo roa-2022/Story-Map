@@ -1,5 +1,7 @@
 # Final Project Plan
 
+## HS
+
 ## Wellbeing: Stress profiles and needs
 * Amy:  is going through SOT interviews. Needs to be shown empathy and is prompt to chat about what's going on for her with HS or talk to other team members.
 * Tyrone: When stressed, he gets quiet and pulls back from participating. He needs to go on walks and cookies.
@@ -55,7 +57,7 @@ Check out and retro. Sprints  2 per day
 
  Lunch:  around 12/12.30 duration will last, depending on the duration.
 
-# Planing
+# Tech Planing
 
 ## The Idea
 
