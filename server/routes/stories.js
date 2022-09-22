@@ -4,7 +4,6 @@ const db = require('../db/stories')
 
 const router = express.Router()
 
-<<<<<<< HEAD
 router.get('/', (req, res) => {
   db.getStories()
     .then((data) => {
@@ -16,8 +15,6 @@ router.get('/', (req, res) => {
     })
 })
 
-=======
->>>>>>> 0770e9a0dc9afc9623846df977b965ea321019cf
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getOneStory(id)
