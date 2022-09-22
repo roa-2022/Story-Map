@@ -9,9 +9,10 @@ export default function search() {
 
   return (
       <div>
-          <input onChange = {(e) => {setRegion(e.target.value)}}/>
-        <button onClick={() => dispatch(fetchSearchedRegions(region))}>
-          </button>
+        <label>Filter By Region
+        <input onChange = {(e) => {setRegion(e.target.value)}}/>
+        </label>
+        <button onClick={() => dispatch(fetchSearchedRegions(region))}></button>
     </div>
   )
 }

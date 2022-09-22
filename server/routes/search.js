@@ -4,8 +4,8 @@ const db = require('../db/search')
 
 const router = express.Router()
 
-router.get('/:regioneng', (req, res) => {
-    const region = req.params.regioneng
+router.get('/eng/:region', (req, res) => {
+    const region = req.params.region
     db.searchEnglish(region)
     .then((results) => {
         res.json(results)
@@ -16,8 +16,8 @@ router.get('/:regioneng', (req, res) => {
     })
 })
 
-router.get('/:regionmaori', (req, res) => {
-    const region = req.params.regionmaori
+router.get('/maori/:region', (req, res) => {
+    const region = req.params.region
     db.searchMaori(region)
       .then((results) => {
         res.json(results)
