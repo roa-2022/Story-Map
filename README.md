@@ -59,23 +59,33 @@ Check out and retro. Sprints  2 per day
 
 ## The Idea
 
-## External API? Data Base?
+### Story Map - Pending name change
+
+Story Map is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
+
+## External API
+
+Our chosen API will be Mapbox (www.mapbox.com).  We will use this service to gain access to a map of New Zealand and be able to interact with said map.
+There are several endpoints we can access but the main routes we will use are:
+
+* Endpoint 1
+* Endpoint 2
 
 ## Wireframes
 
-*<Home />
+* ### Home 
 
 ![Story-Map](https://user-images.githubusercontent.com/99714877/191629622-e9bf5ba8-9f9b-462c-9b8f-11c741ce88ed.jpg)
 
-*<Stories /> 
+* ### Stories  
 
 ![Story-Map (5)](https://user-images.githubusercontent.com/99714877/191629488-3fe91dd8-a037-4930-b57d-39a667e49c28.jpg)
 
-*<SingleStory />
+* ### SingleStory 
 
 ![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191629510-72336dbc-d64e-4e8a-97a3-eca01f96af12.jpg)
 
-*<AddStory />
+* ### AddStory
 
 ![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629529-a57cb85b-f3a0-4685-92f0-0f503c178909.jpg)
 
