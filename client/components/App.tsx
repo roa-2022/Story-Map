@@ -5,6 +5,8 @@ import Home from './Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
+import Register from './Register'
+import Nav from './Nav'
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
@@ -36,14 +38,11 @@ function App() {
     <>
       <header className="header">
         <h1>Story Map</h1>
-        <Link to="/">Home</Link>
-        <br />
-        <Link to="/stories">Stories</Link>
-        <br />
-        <Link to="/add">Add A Story</Link>
+        <Nav />
       </header>
       <section className="main">
         <Routes>
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="/stories" element={<Stories />} />
           <Route path="/stories/:id" element={<Story />} />
