@@ -1,13 +1,15 @@
 # Final Project Plan
 
-## Wellbeing: Stress profiles and needs
+## Human Skills
+
+### Wellbeing: Stress profiles and needs
 * Amy:  is going through SOT interviews. Needs to be shown empathy and is prompt to chat about what's going on for her with HS or talk to other team members.
 * Tyrone: When stressed, he gets quiet and pulls back from participating. He needs to go on walks and cookies.
 * Matthew E -  His stress levels are ok now, but when he's stressed,  matt losses focus and don't overthink about other people. He needs to be asked what he's up to.
 * Matthew T: under stress, he talks faster than usual. He needs the team to emphasise the need for breaks.
 * Yani: When you see her frowning, not taking breaks and talking sharp, she's stressed. Ask her to go for walks or take a break. She needs affirmation words and a pat on the back.
 
-## Expectation setting and agreements:
+### Expectation setting and agreements:
 
 * What do we each want out of this time? 
 
@@ -55,7 +57,7 @@ Check out and retro. Sprints  2 per day
 
  Lunch:  around 12/12.30 duration will last, depending on the duration.
 
-# Planing
+# Tech Planning
 
 ## The Idea
 
@@ -182,5 +184,64 @@ AUTHENTICATION
 
 ### STRETCH
 * As a user, I would like to post an upvote to stories I enjoy, I can only post one upvote
+
+--------------
+
+## Planned Structure
+
+## Home page
+
+MMVP - 	The home page will detail the purpose of our website and have a navbar displayed above a pulsating hero image.  
+
+MVP - 		The Navbar will contain functioning links to log in (log out if you are signed in), our list of stories and, eventually a link to a map based collection of stories
+
+## View Collection of stories
+
+
+MMVP - 	This page is our main page, where we display a collection of all our stories stored in our database.  Each story will be displayed as a card, with an image, title, and location.  The navbar will continue to be visible here with the added option to return to the home page.  There will also be the option to add a story here as well (This feature will be restricted to users only, as we introduce authentication)
+Each story card is clickable and will redirect you to a single story view.  There will be a search bar of sorts where we can filter the collection by region, to isolate the stories we are looking for
+
+MVP -	  	The ‘Add Story’ prompt will only appear when a visitor is logged in.  Or perhaps redirect them to a login page when they click on this button.  There will be an additional link on navbar to switch our list to a mapped view, where a visitor can click on a pin on a map of New Zealand and view the story associated with that pinned location.  This switch action could be a toggle or a new route entirely, and there will be an option to return the list view.  
+
+
+## Add a new story
+
+MMVP - 	This page will display a form that allows a visitor to add a story to the database.  The details will need to include a name for the story, a region associated with the story, the actual story itself and an image to be connected with it.  
+
+MVP-		Restricted Access to this page, logged in users only
+
+
+
+## View a Single Story
+
+MMVP - 	This page will display the clicked on story from the previous page.  From here, a visitor can read the story.  There will be an option to go back to the previous page
+
+MVP - 		Additionally, a user logged in will be able to save this story to their own personal collection of saved stories. 
+## Admin controlled sections!!
+
+##Login/Registration
+
+MVP - 		Users will be directed to login or register to the site if they wish to add stories.  A user can peruse the site without any form of registration required
+
+## Saved Stories
+
+MVP - 		A user can go to a route that shows all their saved stories.  This will be collected into its own database.  A user will the ability to remove stories from their saved list
+
+
+
+## Users Own Stories
+
+MVP- 		There will be a separate view for users to view their own profile, or even simpler, just to view their own stories they have submitted to the site.  A user will have the ability to delete their own stories they have entered but not have that ability with other stories they did not enter.  This data could be stored on the same view as a list of user saved stories.  	
+
+
+## Admin Related Controls (Not Complete)
+
+## Deleting Stories
+
+Stretch -	Homepage and views of story collections will be quite similar to normal user access.  In Single View, an option to delete a story will exist, with perhaps a prompt confirming this action.
+
+## Adding Stories
+
+Stretch - 	A story that is submitted to be added will be passed to a page that only the admin can view.  They will be able to review the story, making adjustments if required and then either accept or decline the story.  
 
 
