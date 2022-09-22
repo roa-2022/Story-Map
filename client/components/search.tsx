@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSearchedRegions, fetchMaoriSearchedRegions } from '../actions/search'
-
+// const fs = require('fs')
 export default function search() {
     
     const [region, setRegion ] = useState('') 
@@ -9,23 +9,30 @@ export default function search() {
     const dispatch = useDispatch()
     const search = useSelector((state:any) => state.search)
 
+
     const [files, setFiles]:any = useState([])
     const [imageURLs, setImageURLs]: any = useState([])
 
-    useEffect(() => {
-        if(files.length < 1) return;
-        const newImageUrls:any = []
-        files.forEach(file => newImageUrls.push(URL.createObjectURL(file)))
-        setImageURLs(newImageUrls)
-    }, [files])
+    // useEffect(() => {
+    //     if(files.length < 1) return;
+    //     const newImageUrls:any = []
+    //     files.forEach(file => newImageUrls.push(URL.createObjectURL(file)))
+    //     setImageURLs(newImageUrls)
+    // }, [files])
     const fileSelector = (e) => {
-        console.log(e.target.files[0]);
         setFiles([...e.target.files])
     }
     
     const fileUploader = () => {
-        console.log(files);
-        console.log(imageURLs);
+        if(files.length < 1) return;
+        const newImageUrls:any = []
+        files.forEach(file => newImageUrls.push(URL.createObjectURL(file)))
+        setImageURLs(newImageUrls)
+        console.log(newImageUrls)
+        // fs.appendFile('/uploads/uploads', newImageUrls, (err) => {
+        //     if (err) throw err
+        // })
+
     }
 
   return (
@@ -45,12 +52,18 @@ export default function search() {
             <input onChange = {(e) => {setMaoriRegion(e.target.value)}}/>
             </label>
             <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion))}>Click</button>
-            <h3>{search?.region_id}</h3>
+            {search?.map(story => {
+                return <h3>{story?.story_id}</h3>
+                
+            })}
         </div>
 
         <div>
             <input type= "file" onChange = {fileSelector} id = "img" accept= "image/*" ></input>
             <button onClick={fileUploader}>Upload</button>
+            {imageURLs?.map(imageURL => {
+                return <img src={imageURL}/>
+            })}
         </div>
     
     </>
