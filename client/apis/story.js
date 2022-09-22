@@ -7,9 +7,3 @@ export function getOneStory(id) {
     return res.body
   })
 }
-
-export function getStories() {
-  return request.get(rootUrl).then((res) => {
-    return res.body.stories
-  })
-}
