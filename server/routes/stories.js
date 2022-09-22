@@ -8,7 +8,6 @@ router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getOneStory(id)
     .then((result) => {
-      console.log(result)
       res.json(result)
     })
     .catch((err) => {
