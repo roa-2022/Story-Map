@@ -1,8 +1,8 @@
 import { SEARCH_REGION } from '../actions/search'
 
-const initialState = [{eng_name: "Northland"}]
+// const initialState = [{eng_name: "Northland"}]
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = [], action) => {
     const { type, payload } = action
     switch (type) {
         case SEARCH_REGION:
