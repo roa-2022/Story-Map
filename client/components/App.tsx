@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchFruits } from '../actions'
 
 function App() {
-  const fruits = useSelector((state) => state.fruits)
+  const fruits = useSelector((state: any) => state.fruits)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchFruits())
