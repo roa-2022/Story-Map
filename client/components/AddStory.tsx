@@ -22,12 +22,15 @@ function AddStory() {
     dispatch(fetchAddStory(dataForm))
   }
 
+  
   const handleChange = (e) => {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
     })
   }
+
+
   return (
     <section className="add-container">
       <div className="add-box"></div>

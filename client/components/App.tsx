@@ -7,6 +7,7 @@ import Story from './Story'
 import AddStory from './AddStory'
 
 
+import  { fetchStories } from '../actions/index'
 import { fetchGetRegions} from '../actions/regions'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchGetRegions())
+    dispatch(fetchStories() )    
   }, [])
 
   return (
