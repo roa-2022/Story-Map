@@ -1,18 +1,18 @@
-import { getFruits } from '../apis/fruits'
+import { getOneStory } from '../apis/stories'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const SET_STORY = 'SET_STORY'
 
-export function setFruits(fruits) {
+export function setStory(story) {
   return {
-    type: SET_FRUITS,
-    payload: fruits,
+    type: SET_STORY,
+    payload: story,
   }
 }
 
-export function fetchFruits() {
+export function fetchOneStory(id) {
   return (dispatch) => {
-    return getFruits().then((fruits) => {
-      dispatch(setFruits(fruits))
+    return getOneStory(id).then((story) => {
+      dispatch(setStory(story))
     })
   }
 }
