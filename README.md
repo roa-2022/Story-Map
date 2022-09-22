@@ -95,6 +95,7 @@ Check out and retro. Sprints  2 per day
 
 Example seed content: 
 
+Stories Table
 
 ```js
 [
@@ -117,6 +118,29 @@ Example seed content:
     location:
   },
 ]
+```
+Regions Table
+
+```js
+[
+  { 
+    id: 1 
+    eng_name: New Zealand
+    maori_name: Aotearoa        
+    },
+  { 
+    id: 2 
+    eng_name: North Island
+    maori_name: Te Ika-a-Māui
+  },
+   { 
+    id: 3 
+    eng_name: South Island
+    maori_name: Te Waipounamu
+  },
+  ]
+  
+   ....then add the 16 regions 
 ```
 ## DB diagram
 ![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191626378-82295c94-c75f-46f8-ad4b-cf06ba29dc60.png)
