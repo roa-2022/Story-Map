@@ -2,6 +2,8 @@
 
 Yani copy this bad boy!! blob:http://localhost:3000/2a5d813e-60ad-4338-ac09-b22d2f1f1663
 
+LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
+
 ## Human Skills
 
 ### Wellbeing: Stress profiles and needs
