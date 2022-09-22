@@ -1,4 +1,4 @@
-import { search } from '../apis/search'
+import { search, searchMaori } from '../apis/search'
 
 export const SEARCH_REGION = 'SEARCH_REGION'
 
@@ -15,3 +15,10 @@ export function fetchSearchedRegions (data) {
       .then((res) => dispatch(searchRegion(res)))
     }
   }
+
+export function fetchMaoriSearchedRegions (data) {
+return (dispatch) => {
+    return searchMaori(data)
+    .then((res) => dispatch(searchRegion(res)))
+}
+}
