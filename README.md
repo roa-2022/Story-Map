@@ -1,5 +1,7 @@
 # Final Project Plan
 
+Yani copy this bad boy!! blob:http://localhost:3000/2a5d813e-60ad-4338-ac09-b22d2f1f1663
+
 ## Human Skills
 
 ### Wellbeing: Stress profiles and needs
