@@ -1,6 +1,7 @@
 import { getOneStory, getStories } from '../apis/stories'
 
 export const SET_STORY = 'SET_STORY'
+export const SET_STORIES = 'SET_STORIES'
 
 export function setStory(story) {
   return {
@@ -16,8 +17,6 @@ export function fetchOneStory(id) {
     })
   }
 }
-
-export const SET_STORIES = 'SET_STORIES'
 
 export function setStories(stories) {
   return {

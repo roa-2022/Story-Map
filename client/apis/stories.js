@@ -10,6 +10,6 @@ export function getOneStory(id) {
 
 export function getStories() {
   return request.get(rootUrl).then((res) => {
-    return res.body.stories
+    return res.body
   })
 }
