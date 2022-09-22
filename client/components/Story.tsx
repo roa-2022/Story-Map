@@ -5,7 +5,6 @@ import { fetchOneStory } from '../actions/index'
 
 function Story() {
   const { id } = useParams()
-  console.log(id)
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
