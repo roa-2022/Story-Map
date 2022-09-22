@@ -5,6 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('stories', (table) => {
     table.increments('id')
+    table.string('author')
     table.string('title')
     table.string('synopsis')
     table.string('story_text')
