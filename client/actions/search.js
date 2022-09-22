@@ -12,13 +12,15 @@ export function searchRegion (region) {
 export function fetchSearchedRegions (data) {
     return (dispatch) => {
       return search(data)
-      .then((res) => dispatch(searchRegion(res)))
+      .then((result) => {dispatch(searchRegion(result))
+      console.log('English actions', result)})
     }
-  }
+}
 
 export function fetchMaoriSearchedRegions (data) {
-return (dispatch) => {
+  return (dispatch) => {
     return searchMaori(data)
-    .then((res) => dispatch(searchRegion(res)))
-}
+    .then((result) => {dispatch(searchRegion(result))
+    console.log('Maori actions', result)})
+  }
 }

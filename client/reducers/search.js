@@ -1,6 +1,6 @@
 import { SEARCH_REGION } from '../actions/search'
 
-const initialState = []
+const initialState = [{eng_name: "Northland"}]
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action
@@ -11,5 +11,6 @@ const reducer = (state = initialState, action) => {
             return state
     }
 }
+
 
 export default reducer
