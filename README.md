@@ -95,12 +95,14 @@ There are several endpoints we can access but the main routes we will use are:
 
 ## Redux store
 
+Our store will contain an array of objects once populated.  We will only need one reducer to make this function correctly
+
 ## Routes
 
 | path | method | data | response |
 |---|---|---|---|
 | /api/v1/stories | GET | -- | Array of stories objects |
-| /api/v1/movies | POST | New story object | Object containing new id |
+| /api/v1/stories | POST | New story object | Object containing new id |
 | /api/v1/| ?| -- | -- |
 | /api/v1/| ? | -- | -- |
 
@@ -113,20 +115,20 @@ Stories Table
 [
   { 
     id: 1 
-    title: Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu
-    sinopsis: The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one.
-    story_txt : The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one.
-    photo_url: https://en.wikipedia.org/wiki/K%C5%8Dauau#/media/File:Kooauau.png
+    title: 'Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu'
+    sinopsis: "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one."
+    story_txt : "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one."
+    photo_url: "https://en.wikipedia.org/wiki/K%C5%8Dauau#/media/File:Kooauau.png"
     location:
     
     },
   { 
     
     id: 2
-    title: Tāne Mahuta
-    sinopsis: Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today.
-    story_txt : Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today.
-    photo_url: https://en.wikipedia.org/wiki/T%C4%81ne_Mahuta#/media/File:00_29_0496_Waipoua_Forest_NZ_-_Kauri_Baum_Tane_Mahuta.jpg
+    title: "Tāne Mahuta"
+    sinopsis: "Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today."
+    story_txt : "Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today."
+    photo_url: "https://en.wikipedia.org/wiki/T%C4%81ne_Mahuta#/media/File:00_29_0496_Waipoua_Forest_NZ_-_Kauri_Baum_Tane_Mahuta.jpg"
     location:
   },
 ]
@@ -137,18 +139,18 @@ Regions Table
 [
   { 
     id: 1 
-    eng_name: New Zealand
-    maori_name: Aotearoa        
+    eng_name: "New Zealand"
+    maori_name: "Aotearoa"        
     },
   { 
     id: 2 
-    eng_name: North Island
-    maori_name: Te Ika-a-Māui
+    eng_name: "North Island"
+    maori_name: "Te Ika-a-Māui"
   },
    { 
     id: 3 
-    eng_name: South Island
-    maori_name: Te Waipounamu
+    eng_name: "South Island"
+    maori_name: "Te Waipounamu"
   },
   ]
   
@@ -159,7 +161,7 @@ Regions Table
 
 ## User Stories
 
-### MMVP
+### MVP
 
 * As a visitor, I would like to be able view the home page, with a clear understanding of what the site is, and what i can expect from the experience
 * As a visitor, I would like to view a list of collected stories
@@ -167,7 +169,7 @@ Regions Table
 * As a visitor, I would like to filter stories by region
 * As a visitor, I would like to add a story to the collection (no authentication yet)
 
-### MVP
+### MVP+
 ( add user & admin priviledges)	
 
 * As a user, I would like to choose whether I view the collection of stories from a list, or from a map [can we word this so it’s like…. I want to be able to do either? Or that I can do both?]
@@ -191,47 +193,47 @@ AUTHENTICATION
 
 ## Home page
 
-MMVP - 	The home page will detail the purpose of our website and have a navbar displayed above a pulsating hero image.  
+MVP - 	The home page will detail the purpose of our website and have a navbar displayed above a pulsating hero image.  
 
-MVP - 		The Navbar will contain functioning links to log in (log out if you are signed in), our list of stories and, eventually a link to a map based collection of stories
+MVP+ - 		The Navbar will contain functioning links to log in (log out if you are signed in), our list of stories and, eventually a link to a map based collection of stories
 
 ## View Collection of stories
 
 
-MMVP - 	This page is our main page, where we display a collection of all our stories stored in our database.  Each story will be displayed as a card, with an image, title, and location.  The navbar will continue to be visible here with the added option to return to the home page.  There will also be the option to add a story here as well (This feature will be restricted to users only, as we introduce authentication)
+MVP - 	This page is our main page, where we display a collection of all our stories stored in our database.  Each story will be displayed as a card, with an image, title, and location.  The navbar will continue to be visible here with the added option to return to the home page.  There will also be the option to add a story here as well (This feature will be restricted to users only, as we introduce authentication)
 Each story card is clickable and will redirect you to a single story view.  There will be a search bar of sorts where we can filter the collection by region, to isolate the stories we are looking for
 
-MVP -	  	The ‘Add Story’ prompt will only appear when a visitor is logged in.  Or perhaps redirect them to a login page when they click on this button.  There will be an additional link on navbar to switch our list to a mapped view, where a visitor can click on a pin on a map of New Zealand and view the story associated with that pinned location.  This switch action could be a toggle or a new route entirely, and there will be an option to return the list view.  
+MVP+ -	  	The ‘Add Story’ prompt will only appear when a visitor is logged in.  Or perhaps redirect them to a login page when they click on this button.  There will be an additional link on navbar to switch our list to a mapped view, where a visitor can click on a pin on a map of New Zealand and view the story associated with that pinned location.  This switch action could be a toggle or a new route entirely, and there will be an option to return the list view.  
 
 
 ## Add a new story
 
-MMVP - 	This page will display a form that allows a visitor to add a story to the database.  The details will need to include a name for the story, a region associated with the story, the actual story itself and an image to be connected with it.  
+MVP - 	This page will display a form that allows a visitor to add a story to the database.  The details will need to include a name for the story, a region associated with the story, the actual story itself and an image to be connected with it.  
 
-MVP-		Restricted Access to this page, logged in users only
+MVP+-		Restricted Access to this page, logged in users only
 
 
 
 ## View a Single Story
 
-MMVP - 	This page will display the clicked on story from the previous page.  From here, a visitor can read the story.  There will be an option to go back to the previous page
+MVP - 	This page will display the clicked on story from the previous page.  From here, a visitor can read the story.  There will be an option to go back to the previous page
 
-MVP - 		Additionally, a user logged in will be able to save this story to their own personal collection of saved stories. 
+MVP+ - 		Additionally, a user logged in will be able to save this story to their own personal collection of saved stories. 
 ## Admin controlled sections!!
 
 ##Login/Registration
 
-MVP - 		Users will be directed to login or register to the site if they wish to add stories.  A user can peruse the site without any form of registration required
+MVP+ - 		Users will be directed to login or register to the site if they wish to add stories.  A user can peruse the site without any form of registration required
 
 ## Saved Stories
 
-MVP - 		A user can go to a route that shows all their saved stories.  This will be collected into its own database.  A user will the ability to remove stories from their saved list
+MVP+ - 		A user can go to a route that shows all their saved stories.  This will be collected into its own database.  A user will the ability to remove stories from their saved list
 
 
 
 ## Users Own Stories
 
-MVP- 		There will be a separate view for users to view their own profile, or even simpler, just to view their own stories they have submitted to the site.  A user will have the ability to delete their own stories they have entered but not have that ability with other stories they did not enter.  This data could be stored on the same view as a list of user saved stories.  	
+MVP+- 		There will be a separate view for users to view their own profile, or even simpler, just to view their own stories they have submitted to the site.  A user will have the ability to delete their own stories they have entered but not have that ability with other stories they did not enter.  This data could be stored on the same view as a list of user saved stories.  	
 
 
 ## Admin Related Controls (Not Complete)
