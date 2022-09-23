@@ -11,9 +11,9 @@ export function addStory(data){
 }
 
 //Thunk
-export function fetchAddStory(data) {
+export function fetchAddStory(data,token) {
   return (dispatch) => {
-    return addStoryApi(data)
+    return addStoryApi(data, token)
     .then((res) => {dispatch(addStory(res))   
    
   })

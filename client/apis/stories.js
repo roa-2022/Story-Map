@@ -19,7 +19,7 @@ export function getStories() {
 export async function addStoryApi(data, token) {  
   const res = await request
   .post(rootUrl)
-  // .set('authorization', `Bearer ${token}`)
+  .set('authorization', `Bearer ${token}`)
   .send(data)
   return res.body
 }
