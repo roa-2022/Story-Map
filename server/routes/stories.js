@@ -1,5 +1,4 @@
 const express = require('express')
-
 const db = require('../db/stories')
 
 const router = express.Router()
@@ -8,7 +7,6 @@ router.get('/', (req, res) => {
   db.getStories()
     .then((data) => {
       res.json(data)
-  
     })
     .catch((err) => {
       console.log(err)
@@ -32,24 +30,23 @@ router.get('/:id', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const {title, author, synopsis, story_text} = req.body  
-    const {region_id}=req.body
+    const { title, author, synopsis, story_text } = req.body
+    const { region_id } = req.body
     // console.log('body', req.body, 'region', region_id)
-    const storyData = {title, author, synopsis, story_text}
-   
+    const storyData = { title, author, synopsis, story_text }
+
     const idArr = await db.addStory(storyData)
-    const storyId= idArr[0]
+    const storyId = idArr[0]
 
     const idObj = {
-      story_id:storyId,
-      region_id: region_id
+      story_id: storyId,
+      region_id: region_id,
     }
-    await db.addStoryRegions(idObj) 
-   
-    getNewStory = await db.getOneStory(storyId)
-       
-    res.json(getNewStory)
+    await db.addStoryRegions(idObj)
 
+    const getNewStory = await db.getOneStory(storyId)
+
+    res.json(getNewStory)
 
     res.status(200)
     // res.json(idArr)
@@ -57,7 +54,5 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: err.message })
   }
 })
-
-
 
 module.exports = router
