@@ -23,9 +23,9 @@ function Stories() {
               <p>{story?.title}</p>
               <p>{story?.location}</p>
               <p>{story?.synopsis}</p>
-              <Link to={`/stories/${story.id}`}>
+              {/* <Link to={`/stories/${story.id}`}>
                 <button>More Infor</button>
-              </Link>
+              </Link> */}
             </div>
           )
         })}
