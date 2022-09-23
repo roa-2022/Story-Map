@@ -9,7 +9,6 @@ import Search from './Search'
 function Stories() {
   const dispatch = useDispatch()
   const stories = useSelector((state: any) => state.stories)
-  console.log(stories)
   useEffect(() => {
     dispatch(fetchStories())
   }, [])

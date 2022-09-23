@@ -1,35 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {fetchAddStory} from '../actions/addStory'
-
-
-
+import { fetchAddStory } from '../actions/addStory'
 
 function AddStory() {
   const dispatch = useDispatch()
 
-  
   const [dataForm, setDataForm] = useState({})
 
   const allRegions = useSelector((store: any) => store.regions)
-  console.log(allRegions[0]?.id)
-  
-
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch(fetchAddStory(dataForm))
   }
 
-  
   const handleChange = (e) => {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
     })
   }
-
 
   return (
     <section className="add-container">
@@ -79,13 +70,13 @@ function AddStory() {
             </div>
             <div>
               <label htmlFor="story_text">Type your story: </label>
-              <br/>
+              <br />
               <textarea
-                id="story_text"
+                name="story_text"
                 onChange={handleChange}
-                placeholder="Write your story here"             
+                placeholder="Write your story here"
                 rows={10}
-                cols={50}             
+                cols={50}
               />
             </div>
             <div>

@@ -8,7 +8,7 @@ function Story() {
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
-  console.log(story?.photo_url)
+
   useEffect(() => {
     dispatch(fetchOneStory(id))
   }, [])
@@ -17,11 +17,11 @@ function Story() {
     <>
       <div>
         <h2>{story?.title}</h2>
-        <img src={story?.photo_url} />
-        <p>{story?.author}</p>
-        <p>{story?.story_text}</p>
         <p>{story?.eng_name}</p>
         <p>{story?.maori_name}</p>
+        <p>{story?.author}</p>
+        <p>{story?.story_text}</p>
+        <img src={story?.photo_url} />
       </div>
     </>
   )
