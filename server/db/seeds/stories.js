@@ -4,7 +4,7 @@ exports.seed = async function (knex) {
   await knex('stories').insert([
     {
       id: 1000,
-      auth0_id: 'auth0|632d259b6aa7af87dfa37429',
+      auth0_id: 'auth0|631e77a7f9e34bb0c8b7c01a',
       author: 'Whenua O Korero',
       title: 'Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu',
       synopsis:
