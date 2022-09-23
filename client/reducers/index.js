@@ -6,7 +6,7 @@ import addStory from './addstory'
 import user from './loggedInUser'
 import regions from './regions'
 import activepage from './activepage'
-import reducerReo from './reducerReo'
+import maoriSearch from './maoriSearch'
 
 export default combineReducers({
   user,
@@ -15,5 +15,5 @@ export default combineReducers({
   addStory,
   activepage,
   regions,
-  reducerReo
+  maoriSearch
 })
