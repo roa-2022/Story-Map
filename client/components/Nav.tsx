@@ -6,7 +6,7 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { Link } from 'react-router-dom'
 
 function Nav() {
-  const user = useSelector((state: any) => state?.loggedInUser)
+  const user = useSelector((state: any) => state?.user)
   // DONE call the useAuth0 hook and destructure logout and loginWithRedirect
   const { logout, loginWithRedirect } = useAuth0()
 
@@ -36,7 +36,7 @@ function Nav() {
             Log off
           </Link>
           <br />
-          <p>{' ' + user.username}</p>
+          <p>{user?.username}</p>
         </IfAuthenticated>
         <IfNotAuthenticated>
           <Link className="navLink" to="/" onClick={handleSignIn}>
