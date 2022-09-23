@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   db.getStories()
     .then((data) => {
       res.json(data)
-      // console.log(data)
+  
     })
     .catch((err) => {
       console.log(err)
@@ -47,8 +47,7 @@ router.post('/', async (req, res) => {
     await db.addStoryRegions(idObj) 
    
     getNewStory = await db.getOneStory(storyId)
-    
-    console.log(getNewStory)
+       
     res.json(getNewStory)
 
 

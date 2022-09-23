@@ -15,7 +15,7 @@ export function fetchAddStory(data) {
   return (dispatch) => {
     return addStoryApi(data)
     .then((res) => {dispatch(addStory(res))
-      // console.log(res)
+    
    
   })
   }

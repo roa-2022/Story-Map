@@ -9,7 +9,6 @@ function Story() {
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
-  console.log(story?.photo_url)
 
   useEffect(() => {
     dispatch(fetchOneStory(id))
