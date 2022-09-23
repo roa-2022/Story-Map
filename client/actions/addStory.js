@@ -1,4 +1,4 @@
-import { } from '../apis/stories'
+import {addStoryApi } from '../apis/stories'
 
 export const ADD_STORY ='ADD_STORY'
 
@@ -13,6 +13,10 @@ export function addStory(data){
 //Thunk
 export function fetchAddStory(data) {
   return (dispatch) => {
-    return addStoryApi(data).then((res) => dispatch(addStory(res)))
+    return addStoryApi(data)
+    .then((res) => {dispatch(addStory(res))
+      // console.log(res)
+      // console.log(data)
+  })
   }
 }

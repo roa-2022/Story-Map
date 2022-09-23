@@ -15,7 +15,17 @@ function getOneStory(id, db = connection) {
     .where('stories.id', id)
 }
 
+// Add Story
+
+function addStory(newData ,db = connection) {
+  return db('stories')
+  // .join('storiesRegions', 'stories.id', 'storiesRegions.region_id')
+  // .join('regions', 'storiesRegions.region_id', 'regions.id')
+  .insert(newData)  
+}
+
 module.exports = {
   getStories,
   getOneStory,
+  addStory
 }

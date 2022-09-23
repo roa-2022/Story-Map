@@ -28,6 +28,23 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// Add Story
+
+router.post('/', async (req, res) => {
+  try {
+    const data = req.body
+    const newData =  [data.author, data.title, data.synopsis, data.story_text]
+    console.log(data)  
+    const idArr = await db.addStory(req.body)
+    console.log('idArr', idArr)
+
+    // let addedStory = await db.getOneStory(id)
+    res.status(200)
+    // res.json(idArr)
+  } catch (err) {
+    res.status(500).json({ message: err.message })
+  }
+})
 
 
 
