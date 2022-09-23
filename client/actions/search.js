@@ -30,7 +30,7 @@ export function fetchSearchedRegions (data) {
     return (dispatch) => {
       return search(data)
       .then((result) => {dispatch(searchRegion(result))
-      console.log('English actions', result)})
+      })
     }
 }
 
@@ -38,6 +38,6 @@ export function fetchMaoriSearchedRegions (data) {
   return (dispatch) => {
     return searchMaori(data)
     .then((result) => {dispatch(searchRegion(result))
-    console.log('Maori actions', result)})
+  })
   }
 }
