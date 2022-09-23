@@ -46,6 +46,12 @@ function Nav() {
           </Link>
           <br />
         </IfNotAuthenticated>
+        <IfNotAuthenticated>
+          <Link className="navLink" to="/" onClick={handleSignIn}>
+            Sign Up
+          </Link>
+          <br />
+        </IfNotAuthenticated>
       </div>
     </>
   )
