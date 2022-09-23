@@ -35,6 +35,10 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.11.0",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@mui/icons-material": "^5.10.6",
+    "@mui/material": "^5.10.6",
     "express": "^4.17.2",
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",

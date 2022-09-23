@@ -10,6 +10,13 @@ export function getOneStory(id) {
 
 export function getStories() {
   return request.get(rootUrl).then((res) => {
-    return res.body.stories
+    return res.body
   })
+}
+
+// Add a Story
+
+export async function addStoryApi(data) {
+  const req = await request.post(rootUrl).send(data)
+  return req.body
 }
