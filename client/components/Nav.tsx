@@ -23,14 +23,16 @@ function Nav() {
   return (
     <>
       <div className="navGroup">
+        <IfAuthenticated>
+        <Link to="/add">Add A Story</Link>
+        </IfAuthenticated>
+        <br/>
         <Link className="navLink" to="/">
           Home
         </Link>
         <br />
         <Link to="/stories">Stories</Link>
-        <br />
-        <Link to="/add">Add A Story</Link>
-        <br />
+                <br />
         <IfAuthenticated>
           <Link className="navLink" to="/" onClick={handleLogOff}>
             Log off
