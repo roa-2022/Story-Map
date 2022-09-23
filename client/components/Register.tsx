@@ -31,7 +31,6 @@ function Register() {
       email: user.email,
       ...form,
     }
-    console.log(userInfo)
     addUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
       .catch((err) => setErrorMsg(err.message))
