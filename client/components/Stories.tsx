@@ -21,8 +21,10 @@ function Stories() {
           {stories.map((story) => {
           return <div key={story.id}>
             <p>{story?.title}</p>
-            <p>{story?.location}</p>
+            <p>{story?.maori_name}</p>
+            <p>{story?.eng_name}</p>
             <p>{story?.synopsis}</p>
+            <a href=""><button>More Infor</button></a>
             </div>
         })}
       </div>
