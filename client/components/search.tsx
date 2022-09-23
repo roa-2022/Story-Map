@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchSearchedRegions, fetchMaoriSearchedRegions } from '../actions/search'
+import { fetchSearchedRegions, fetchMaoriSearchedRegions, fetchAddedStory } from '../actions/search'
 // const fs = require('fs')
 export default function search() {
     
@@ -9,30 +10,22 @@ export default function search() {
     const dispatch = useDispatch()
     const search = useSelector((state:any) => state.search)
 
-
     const [files, setFiles]:any = useState([])
     const [imageURLs, setImageURLs]: any = useState([])
 
-    // useEffect(() => {
-    //     if(files.length < 1) return;
-    //     const newImageUrls:any = []
-    //     files.forEach(file => newImageUrls.push(URL.createObjectURL(file)))
-    //     setImageURLs(newImageUrls)
-    // }, [files])
-    const fileSelector = (e) => {
-        setFiles([...e.target.files])
+    const fileSelector = (imageList) => {
+        setFiles([...imageList.target.files])
     }
     
-    const fileUploader = () => {
+    
+    const fileUploader = async () => {
         if(files.length < 1) return;
         const newImageUrls:any = []
         files.forEach(file => newImageUrls.push(URL.createObjectURL(file)))
-        setImageURLs(newImageUrls)
+        await setImageURLs(newImageUrls)
         console.log(newImageUrls)
-        // fs.appendFile('/uploads/uploads', newImageUrls, (err) => {
-        //     if (err) throw err
-        // })
-
+    
+        dispatch(fetchAddedStory(newImageUrls))
     }
 
   return (
@@ -59,11 +52,12 @@ export default function search() {
         </div>
 
         <div>
-            <input type= "file" onChange = {fileSelector} id = "img" accept= "image/*" ></input>
+            <input name = "file" type= "file" onChange = {fileSelector} id = "img" accept= "image/*" ></input>
             <button onClick={fileUploader}>Upload</button>
-            {imageURLs?.map(imageURL => {
+            {/* {imageURLs?.map(imageURL => {
                 return <img src={imageURL}/>
-            })}
+            })} */}
+            <img src={imageURLs}/>
         </div>
     
     </>

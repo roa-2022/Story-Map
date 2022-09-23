@@ -1,12 +1,16 @@
 const express = require('express')
 const path = require('path')
+const fileUpload = require('express-fileupload');
 
 const searchRoutes = require('./routes/search')
 const storiesRoutes = require('./routes/stories')
+const bodyParser = require('body-parser')
 
 const server = express()
 
-server.use(express.json())
+// server.use(express.json())
+server.use(bodyParser.json({ limit: '5mb' }))
+server.use(fileUpload())
 server.use(express.static(path.join(__dirname, 'public')))
 
 server.use('/api/search', searchRoutes)

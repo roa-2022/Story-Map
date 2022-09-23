@@ -17,6 +17,12 @@ export async function searchMaori(region) {
   }
 }
 
+export async function addStory(story){
+  const res = await request.post('/api/search/upload').send(story)
+  console.log("api", res.body)
+  return res.body
+}
+
 // export async function search (regionmaori) {
 // try {
 //     const res = await request.get(`/api/search/${regionmaori}`);

@@ -22,7 +22,16 @@ function searchMaori(region, db = connection) {
   .where('maori_name', region)
 }
 
+function addStory (data, db = connection) {
+  console.log('data',data)
+  return db('stories').insert(data)
+}
+function getStories (db = connection) {
+  return db('stories').select()
+}
 module.exports = {
   searchEnglish,
-  searchMaori
+  searchMaori,
+  addStory,
+  getStories
 }
