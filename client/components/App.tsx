@@ -52,7 +52,7 @@ function App() {
   return (
     <>
       <header className="header">
-        <h1>Story Map</h1>
+        <h1>Whenua O Korero</h1>
         <Nav />
       </header>
       <section className="main">

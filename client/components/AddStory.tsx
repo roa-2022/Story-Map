@@ -1,18 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+
 
 import { fetchAddStory } from '../actions/addStory'
 
 function AddStory() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [dataForm, setDataForm] = useState({})
 
+
+  const token =useSelector((store: any)=> store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(fetchAddStory(dataForm))
+    dispatch(fetchAddStory(dataForm, token))
+    navigate('/stories')
+
+   
   }
 
   const handleChange = (e) => {
