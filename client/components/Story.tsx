@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
+import Stories from './Stories'
+
 
 function Story() {
   const { id } = useParams()
-  console.log(id)
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
@@ -17,15 +18,15 @@ function Story() {
   return (
     <>
       <div>
-        <h2>{story?.title}</h2>
+        <Link to={`/stories`} key={story.id}><h2>{story?.title}</h2></Link>
         <img src={story?.photo_url} />
         <p>{story?.author}</p>
         <p>{story?.story_text}</p>
-        <p>{story?.eng_name}</p>
-        <p>{story?.maori_name}</p>
+        <p>{story?.maori_name} aka {story?.eng_name}</p>
       </div>
     </>
   )
 }
 
 export default Story
+
