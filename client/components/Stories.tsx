@@ -19,7 +19,7 @@ function Stories() {
         <h3>Whenua O Korero</h3>
           <ul>
             {stories.map((story) => {
-              return <Link to={`/stories/${story.id}`} key={story.id}><li>{story.title}{story?.maori_name}</li></Link>
+              return <Link to={`/stories/${story.id}`} key={story.id}><li>{story.title} - {story?.maori_name}</li></Link>
             }
             )}
           </ul>
