@@ -161,7 +161,9 @@ Regions Table
    ....then add the 16 regions 
 ```
 ## DB diagram
-![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191626378-82295c94-c75f-46f8-ad4b-cf06ba29dc60.png)
+
+![Story-Map](https://user-images.githubusercontent.com/99714877/191877801-2a9320e5-3351-4072-b874-6cb035747fd9.png)
+
 
 ## User Stories
 
