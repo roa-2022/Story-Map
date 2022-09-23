@@ -1,7 +1,4 @@
 const express = require('express')
-const fileUpload = require('fileupload')
-
-router.use(fileUpload)
 
 const db = require('../db/search')
 
@@ -57,7 +54,7 @@ router.get('/maori/:region', (req, res) => {
   //   });
   // });
 
-  router.post('/upload', function(req, res) {
-    console.log(req.files.file); // the uploaded file object
-  });
+  // router.post('/upload', function(req, res) {
+  //   console.log(req.files.file); // the uploaded file object
+  // });
 module.exports = router

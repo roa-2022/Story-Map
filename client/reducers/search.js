@@ -1,4 +1,4 @@
-import { SEARCH_REGION, ADD_SAVED } from '../actions/search'
+import { SEARCH_REGION, ADD_SAVED, MAORI_SAVED } from '../actions/search'
 
 const initialState = []
 // const initialState = [{eng_name: "Northland"}]
