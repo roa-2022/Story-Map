@@ -17,15 +17,19 @@ function getOneStory(id, db = connection) {
 
 // Add Story
 
-function addStory(newData ,db = connection) {
+function addStory(newStoryData ,db = connection) {
   return db('stories')
-  // .join('storiesRegions', 'stories.id', 'storiesRegions.region_id')
-  // .join('regions', 'storiesRegions.region_id', 'regions.id')
-  .insert(newData)  
+  .insert(newStoryData)  
+}
+
+function addStoryRegions(idObj ,db = connection) {
+  return db('storiesRegions')
+  .insert(idObj)  
 }
 
 module.exports = {
   getStories,
   getOneStory,
-  addStory
+  addStory,
+  addStoryRegions
 }

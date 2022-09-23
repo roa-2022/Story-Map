@@ -1,4 +1,4 @@
-import { SET_STORY, SET_STORIES } from '../actions'
+import { SET_STORY, SET_STORIES, ADD_STORY } from '../actions'
 
 const initialState = []
 
@@ -9,6 +9,8 @@ const reducer = (state = initialState, action) => {
       return payload
     case SET_STORIES:
       return payload
+    case ADD_STORY:
+      return [payload,...state]
     default:
       return state
   }

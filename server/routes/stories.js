@@ -32,13 +32,26 @@ router.get('/:id', (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const data = req.body
-    const newData =  [data.author, data.title, data.synopsis, data.story_text]
-    console.log(data)  
-    const idArr = await db.addStory(req.body)
-    console.log('idArr', idArr)
+    const {title, author, synopsis, story_text} = req.body  
+    const {region_id}=req.body
+    // console.log('body', req.body, 'region', region_id)
+    const storyData = {title, author, synopsis, story_text}
+   
+    const idArr = await db.addStory(storyData)
+    const storyId= idArr[0]
 
-    // let addedStory = await db.getOneStory(id)
+    const idObj = {
+      story_id:storyId,
+      region_id: region_id
+    }
+    await db.addStoryRegions(idObj) 
+   
+    getNewStory = await db.getOneStory(storyId)
+    
+    console.log(getNewStory)
+    res.json(getNewStory)
+
+
     res.status(200)
     // res.json(idArr)
   } catch (err) {
