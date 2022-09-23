@@ -1,6 +1,7 @@
 const express = require('express')
-const db = require('../db/stories')
+const checkJwt = require ('../auth0')
 
+const db = require('../db/stories')
 const router = express.Router()
 
 router.get('/', (req, res) => {
@@ -28,12 +29,15 @@ router.get('/:id', (req, res) => {
 
 // Add Story
 
-router.post('/', async (req, res) => {
+router.post('/',checkJwt, async (req, res) => {
   try {
+
+    const auth0_id = req.user?.sub
+
     const { title, author, synopsis, story_text } = req.body
     const { region_id } = req.body
-    // console.log('body', req.body, 'region', region_id)
-    const storyData = { title, author, synopsis, story_text }
+
+    const storyData = { title, author, synopsis, story_text, auth0_id }
 
     const idArr = await db.addStory(storyData)
     const storyId = idArr[0]
@@ -43,13 +47,14 @@ router.post('/', async (req, res) => {
       region_id: region_id,
     }
     await db.addStoryRegions(idObj)
+ 
 
     const getNewStory = await db.getOneStory(storyId)
 
     res.json(getNewStory)
 
-    res.status(200)
-    // res.json(idArr)
+
+  
   } catch (err) {
     res.status(500).json({ message: err.message })
   }

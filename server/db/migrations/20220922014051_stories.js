@@ -7,6 +7,7 @@ exports.up = function (knex) {
     table.increments('id')
     table.string('auth0_id')
     table.string('author')
+    table.string('auth0_id')
     table.string('title')
     table.string('synopsis')
     table.string('story_text')

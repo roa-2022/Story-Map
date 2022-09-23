@@ -18,6 +18,11 @@ exports.seed = (knex) => {
           username: 'matt',
           email: 'user2@hotmail.com',
         },
+        {
+          auth0_id: 'auth0|632d259b6aa7af87dfa37429',
+          username: 'Admin',
+          email: 'admin@hotmail.com',
+        },
       ])
     )
 }
