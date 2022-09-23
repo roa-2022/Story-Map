@@ -36,6 +36,7 @@ function Nav() {
             Log off
           </Link>
           <br />
+          <p>{' ' + user.username}</p>
         </IfAuthenticated>
         <IfNotAuthenticated>
           <Link className="navLink" to="/" onClick={handleSignIn}>

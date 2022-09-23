@@ -25,10 +25,11 @@ router.get('/', checkJwt, (req, res) => {
 // POST /api/v1/users
 router.post('/', checkJwt, (req, res) => {
   const auth0_id = req.user?.sub
-  const { username } = req.body
+  const { username, email } = req.body
   const userDetails = {
     auth0_id,
     username,
+    email,
   }
 
   db.userExists(username)
