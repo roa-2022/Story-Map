@@ -9,7 +9,7 @@ function Stories() {
   const stories = useSelector((state: any) => state.stories)
   useEffect(() => {
     dispatch(fetchStories())
-  }, [])
+  }, [stories])
   return (
     <>
       <Search />
