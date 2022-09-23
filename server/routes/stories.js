@@ -64,8 +64,7 @@ router.delete('/:id', checkJwt, (req, res) => {
   db.userCanEdit(id, auth0Id)
     .then(() => db.deleteStory(id))
     .then(() => db.getStoriesByUser())
-    .then((stories) => console.log(stories))
-    // res.json({ stories }))
+    .then((stories) => res.json({ stories }))
     .catch((err) => {
       console.error(err)
       if (err.message === 'Unauthorized') {

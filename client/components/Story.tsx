@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
 import { deleteStory } from '../apis/story'
 
 function Story() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
@@ -14,6 +15,7 @@ function Story() {
   const handleDelete = () => {
     // TODO: pass token as second parameter
     deleteStory(id, token)
+    navigate('/stories')
   }
 
   useEffect(() => {
@@ -23,7 +25,7 @@ function Story() {
   return (
     <>
       <div>
-        <Link to={`/stories`} key={story.id}>
+        <Link to={`/stories`} key={story?.id}>
           <h2>{story?.title}</h2>
         </Link>
         <p>
