@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
+import Stories from './Stories'
+
 
 function Story() {
   const { id } = useParams()
@@ -16,9 +18,8 @@ function Story() {
   return (
     <>
       <div>
-        <h2>{story?.title}</h2>
-        <p>{story?.eng_name}</p>
-        <p>{story?.maori_name}</p>
+        <Link to={`/stories`} key={story.id}><h2>{story?.title}</h2></Link>
+        <p>{story?.maori_name} aka {story?.eng_name}</p>
         <p>{story?.author}</p>
         <p>{story?.story_text}</p>
         <img src={story?.photo_url} />
@@ -28,3 +29,4 @@ function Story() {
 }
 
 export default Story
+
