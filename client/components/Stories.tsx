@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
-
+import { Link } from 'react-router-dom'
 import Search from './Search'
 
 
@@ -17,13 +17,12 @@ function Stories() {
       <Search />
       <div>
         <h3>Whenua O Korero</h3>
-          {stories.map((story) => {
-          return <div key={story.id}>
-            <p>{story?.title}</p>
-            <p>{story?.location}</p>
-            <p>{story?.synopsis}</p>
-            </div>
-        })}
+          <ul>
+            {stories.map((story) => {
+              return <Link to={`/stories/${story.id}`} key={story.id}><li>{story.title} - {story?.maori_name}</li></Link>
+            }
+            )}
+          </ul>
       </div>
     </>
   )}
