@@ -11,10 +11,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+
 export default function Search() {
     
-    // const search = useSelector((state:any) => state.search)
-    // const maoriSearch = useSelector((state:any) => state.maoriSearch)
     const stories = useSelector((state: any) => state.stories)
 
     useEffect(() => {
@@ -44,6 +43,15 @@ export default function Search() {
     
         dispatch(fetchAddedStory(newImageUrls))
     }
+
+    const styles = {
+        card: {
+            display: 'flex',
+            margin: 10
+        }
+    }
+
+
 
     const changeHandlerEng = (e) => {
         setRegion(e.target.value as string)
@@ -140,19 +148,32 @@ export default function Search() {
                     </select>
             </FormControl >
             
-            <ul>
+            <ul style={{
+                width:'20%',
+                display: 'flex',
+                margin: '20px'
+        }}      >
                 {maoriRegion.length == 0 && region.length == 0 &&
                 stories.map((story) => {
                     return (
                         <Link to={`/stories/${story.id}`} key={story.id}>
-                        <Card sx={{ maxWidth: 345 }}>
+                        <div style={{ width: '20%' }}>
+                        <Card  sx={{
+                            display: 'flex',
+                            flexWrap: 'nowrap',
+                            p: 1,
+                            m: 1,
+                            bgcolor: '',
+                            width: 300,
+                            borderRadius: 1,
+                            }}>
                         <CardActionArea>
                           <CardMedia
                             component="img"
                             height="140"
                             image={story?.photo_url}
                             alt=""
-                          />
+                            />
                           <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
                               {story?.title}
@@ -163,11 +184,17 @@ export default function Search() {
                           </CardContent>
                         </CardActionArea>
                       </Card>
+                            </div>
                     </Link>
                     )
                 })}
             </ul>
-            <ul>
+            <ul
+            style={{
+                width:'40%',
+                display: 'flex',
+                margin: '20px'
+        }}      >
                 {maoriRegion.length > 1 && region.length == 0 &&
                 stories.map((story) => {
                     return (
@@ -199,7 +226,12 @@ export default function Search() {
                     )
                 }
             </ul>
-            <ul>
+            <ul
+            style={{
+                width:'40%',
+                display: 'flex',
+                margin: '20px'
+        }}      >
                 {region.length > 1 && maoriRegion.length == 0 &&
                 stories.map((story) => {
                     return (
@@ -207,7 +239,7 @@ export default function Search() {
                         {story.eng_name == region &&
                     <Link to={`/stories/${story.id}`} key={story.id}>
                      <Card sx={{ 
-                        maxWidth: 2000,
+                        maxWidth: 345,
                         display: 'inline'
                         
                      }}>
