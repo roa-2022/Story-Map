@@ -2,17 +2,6 @@ exports.seed = async function (knex) {
   // Deletes ALL existing entries
   await knex('stories').del()
   await knex('stories').insert([
-    {
-      id: 1000,
-      author: 'storyMap',
-      title: 'test',
-      synopsis:
-        'test',
-      story_text:
-        'test',
-      photo_url: '/images/img01.png',
-      location: 'map location',
-    },    
     // {
     //   id: 1000,
     //   author: 'storyMap',
