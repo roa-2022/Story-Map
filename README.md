@@ -63,11 +63,20 @@ Check out and retro. Sprints  2 per day
 
 # Tech Planning
 
+### To get started:
+
+When running the repo for the first time run the following commands in your terminal:
+```
+npm install
+npm run knex migrate:latest
+npm run knex seed:run
+npm run dev
+```
 ## The Idea
 
-### Story Map - Pending name change
+### Whenua O Korero
 
-Story Map is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
+Whenua O Korero is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
 
 ## External API
 
@@ -107,7 +116,7 @@ Our store will contain an array of objects once populated.  We will only need on
 |---|---|---|---|
 | /api/v1/stories | GET | -- | Array of stories objects |
 | /api/v1/stories | POST | New story object | Object containing new id |
-| /api/v1/| ?| -- | -- |
+| /api/v1/regions| GET| G-- | Array of region objects |
 | /api/v1/| ? | -- | -- |
 
 
