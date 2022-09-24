@@ -4,9 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions'
 import { fetchSearchedRegions, fetchMaoriSearchedRegions, fetchAddedStory } from '../actions/search'
 import Button from '@mui/material/Button'
-import { FormControl, InputLabel } from '@mui/material'
+import { Divider, FormControl, InputLabel } from '@mui/material'
 import { SelectChangeEvent } from "@mui/material";
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 export default function Search() {
     
     // const search = useSelector((state:any) => state.search)
@@ -62,59 +66,17 @@ export default function Search() {
     }
   return (
     <>
+    
         <div>
-            <ul>
-                {maoriRegion.length == 0 && region.length == 0 &&
-                stories.map((story) => {
-                    return (
-                    <Link to={`/stories/${story.id}`} key={story.id}>
-                        <li>
-                        {story.title} - {story?.maori_name}
-                        </li>
-                    </Link>
-                    )
-                })}
-            </ul>
-            <ul>
-                {maoriRegion.length > 1 && region.length == 0 &&
-                stories.map((story) => {
-                    return (
-                        <>
-                        {story.maori_name == maoriRegion &&
-                    <Link to={`/stories/${story.id}`} key={story.id}>
-                        <li>
-                        {story.title}, {story?.maori_name}
-                        </li>
-                    </Link>}
-                        </>
-                    )}
-                    )
-                }
-            </ul>
-            <ul>
-                {region.length > 1 && maoriRegion.length == 0 &&
-                stories.map((story) => {
-                    return (
-                        <>
-                        {story.eng_name == region &&
-                    <Link to={`/stories/${story.id}`} key={story.id}>
-                        <li>
-                        {story.title}, {story?.maori_name}
-                        </li>
-                    </Link>}
-                        </>
-                    )}
-                    )
-                }
-            </ul>
-
             <FormControl style={{width: 220}}>
                 <InputLabel id="demo-simple-select-label">Filter By Name (English)</InputLabel>
                     <select 
                     id="demo-simple-select"
                     value={region}
                     onChange = {changeHandlerEng}>
+                        
                        [ <option>{region}</option>]
+                        <Divider/>
                         <option>New Zealand</option>
                         <option>North Island</option>
                         <option>South Island</option>
@@ -154,7 +116,8 @@ export default function Search() {
                     id="demo-simple-select"
                     value = {maoriRegion}
                     onChange = {changeHandlerMao}>
-                    [ <option>{maoriRegion}</option>]
+                        [ <option>{maoriRegion}</option>]
+                        <Divider/>
                         <option>Aotearoa</option>
                         <option>Te Ika-a-Māui</option>
                         <option>Te Waipounamu</option>
@@ -176,6 +139,102 @@ export default function Search() {
                         <option>Murihiku</option>
                     </select>
             </FormControl >
+            
+            <ul>
+                {maoriRegion.length == 0 && region.length == 0 &&
+                stories.map((story) => {
+                    return (
+                        <Link to={`/stories/${story.id}`} key={story.id}>
+                        <Card sx={{ maxWidth: 345 }}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            height="140"
+                            image={story?.photo_url}
+                            alt=""
+                          />
+                          <CardContent>
+                            <Typography gutterBottom variant="h5" component="div">
+                              {story?.title}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {story?.author}<br></br>{story?.synopsis}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card>
+                    </Link>
+                    )
+                })}
+            </ul>
+            <ul>
+                {maoriRegion.length > 1 && region.length == 0 &&
+                stories.map((story) => {
+                    return (
+                        <>
+                        {story.maori_name == maoriRegion &&
+                     <Link to={`/stories/${story.id}`} key={story.id}>
+                     <Card 
+                     sx={{ maxWidth: 345 }}>
+                     <CardActionArea>
+                       <CardMedia
+                         component="img"
+                         height="140"
+                         image={story?.photo_url}
+                         alt=""
+                       />
+                       <CardContent>
+                         <Typography gutterBottom variant="h5" component="div">
+                           {story?.title}
+                         </Typography>
+                         <Typography variant="body2" color="text.secondary">
+                           {story?.author}<br></br>{story?.synopsis}
+                         </Typography>
+                       </CardContent>
+                     </CardActionArea>
+                   </Card>
+                   </Link>}
+                        </>
+                    )}
+                    )
+                }
+            </ul>
+            <ul>
+                {region.length > 1 && maoriRegion.length == 0 &&
+                stories.map((story) => {
+                    return (
+                        <>
+                        {story.eng_name == region &&
+                    <Link to={`/stories/${story.id}`} key={story.id}>
+                     <Card sx={{ 
+                        maxWidth: 2000,
+                        display: 'inline'
+                        
+                     }}>
+                     <CardActionArea>
+                       <CardMedia
+                         component="img"
+                         height="140"
+                         image={story?.photo_url}
+                         alt=""
+                       />
+                       <CardContent>
+                         <Typography gutterBottom variant="h5" component="div">
+                           {story?.title}
+                         </Typography>
+                         <Typography variant="body2" color="text.secondary">
+                           {story?.author}<br></br>{story?.synopsis}
+                         </Typography>
+                       </CardContent>
+                     </CardActionArea>
+                   </Card>
+                   </Link>}
+                        </>
+                    )}
+                    )
+                }
+            </ul>
+
             {/* <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button> */}
             {/* {maoriRegion.length > 0 &&
                 maoriSearch?.map(story => {
