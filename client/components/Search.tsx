@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchStories } from '../actions'
 import { fetchSearchedRegions, fetchMaoriSearchedRegions, fetchAddedStory } from '../actions/search'
 
 
@@ -7,6 +9,12 @@ export default function search() {
     
     const search = useSelector((state:any) => state.search)
     const maoriSearch = useSelector((state:any) => state.maoriSearch)
+    const stories = useSelector((state: any) => state.stories)
+
+    useEffect(() => {
+        dispatch(fetchStories())
+      }, [])
+
     
     const [region, setRegion ] = useState('') 
     const [maoriRegion, setMaoriRegion ] = useState('') 
@@ -32,14 +40,16 @@ export default function search() {
     }
 
     const changeHandlerEng = (e) => {
-         setRegion(e.target.value)
-         console.log(region);
+        setRegion(e.target.value)
+        setToggle(true)
+        setMaoriRegion('')
 
     }
     const changeHandlerMao = (e) => {
-         setMaoriRegion(e.target.value)
-         console.log(maoriRegion)
-
+        setMaoriRegion(e.target.value)
+        setToggle(true)
+        setRegion('')
+        
     }
 
     const clearFilter = () => {
@@ -51,11 +61,54 @@ export default function search() {
   return (
     <>
         <div>
+        <ul>
+            {maoriRegion.length == 0 && region.length == 0 &&
+            stories.map((story) => {
+                return (
+                <Link to={`/stories/${story.id}`} key={story.id}>
+                    <li>
+                    {story.title} - {story?.maori_name}
+                    </li>
+                </Link>
+                )
+            })}
+        </ul>
+        <ul>
+            {maoriRegion.length > 1 && region.length == 0 &&
+            stories.map((story) => {
+                return (
+                    <>
+                    {story.maori_name == maoriRegion &&
+                <Link to={`/stories/${story.id}`} key={story.id}>
+                    <li>
+                    {story.title}, {story?.maori_name}
+                    </li>
+                </Link>}
+                    </>
+                )}
+                )
+            }
+        </ul>
+        <ul>
+            {region.length > 1 && maoriRegion.length == 0 &&
+            stories.map((story) => {
+                return (
+                    <>
+                    {story.eng_name == region &&
+                <Link to={`/stories/${story.id}`} key={story.id}>
+                    <li>
+                    {story.title}, {story?.maori_name}
+                    </li>
+                </Link>}
+                    </>
+                )}
+                )
+            }
+        </ul>
             <label>Filter By Region(English)
                 <div className="input-group">
                     <label htmlFor="region_id"></label>
                     <select id="region-list" onChange = {changeHandlerEng}>
-                        <option>Select an Option</option>
                         <option>New Zealand</option>
                         <option>North Island</option>
                         <option>South Island</option>
@@ -78,8 +131,8 @@ export default function search() {
                     </select>
                 </div>
             </label>
-            <button onClick={() => dispatch(fetchSearchedRegions(region)) && setToggle(true)}>Click</button>
-            {region.length > 0 &&
+            {/* <button onClick={() => dispatch(fetchSearchedRegions(region)) && setToggle(true)}>Click</button> */}
+            {/* {region.length > 0 &&
             search?.map(story => {
                 return (
                     <>
@@ -87,14 +140,13 @@ export default function search() {
                     <h4>{story?.story_text}</h4>
                     </>
                 )
-            })}
+            })} */}
         </div>
         <div>
             <label>Filter By Region(Maori)
                 <div className="input-group">
                     <label htmlFor="region_id"></label>
                     <select id="region_id" onChange = {changeHandlerMao}>
-                        <option>Select an Option</option>
                         <option>Aotearoa</option>
                         <option>Te Ika-a-Māui</option>
                         <option>Te Waipounamu</option>
@@ -117,23 +169,24 @@ export default function search() {
                     </select>
                 </div>
             </label>
-            <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button>
-            {maoriRegion.length > 0 &&
+            {/* <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button> */}
+            {/* {maoriRegion.length > 0 &&
                 maoriSearch?.map(story => {
                     return (
                         <>
                         <h2>{story?.title}</h2>
                         <h4>{story?.story_text}</h4>
-                        <hr></hr>
                         </>
                     ) 
                 
                 })
-            }
+            } */}
         </div>
 
         {toggle == true &&
             <button onClick={clearFilter}>Clear Filters</button>}
+
+
 
         <div>
             <input name = "file" type= "file" onChange = {fileSelector} id = "img" accept= "image/*" ></input>
@@ -144,6 +197,5 @@ export default function search() {
     </>
   )
 }
-
 
 
