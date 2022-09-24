@@ -1,18 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { fetchStories } from '../actions'
 import { fetchSearchedRegions, fetchMaoriSearchedRegions, fetchAddedStory } from '../actions/search'
+import Button from '@mui/material/Button'
+import { FormControl, InputLabel } from '@mui/material'
+import { SelectChangeEvent } from "@mui/material";
 
+export default function Search() {
+    
+    // const search = useSelector((state:any) => state.search)
+    // const maoriSearch = useSelector((state:any) => state.maoriSearch)
+    const stories = useSelector((state: any) => state.stories)
 
-export default function search() {
-    
-    const search = useSelector((state:any) => state.search)
-    const maoriSearch = useSelector((state:any) => state.maoriSearch)
-    
+    useEffect(() => {
+        dispatch(fetchStories())
+      }, [])
+
     const [region, setRegion ] = useState('') 
-    const [maoriRegion, setMaoriRegion ] = useState('') 
+    const [toggle, setToggle]: any = useState(false)
+    const [maoriRegion, setMaoriRegion ] = useState('')
+
     const [files, setFiles]:any = useState([])
     const [imageURLs, setImageURLs]: any = useState([])
-    const [toggle, setToggle]: any = useState(false)
     
     const dispatch = useDispatch()
 
@@ -32,14 +42,16 @@ export default function search() {
     }
 
     const changeHandlerEng = (e) => {
-         setRegion(e.target.value)
-         console.log(region);
+        setRegion(e.target.value as string)
+        setToggle(true)
+        setMaoriRegion('')
 
     }
     const changeHandlerMao = (e) => {
-         setMaoriRegion(e.target.value)
-         console.log(maoriRegion)
-
+        setMaoriRegion(e.target.value as string)
+        setToggle(true)
+        setRegion('')
+        
     }
 
     const clearFilter = () => {
@@ -51,11 +63,58 @@ export default function search() {
   return (
     <>
         <div>
-            <label>Filter By Region(English)
-                <div className="input-group">
-                    <label htmlFor="region_id"></label>
-                    <select id="region-list" onChange = {changeHandlerEng}>
-                        <option>Select an Option</option>
+            <ul>
+                {maoriRegion.length == 0 && region.length == 0 &&
+                stories.map((story) => {
+                    return (
+                    <Link to={`/stories/${story.id}`} key={story.id}>
+                        <li>
+                        {story.title} - {story?.maori_name}
+                        </li>
+                    </Link>
+                    )
+                })}
+            </ul>
+            <ul>
+                {maoriRegion.length > 1 && region.length == 0 &&
+                stories.map((story) => {
+                    return (
+                        <>
+                        {story.maori_name == maoriRegion &&
+                    <Link to={`/stories/${story.id}`} key={story.id}>
+                        <li>
+                        {story.title}, {story?.maori_name}
+                        </li>
+                    </Link>}
+                        </>
+                    )}
+                    )
+                }
+            </ul>
+            <ul>
+                {region.length > 1 && maoriRegion.length == 0 &&
+                stories.map((story) => {
+                    return (
+                        <>
+                        {story.eng_name == region &&
+                    <Link to={`/stories/${story.id}`} key={story.id}>
+                        <li>
+                        {story.title}, {story?.maori_name}
+                        </li>
+                    </Link>}
+                        </>
+                    )}
+                    )
+                }
+            </ul>
+
+            <FormControl style={{width: 220}}>
+                <InputLabel id="demo-simple-select-label">Filter By Name (English)</InputLabel>
+                    <select 
+                    id="demo-simple-select"
+                    value={region}
+                    onChange = {changeHandlerEng}>
+                       [ <option>{region}</option>]
                         <option>New Zealand</option>
                         <option>North Island</option>
                         <option>South Island</option>
@@ -76,10 +135,10 @@ export default function search() {
                         <option>Otago</option>
                         <option>Southland</option>
                     </select>
+            </FormControl>
                 </div>
-            </label>
-            <button onClick={() => dispatch(fetchSearchedRegions(region)) && setToggle(true)}>Click</button>
-            {region.length > 0 &&
+            {/* <button onClick={() => dispatch(fetchSearchedRegions(region)) && setToggle(true)}>Click</button> */}
+            {/* {region.length > 0 &&
             search?.map(story => {
                 return (
                     <>
@@ -87,14 +146,15 @@ export default function search() {
                     <h4>{story?.story_text}</h4>
                     </>
                 )
-            })}
-        </div>
-        <div>
-            <label>Filter By Region(Maori)
-                <div className="input-group">
-                    <label htmlFor="region_id"></label>
-                    <select id="region_id" onChange = {changeHandlerMao}>
-                        <option>Select an Option</option>
+            })} */}
+            <br></br>
+         <FormControl style={{width: 220}}>
+            <InputLabel id="demo-simple-select-label">Filter By Name (Maori)</InputLabel>
+                    <select
+                    id="demo-simple-select"
+                    value = {maoriRegion}
+                    onChange = {changeHandlerMao}>
+                    [ <option>{maoriRegion}</option>]
                         <option>Aotearoa</option>
                         <option>Te Ika-a-Māui</option>
                         <option>Te Waipounamu</option>
@@ -115,35 +175,33 @@ export default function search() {
                         <option>Ōtākou</option>
                         <option>Murihiku</option>
                     </select>
-                </div>
-            </label>
-            <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button>
-            {maoriRegion.length > 0 &&
+            </FormControl >
+            {/* <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button> */}
+            {/* {maoriRegion.length > 0 &&
                 maoriSearch?.map(story => {
                     return (
                         <>
                         <h2>{story?.title}</h2>
                         <h4>{story?.story_text}</h4>
-                        <hr></hr>
                         </>
                     ) 
                 
                 })
-            }
-        </div>
+            } */}
 
         {toggle == true &&
-            <button onClick={clearFilter}>Clear Filters</button>}
+            <Button variant="contained" onClick={clearFilter}>Clear Filters</Button>}
 
-        <div>
+
+
+        {/* <div>
             <input name = "file" type= "file" onChange = {fileSelector} id = "img" accept= "image/*" ></input>
-            <button onClick={fileUploader}>Upload</button>
+         <Button variant="contained"onClick={fileUploader}>Upload</Button>;
             <img className = 'uploaded-img' src={imageURLs}/>
-        </div>
+        </div> */}
     
     </>
   )
 }
-
 
 
