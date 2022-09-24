@@ -85,6 +85,8 @@ export default function Search() {
                         
                        [ <option>{region}</option>]
                         <Divider/>
+                        <Divider/>
+                        <Divider/>
                         <option>New Zealand</option>
                         <option>North Island</option>
                         <option>South Island</option>
@@ -126,6 +128,8 @@ export default function Search() {
                     onChange = {changeHandlerMao}>
                         [ <option>{maoriRegion}</option>]
                         <Divider/>
+                        <Divider/>
+                        <Divider/>
                         <option>Aotearoa</option>
                         <option>Te Ika-a-Māui</option>
                         <option>Te Waipounamu</option>
@@ -151,12 +155,13 @@ export default function Search() {
             <ul style={{
                 width:'20%',
                 display: 'flex',
-                margin: '20px'
+                margin: '20px',
+                maxWidth: '100vw'
         }}      >
                 {maoriRegion.length == 0 && region.length == 0 &&
                 stories.map((story) => {
                     return (
-                        <Link to={`/stories/${story.id}`} key={story.id}>
+                        <Link style={{textDecoration: 'none'}} to={`/stories/${story.id}`} key={story.id}>
                         <div style={{ width: '20%' }}>
                         <Card  sx={{
                             display: 'flex',
@@ -200,9 +205,17 @@ export default function Search() {
                     return (
                         <>
                         {story.maori_name == maoriRegion &&
-                     <Link to={`/stories/${story.id}`} key={story.id}>
+                     <Link style={{textDecoration: 'none'}} to={`/stories/${story.id}`} key={story.id}>
                      <Card 
-                     sx={{ maxWidth: 345 }}>
+                     sx={{
+                        display: 'flex',
+                        flexWrap: 'nowrap',
+                        p: 1,
+                        m: 1,
+                        bgcolor: '',
+                        width: 300,
+                        borderRadius: 1,
+                        }}>
                      <CardActionArea>
                        <CardMedia
                          component="img"
@@ -237,12 +250,16 @@ export default function Search() {
                     return (
                         <>
                         {story.eng_name == region &&
-                    <Link to={`/stories/${story.id}`} key={story.id}>
-                     <Card sx={{ 
-                        maxWidth: 345,
-                        display: 'inline'
-                        
-                     }}>
+                    <Link style={{textDecoration: 'none'}} to={`/stories/${story.id}`} key={story.id}>
+                     <Card sx={{
+                            display: 'flex',
+                            flexWrap: 'nowrap',
+                            p: 1,
+                            m: 1,
+                            bgcolor: '',
+                            width: 300,
+                            borderRadius: 1,
+                            }}>
                      <CardActionArea>
                        <CardMedia
                          component="img"
@@ -266,19 +283,6 @@ export default function Search() {
                     )
                 }
             </ul>
-
-            {/* <button onClick={() => dispatch(fetchMaoriSearchedRegions(maoriRegion)) && setToggle(true) }>Click</button> */}
-            {/* {maoriRegion.length > 0 &&
-                maoriSearch?.map(story => {
-                    return (
-                        <>
-                        <h2>{story?.title}</h2>
-                        <h4>{story?.story_text}</h4>
-                        </>
-                    ) 
-                
-                })
-            } */}
 
         {toggle == true &&
             <Button variant="contained" onClick={clearFilter}>Clear Filters</Button>}
