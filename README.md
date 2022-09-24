@@ -116,7 +116,7 @@ Our store will contain an array of objects once populated.  We will only need on
 |---|---|---|---|
 | /api/v1/stories | GET | -- | Array of stories objects |
 | /api/v1/stories | POST | New story object | Object containing new id |
-| /api/v1/regions| GET| G-- | Array of region objects |
+| /api/v1/regions| GET| -- | Array of region objects |
 | /api/v1/| ? | -- | -- |
 
 
