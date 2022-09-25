@@ -1,7 +1,5 @@
-
 import React, { useEffect } from 'react'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
 import Home from './Home'
@@ -10,6 +8,7 @@ import Story from './Story'
 import AddStory from './AddStory'
 import Register from './Register'
 import Nav from './Nav'
+import UpdateStory from './UpdateStory'
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
@@ -17,12 +16,10 @@ import { useCacheUser } from '../auth0-utils'
 
 import { getUser } from '../apis/users'
 
-
-import  { fetchStories } from '../actions/index'
-import { fetchGetRegions} from '../actions/regions'
+import { fetchStories } from '../actions/index'
+import { fetchGetRegions } from '../actions/regions'
 
 function App() {
-
   useCacheUser()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -43,10 +40,9 @@ function App() {
     }
   }, [isAuthenticated])
 
-
   useEffect(() => {
     dispatch(fetchGetRegions())
-    dispatch(fetchStories() )    
+    dispatch(fetchStories())
   }, [])
 
   return (
@@ -61,7 +57,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/stories" element={<Stories />} />
           <Route path="/stories/:id" element={<Story />} />
-          <Route path="/add" element={<AddStory/>} />
+          <Route path="/stories/:id/update" element={<UpdateStory />} />
+          <Route path="/add" element={<AddStory />} />
         </Routes>
       </section>
     </>

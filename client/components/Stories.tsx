@@ -13,7 +13,7 @@ function Stories() {
   }, [stories])
   return (
     <>
-      {/* <div>
+      <div>
         <h3>Whenua O Korero</h3>
         <ul>
           {stories.map((story) => {
@@ -26,9 +26,9 @@ function Stories() {
             )
           })}
         </ul>
-      </div> */}
-          <Search />
-          <Map />
+      </div>
+      <Search />
+      <Map />
     </>
   )
 }
