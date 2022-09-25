@@ -11,6 +11,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+import { flexbox } from '@mui/system';
+import NavMUI from './NavMUI'
+
 
 export default function Search() {
     
@@ -22,6 +27,7 @@ export default function Search() {
 
     const [region, setRegion ] = useState('') 
     const [toggle, setToggle]: any = useState(false)
+    const [success, setSuccess]: any = useState(false)
     const [maoriRegion, setMaoriRegion ] = useState('')
 
     const [files, setFiles]:any = useState([])
@@ -57,12 +63,14 @@ export default function Search() {
         setRegion(e.target.value as string)
         setToggle(true)
         setMaoriRegion('')
+        setSuccess(false)
 
     }
     const changeHandlerMao = (e) => {
         setMaoriRegion(e.target.value as string)
         setToggle(true)
         setRegion('')
+        setSuccess(false)
         
     }
 
@@ -70,13 +78,13 @@ export default function Search() {
         setMaoriRegion('')
         setRegion('')
         setToggle(false)
+        setSuccess(true)
+       
         
     }
   return (
-    <>
-    
-        <div>
-            <FormControl style={{width: 220}}>
+      <>
+            <FormControl style={{width: 220, margin: '20px'}}>
                 <InputLabel id="demo-simple-select-label">Filter By Name (English)</InputLabel>
                     <select 
                     id="demo-simple-select"
@@ -108,19 +116,7 @@ export default function Search() {
                         <option>Southland</option>
                     </select>
             </FormControl>
-                </div>
-            {/* <button onClick={() => dispatch(fetchSearchedRegions(region)) && setToggle(true)}>Click</button> */}
-            {/* {region.length > 0 &&
-            search?.map(story => {
-                return (
-                    <>
-                    <h2>{story?.title}</h2>
-                    <h4>{story?.story_text}</h4>
-                    </>
-                )
-            })} */}
-            <br></br>
-         <FormControl style={{width: 220}}>
+            <FormControl style={{width: 220, margin: '20px'}}>
             <InputLabel id="demo-simple-select-label">Filter By Name (Maori)</InputLabel>
                     <select
                     id="demo-simple-select"
@@ -149,28 +145,37 @@ export default function Search() {
                         <option>Waitaha</option>
                         <option>Ōtākou</option>
                         <option>Murihiku</option>
+                        
                     </select>
             </FormControl >
-            
+            {success == true &&
+                 <Stack sx={{ width: '100%', margin: '10px' }} spacing={3}>
+                <Alert severity="success">Filters Cleared!</Alert>
+              </Stack>}
             <ul style={{
-                width:'20%',
+                width:'100%',
                 display: 'flex',
                 margin: '20px',
-                maxWidth: '100vw'
-        }}      >
+                maxWidth: '100vw',
+                flexWrap: 'wrap',
+                padding: '20px'
+        }}>
                 {maoriRegion.length == 0 && region.length == 0 &&
                 stories.map((story) => {
                     return (
                         <Link style={{textDecoration: 'none'}} to={`/stories/${story.id}`} key={story.id}>
-                        <div style={{ width: '20%' }}>
+                        <div style={{ width: '20%', flexWrap: 'wrap' }}>
                         <Card  sx={{
                             display: 'flex',
-                            flexWrap: 'nowrap',
+                            flexWrap: 'wrap',
                             p: 1,
                             m: 1,
                             bgcolor: '',
+                            backgroundColor: 'rgb(252, 245, 229)',
                             width: 300,
-                            borderRadius: 1,
+                            height: 400,
+                            borderRadius: '20%',
+                            alignContent: 'flex-start'
                             }}>
                         <CardActionArea>
                           <CardMedia
@@ -198,7 +203,8 @@ export default function Search() {
             style={{
                 width:'40%',
                 display: 'flex',
-                margin: '20px'
+                margin: '20px',
+                flexWrap: 'wrap',
         }}      >
                 {maoriRegion.length > 1 && region.length == 0 &&
                 stories.map((story) => {
@@ -213,8 +219,9 @@ export default function Search() {
                         p: 1,
                         m: 1,
                         bgcolor: '',
+                        backgroundColor: 'rgb(252, 245, 229)',
                         width: 300,
-                        borderRadius: 1,
+                        borderRadius: '20%',
                         }}>
                      <CardActionArea>
                        <CardMedia
@@ -243,7 +250,8 @@ export default function Search() {
             style={{
                 width:'40%',
                 display: 'flex',
-                margin: '20px'
+                margin: '20px',
+                flexWrap: 'wrap'
         }}      >
                 {region.length > 1 && maoriRegion.length == 0 &&
                 stories.map((story) => {
@@ -257,8 +265,9 @@ export default function Search() {
                             p: 1,
                             m: 1,
                             bgcolor: '',
+                            backgroundColor: 'rgb(252, 245, 229)',
                             width: 300,
-                            borderRadius: 1,
+                            borderRadius: '20%',
                             }}>
                      <CardActionArea>
                        <CardMedia
@@ -286,6 +295,7 @@ export default function Search() {
 
         {toggle == true &&
             <Button variant="contained" onClick={clearFilter}>Clear Filters</Button>}
+
 
 
 
