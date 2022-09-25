@@ -63,6 +63,7 @@ function Map() {
               onClick={(e) => {
                 handleClick(e, story)
               }}
+
             >
               <Pin/>
             </Marker>
