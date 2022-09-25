@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Pin from './Pin'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
+import { updateViewCoordinates } from '../actions/map'
 
 import InteractiveMap, { 
   Marker, 
@@ -20,22 +21,17 @@ function Map() {
 
   const dispatch = useDispatch()
   const stories = useSelector((state: any) => state.stories)
+  const viewCoordinates = useSelector((state: any) => state.map)
   
   useEffect(() => {
     dispatch(fetchStories())
   }, [])
 
-  const [viewState, setViewState] = React.useState({
-    longitude: 174.7740,
-    latitude: -41.2969,
-    zoom: 4.75
-  })
-
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
     console.log('click!')
     console.log(story)
-    console.log(viewState)
+    console.log(viewCoordinates)
 
     setPopupInfo(story)
   }
@@ -43,10 +39,13 @@ function Map() {
   return (
     <>
       <InteractiveMap
-        initialViewState={{ ...viewState }}
+        initialViewState={{ ...viewCoordinates }}
         style={{width: '100vw', height: '75vh'}}
         mapStyle="mapbox://styles/mapbox/streets-v11"
-        onMove={evt => setViewState(evt.viewState)}
+        onMove={evt => {
+          const payload = evt.viewState
+          dispatch(updateViewCoordinates(payload))
+        }}
         mapboxAccessToken={API_KEY}
       >
         <GeolocateControl position="top-left" />
