@@ -161,14 +161,14 @@ export default function Search() {
           </div>
         </div>
       </section>
-      <section className="tiles">
+      <section className="tiles is-flex flex-wrap-wrap">
         {maoriRegion.length == 0 &&
           region.length == 0 &&
           stories.map((story) => {
             return (
-              <div className="container has-text-centered">
-                <div className="columns is-mobile is-centered">
-                  <div className="column is-5">
+              // <div className="container has-text-centered">
+              //   <div className="columns is-mobile is-centered">
+                  <div className="column is-3">
                     <div className="card">
                       <div className="card-image">
                         <figure className="image is-2by1">
@@ -227,8 +227,8 @@ export default function Search() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+              //   </div>
+              // </div>
             )
           })}
       </section>
