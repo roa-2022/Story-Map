@@ -27,7 +27,7 @@ function Nav() {
         <Link to="/add">Add A Story</Link>
         </IfAuthenticated>
         <br/>
-        <Link className="navLink" to="/">
+        <Link className="navLink" to="/"><i className="fa-light fa-house"></i>
           Home
         </Link>
         <br />

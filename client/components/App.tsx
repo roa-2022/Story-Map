@@ -20,6 +20,7 @@ import { getUser } from '../apis/users'
 
 import  { fetchStories } from '../actions/index'
 import { fetchGetRegions} from '../actions/regions'
+import Search from './Search'
 
 function App() {
 
@@ -61,7 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/stories" element={<Stories />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/add" element={<AddStory/>} />
         </Routes>

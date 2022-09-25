@@ -86,5 +86,29 @@ exports.seed = async function (knex) {
       photo_url: '/images/img07.jpeg',
       location: '',
     },
+    {
+      id: 1007,
+      auth0_id: 'auth0|632d259b6aa7af87dfa37429',
+      author: 'Whenua O Korero',
+      title: 'Battle Of The Maunga',
+      synopsis:
+      'An origin story that shapes the North Island as we know it today.  A great battle took place long ago between seven males for the heart of the maiden mountain Pihanga',
+      story_text:
+        "In a time long ago, seven personified mountains were born from the landscape. There lived six males — Tongariro, Taranaki, Ruapehu, Ngauruhoe, Tauhara and Putauaki — and one female, Pihanga. As millenia passed, the boy mountains grew into powerful male warriors while Pihanga blossomed into a comely fern-covered mist maiden, who each of them desired for a wife.'Choose!' cried Tongariro. 'You must choose!'. 'I cannot,' replied Pihanga. 'I love you all equally.'.  'Then we will battle, and the victor will be your husband,' declared Tongariro.One by one, the mountains came up against Tongariro and one by one they were defeated. Finally, only Taranaki was left to face the powerful Tongariro. Their battle was spectacularly violent as each mountain was evenly matched.The battle raged on for months until a burning Pihanga cried out “Stop!” as she lay close to death in her scorched and blackened cloak of fern. Rather than lose her, Taranaki conceded defeat — and so Pihanga became Tongariro’s wife.As countless millenia passed, the landscape healed and the vanquished mountains moved away: Tauhara and Putauki to the north and Ruapehu and Ngauruhoe to the south.  Many children were born to Tongariro and Pihanga including one, Panitahi, who looked very different to the others. Gossip and innuendo flowed across the landscape until Tongariro, suspicious of his friend Taranaki, decided to lay a trap.  Pretending to be asleep, he caught his friend and his wife in a tender embrace. Tongariro erupted in a gigantic rage that was heard around the world. Huge explosions tore the landscape apart. The crater formed from the largest explosion would eventually fill with water, becoming the lake we know today as Lake Taupo.  Remembering what happened to Pihanga during the previous battles, Taranaki chose not to engage with Tongariro, but retreated instead. Gathering up Panitahi, he fled heartbroken to the west, guided by the stone Te Toka Rauhoto Tapairu.  As he fled, he carved out a deep scar in the landscape. On reaching the sea, Pouakai — one of five west coast mountains — spread out her arms to comfort Taranaki until the setting sun transfixed him to the spot. He has remained there to this day, with Panitahi at his side, and the guide stone who now resides at Puniho Pa, south of New Plymouth.  In time, Tongariro settled down and began to weep for his lost friend, his tears filling the scar in the landscape that today we know as the Whanganui River.  It is thought that one day the guide stone will release Taranaki to return to his true love, Pihanga.  True love really can move mountains. But for the moment, the mountains sleep.",
+      photo_url: '/images/img08.jpg',
+      location: '',
+    },
+    {
+      id: 1008,
+      auth0_id: 'auth0|632d259b6aa7af87dfa37429',
+      author: 'Whenua O Korero',
+      title: 'Kupawai and Kaiamio',
+      synopsis:
+        "Kaiamio is part of a wandering party who are ambushed by the Moriori Giant, Kupawai.  Kaiamio is captured and taken to his cave, where she eventually escapes, and recruits the rest of her tribe to lay waste to giant and his horde of two-headed dogs",
+      story_text:
+        "Long ago, the Rapuwai settled along the mouth of the Clutha River.  They would hunt and gather food and lived a merry life.  One day a group of wanderers went out to hunt and never returned.  Fearing for their safety, another group went out in search of the missing group.  This party was never seen again.  A lady, Kaiamio eventually returned and recounted the story of Kopuwai, a beastly Moriori Giant with a pack of two headed dogs at his side.  She recounted how he took her to her cave and binded her to him with a flax strap, whenver Kaiamio was out of sight, Kupawai would tug on the strap to make sure she was still there.  One night, Kaiamio broke free of her restraints and fled in the dark back to her village by a flax raft she made to cross the river.  Kupawai awoke, furious and followed Kaiamio's trail to the river and swallowed the river dry, luckily, Kaiamio was already safe on the otherside.  The tribe considered him too dangerous and knew they had to finish him while it was night.  They quietly approached his cave where he lay and make a pile of twigs, flax and branch which they set alight, igniting the cave and waking Kupawai,  Desperate for air, Kupawai tried to escape through the roof of the cave.  Caught by suspecting tribesmen, Kupawai was clubbed to death then and there.  He is still visible to this day depicted as Old Man Rock in the Kupawai Conversation Area",
+      photo_url: '/images/img09.jpg',
+      location: '',
+    },
   ])
 }

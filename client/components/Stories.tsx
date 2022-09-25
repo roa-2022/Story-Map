@@ -16,7 +16,6 @@ function Stories() {
       <Search />
 
       <div className="container ">
-        {/* <div className='columns'> */}
         {stories.map((story) => {
           return (
             <div className="card ">
@@ -48,7 +47,6 @@ function Stories() {
             </div>
           )
         })}
-        {/* </div> */}
       </div>
     </>
   )
