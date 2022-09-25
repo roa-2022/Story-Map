@@ -25,16 +25,17 @@ function Map() {
     dispatch(fetchStories())
   }, [])
 
-  const initialViewState = {
+  const [viewState, setViewState] = React.useState({
     longitude: 174.7740,
     latitude: -41.2969,
     zoom: 4.75
-  } 
+  })
 
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
     console.log('click!')
     console.log(story)
+    console.log(viewState)
 
     setPopupInfo(story)
   }
@@ -42,9 +43,10 @@ function Map() {
   return (
     <>
       <InteractiveMap
-        initialViewState={{ ...initialViewState }}
+        initialViewState={{ ...viewState }}
         style={{width: '100vw', height: '75vh'}}
         mapStyle="mapbox://styles/mapbox/streets-v11"
+        onMove={evt => setViewState(evt.viewState)}
         mapboxAccessToken={API_KEY}
       >
         <GeolocateControl position="top-left" />
