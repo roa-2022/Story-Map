@@ -21,15 +21,17 @@ function Stories() {
           return (
             <div className="card ">
               <div className="card-image">
-                <figure className="image is-4by3">
-                  <img src={story.photo_url} alt="Placeholder image" />
+                <figure className="image is-128x128'">
+                  <img className='' src={story.photo_url} alt="Placeholder image" />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
                   <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">{story.title}</p>
+                    <Link to={`/stories/${story.id}`} key={story.id}>
+                      <p className="title is-4">{story.title}</p>
+                    </Link>
                     <p className="subtitle is-6">
                       {' '}
                       <b>Submited by: </b>
@@ -41,7 +43,6 @@ function Stories() {
                 <div className="content">
                   {story.synopsis}
                   <br />
-                  
                 </div>
               </div>
             </div>
