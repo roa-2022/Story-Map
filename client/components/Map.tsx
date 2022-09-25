@@ -3,7 +3,13 @@ import Pin from './Pin'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
 
-import InteractiveMap, { Marker, Popup } from 'react-map-gl'
+import InteractiveMap, { 
+  Marker, 
+  Popup,   
+  NavigationControl,
+  FullscreenControl,
+  ScaleControl,
+  GeolocateControl } from 'react-map-gl'
 
 import {API_KEY} from '../../secrets'
 
@@ -41,6 +47,11 @@ function Map() {
         mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxAccessToken={API_KEY}
       >
+        <GeolocateControl position="top-left" />
+        <FullscreenControl position="top-left" />
+        <NavigationControl position="top-left" />
+        <ScaleControl />
+
         {
           stories.map((story, i) => {
             return  <Marker
