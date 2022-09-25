@@ -1,17 +1,14 @@
 import React from 'react'
 import Nav from './NavBulma'
+
 import { Link } from 'react-router-dom'
 
 function Home() {
+  const externalImage = 'https://picsum.photos/id/128'
   return (
     <>
       <section className="hero has-background-primary-light is-fullheight">
-        {/* <div className="hero-head">
-          <header className="header">
-            <Nav />
-            <h1>Whenua O Korero</h1>
-          </header> */}
-        {/* </div> */}
+
         <div className="hero-body">
           <div className="container ">
             <div className="columns is-vcentered">
