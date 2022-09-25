@@ -121,7 +121,7 @@ function Nav() {
       <div className="container">
         <ul>         
           <li><a href="/">Home</a></li>
-          <li><a href="#">Map</a></li>
+          <li><a  href="#">Map</a></li>
           <li><a href="/stories">Stories</a></li>
           <IfAuthenticated>
             <li><a href="/add">Add a Story</a></li>

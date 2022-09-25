@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
 import { Link } from 'react-router-dom'
 import Search from './Search'
+import Story from './Story'
 
 function Stories() {
   const dispatch = useDispatch()
@@ -13,19 +14,40 @@ function Stories() {
   return (
     <>
       <Search />
-      <div>
-        <h3>Whenua O Korero</h3>
-        <ul>
-          {stories.map((story) => {
-            return (
-              <Link to={`/stories/${story.id}`} key={story.id}>
-                <li>
-                  {story.title} - {story?.maori_name}
-                </li>
-              </Link>
-            )
-          })}
-        </ul>
+
+      <div className="container ">
+        {/* <div className='columns'> */}
+        {stories.map((story) => {
+          return (
+            <div className="card ">
+              <div className="card-image">
+                <figure className="image is-4by3">
+                  <img src={story.photo_url} alt="Placeholder image" />
+                </figure>
+              </div>
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-left"></div>
+                  <div className="media-content">
+                    <p className="title is-4">{story.title}</p>
+                    <p className="subtitle is-6">
+                      {' '}
+                      <b>Submited by: </b>
+                      {story.author}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="content">
+                  {story.synopsis}
+                  <br />
+                  
+                </div>
+              </div>
+            </div>
+          )
+        })}
+        {/* </div> */}
       </div>
     </>
   )
