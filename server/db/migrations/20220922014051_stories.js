@@ -11,7 +11,8 @@ exports.up = function (knex) {
     table.string('synopsis')
     table.string('story_text')
     table.binary('photo_url')
-    table.string('location')
+    table.decimal('longitude')
+    table.decimal('latitude')
   })
 }
 

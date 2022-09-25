@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
 import { Link } from 'react-router-dom'
 import Search from './Search'
+import Map from './Map'
 
 function Stories() {
   const dispatch = useDispatch()
@@ -27,6 +28,7 @@ function Stories() {
         </ul>
       </div> */}
           <Search />
+          <Map />
     </>
   )
 }
