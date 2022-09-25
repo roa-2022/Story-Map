@@ -81,8 +81,6 @@ router.delete('/:id', checkJwt, (req, res) => {
 router.put('/', checkJwt, (req, res) => {
   const { story } = req.body
   const auth0Id = req.user?.sub
-  console.log('story', story)
-  console.log('auth0Id', auth0Id)
   const newStory = {
     id: story.id,
     auth0_id: auth0Id,

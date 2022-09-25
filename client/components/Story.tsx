@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
 import { deleteStory } from '../apis/story'
+import Map from './Map'
 
 function Story() {
   const { id } = useParams()
@@ -38,6 +39,7 @@ function Story() {
           <button onClick={() => navigate('/stories/{story.id}/update')}>
             Update Story
           </button>
+          <Map />
         </div>
       )}
     </>

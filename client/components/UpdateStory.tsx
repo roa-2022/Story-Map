@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Map from './Map'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateStory } from '../apis/story'
@@ -112,6 +113,7 @@ function UpdateStory() {
           </div>
         )}
       </div>
+      <Map />
     </section>
   )
 }
