@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+
 
 import { useDispatch } from 'react-redux'
 import Home from './Home'
@@ -9,7 +9,7 @@ import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'
 import Register from './Register'
-import Nav from './Nav'
+import Nav from './NavBulma'
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
@@ -51,10 +51,12 @@ function App() {
 
   return (
     <>
-      <header className="header">
-        <h1>Whenua O Korero</h1>
-        <Nav />
-      </header>
+     <div >
+          <header className="header">
+            <Nav />
+            
+          </header> 
+         </div>
       <section className="main">
         <Routes>
           <Route path="/" element={<Home />} />

@@ -3,15 +3,17 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
 import { Link } from 'react-router-dom'
 import Search from './Search'
+import Story from './Story'
 
 function Stories() {
   const dispatch = useDispatch()
   const stories = useSelector((state: any) => state.stories)
   useEffect(() => {
     dispatch(fetchStories())
-  }, [stories])
+  }, [])
   return (
     <>
+
       {/* <div>
         <h3>Whenua O Korero</h3>
         <ul>
@@ -27,6 +29,8 @@ function Stories() {
         </ul>
       </div> */}
           <Search />
+
+     
     </>
   )
 }
