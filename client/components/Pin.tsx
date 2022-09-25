@@ -7,11 +7,8 @@ function Pin() {
 
   const pinStyle = {
     fill: '#d00',
-    stroke: 'none'
-  }
-
-  const handleHover = (e) => {
-    e.target.style.cursor = 'pointer'
+    stroke: 'none',
+    cursor: 'pointer'
   }
 
   return (
@@ -20,9 +17,6 @@ function Pin() {
         height={20} 
         viewBox="0 0 24 24" 
         style={pinStyle}
-        onMouseOver={(e) => {
-          handleHover(e)
-        }}
       >
         <path d={ICON} />
       </svg>
