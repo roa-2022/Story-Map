@@ -15,7 +15,6 @@ function getOneStory(id, db = connection) {
     .where('stories.id', id)
 }
 
-// Add Story
 
 function addStory(newStoryData, db = connection) {
   return db('stories').insert(newStoryData)
@@ -25,12 +24,31 @@ function addStoryRegions(idObj, db = connection) {
   return db('storiesRegions').insert(idObj)
 }
 
-//only users can del story by themsevles
 function getStoriesByUser(db = connection) {
   return db('stories')
     .join('users', 'users.auth0_id', 'stories.auth0_id')
     .select()
 }
+
+function getUserSavedStories(id, db = connection) {
+  return db('usersStories')
+    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
+    .join('stories', 'usersStories.story_id', 'stories.id')
+    .select('*')
+    .where('stories.id', id)
+}
+
+function getAllUserSavedStories( db = connection) {
+  return db('usersStories')
+    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
+    .join('stories', 'usersStories.story_id', 'stories.id')
+    .select('*')
+}
+
+function addSavedStory (obj, db = connection) {   
+  return db('usersStories').insert(obj)
+}
+
 
 function deleteStory(id, db = connection) {
   return db('stories').where('id', id).delete()
@@ -60,4 +78,7 @@ module.exports = {
   deleteStory,
   updateStory,
   userCanEdit,
+  getUserSavedStories, 
+  getAllUserSavedStories,
+  addSavedStory
 }

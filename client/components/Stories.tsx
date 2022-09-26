@@ -65,7 +65,7 @@ function Stories() {
             <form action="">
               <div className="field">
                 <label id="demo-simple-select-label">
-                  Filter By Name (English)
+                  Filter By Region (English)
                 </label>
                 <div className="control">
                   <select
@@ -98,7 +98,7 @@ function Stories() {
               </div>
               <div className="field">
                 <label id="demo-simple-select-label">
-                  Filter By Name (Maori)
+                  Filter By Region (Maori)
                 </label>
                 <div className="control">
                   <select
@@ -140,30 +140,25 @@ function Stories() {
           </div>
         </div>
       </section>
-      <section className="tiles is-flex flex-wrap-wrap">
-        {maoriRegion.length == 0 &&
-          region.length == 0 &&
-          stories.map((story) => {
-            return (
-              <>
-               {/* <div className="container has-text-centered">
-                 <div className="columns is-mobile is-centered"> */}
-                  <div  className="column is-3">
+      <section className="container is-widescreen ">
+        <div className="hero-body ">
+          <div className="cards-container">
+            {maoriRegion.length == 0 &&
+              region.length == 0 &&
+              stories.map((story) => {
+                return (
+                  // <div className="container has-text-centered">
+                  //   <div className="columns is-mobile is-centered">
+                  <div className="column is-4">
                     <div className="card">
                       <div className="card-image">
-                        <figure className="image is-4by3">
+                        <figure className="image is-2by1">
                           <img src={story.photo_url} alt="Story image" />
                         </figure>
                       </div>
                       <div className="card-content">
                         <div className="media">
-                          <div className="media-left">
-                            {/* <figure className="image is-48x48">
-                          <img
-                          src="https://media.geeksforgeeks.org/wpcontent/uploads/20200611151025/gfg202.png"
-                            alt="Placeholder image"
-                          />
-                        </figure> */}
+                          <div className="media-left">                        
                           </div>
 
                           <div className="media-content">
@@ -209,8 +204,9 @@ function Stories() {
                   </div>
              
             
-          </>
             )})}
+            </div>
+            </div>
       </section>
       <section className="tiles is-flex flex-wrap-wrap">
         {maoriRegion.length > 1 &&

@@ -6,8 +6,8 @@ function Pin() {
   C20.1,15.8,20.2,15.8,20.2,15.7z`
 
   const pinStyle = {
-    fill: '#d00',
-    stroke: 'none',
+    fill: '#cc4d22',
+    stroke: 'white',
     cursor: 'pointer'
   }
 

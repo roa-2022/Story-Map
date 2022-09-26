@@ -10,6 +10,7 @@ import Register from './Register'
 import Stories from './Stories'
 import Story from './Story'
 import UpdateStory from './UpdateStory'
+import StoriesMapView from './StoriesMapView'
 
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
 import { fetchGetRegions} from '../actions/regions'
@@ -58,6 +59,7 @@ function App() {
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />
+          <Route path="/map" element={<StoriesMapView />} />
         </Routes>
       </section>
     </>
