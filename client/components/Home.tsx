@@ -18,13 +18,14 @@ function Home() {
                   </p>
                   <div className=" box bd-notification has-background-light ">
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Libero suscipit nihil quo, a magnam enim itaque cumque
-                      odio exercitationem ducimus beatae aperiam modi nesciunt
-                      debitis quaerat iusto culpa incidunt tempora, doloribus
-                      saepe expedita dolorem accusantium, harum earum. Sequi
-                      architecto, sapiente ut dolorem consequatur in culpa,
-                      eveniet dolorum maxime porro accusamus?
+                    Welcome to Whenua O Korero, "A Land of Your Words". This is
+                    a platform for users to share local Maori stories and
+                    legends, which are then displayed on a map of New Zealand.
+                    Users will be able to add their local stories and, pending
+                    admin approval, will have the story published on our site.
+                    Users will be prompted to enter a location (regional or more
+                    specific), and this will place a pin on our map, which can
+                    be clicked on to recall the story
                     </p>
                   </div>
                   <div>

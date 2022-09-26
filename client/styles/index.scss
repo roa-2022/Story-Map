@@ -48,3 +48,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('../../server/public/images/lake-view.jpg')
 };
 
+.cards-container{
+display: flex;
+flex-wrap: wrap;
+}
