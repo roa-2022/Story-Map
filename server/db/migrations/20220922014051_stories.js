@@ -10,8 +10,9 @@ exports.up = function (knex) {
     table.string('title')
     table.string('synopsis')
     table.string('story_text')
-    table.string('photo_url')
-    table.string('location')
+    table.binary('photo_url')
+    table.decimal('longitude')
+    table.decimal('latitude')
   })
 }
 

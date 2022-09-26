@@ -85,7 +85,7 @@ function Nav() {
                     to="/"
                     onClick={handleSignIn}
                     className="button is-primary is-light"
-                    >
+                  >
                     <strong>Sign up</strong>
                   </Link>
                   <Link

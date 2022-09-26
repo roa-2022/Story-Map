@@ -36,6 +36,7 @@ function Story() {
         <img src={story?.photo_url} />
         <button onClick={handleDelete}>Delete Story</button>
       </div>
+      
     </>
   )
 }

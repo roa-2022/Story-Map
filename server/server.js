@@ -6,7 +6,6 @@ const storiesRoutes = require('./routes/stories')
 const userRoutes = require('./routes/users')
 const regionsRoutes = require('./routes/regions')
 
-
 const server = express()
 
 server.use(express.json())

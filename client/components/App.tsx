@@ -1,7 +1,5 @@
-
 import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-
 
 import { useDispatch } from 'react-redux'
 import Home from './Home'
@@ -23,7 +21,6 @@ import { fetchGetRegions} from '../actions/regions'
 import Search from './Search'
 
 function App() {
-
   useCacheUser()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -44,27 +41,25 @@ function App() {
     }
   }, [isAuthenticated])
 
-
   useEffect(() => {
     dispatch(fetchGetRegions())
-    dispatch(fetchStories() )    
+    dispatch(fetchStories())
   }, [])
 
   return (
     <>
-     <div >
-          <header className="header">
-            <Nav />
-            
-          </header> 
-         </div>
+      <div>
+        <header className="header">
+          <Nav />
+        </header>
+      </div>
       <section className="main">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/stories" element={<Search />} />
           <Route path="/stories/:id" element={<Story />} />
-          <Route path="/add" element={<AddStory/>} />
+          <Route path="/add" element={<AddStory />} />
         </Routes>
       </section>
     </>

@@ -16,6 +16,15 @@ export function deleteStory(id, token) {
     .catch(logError)
 }
 
+export function updateStory(story, token) {
+  return request
+    .put(rootUrl)
+    .set('authorization', `Bearer ${token}`)
+    .send({ story })
+    .then((res) => res.body)
+    .catch(logError)
+}
+
 function logError(err) {
   if (err.response.text === 'Username Taken') {
     throw new Error('Username already taken - please choose another')
