@@ -23,9 +23,9 @@ function Map() {
 
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
-    console.log('click!')
-    console.log('story', story)
-    console.log(viewCoordinates)
+    // console.log('click!')
+    // console.log('story', story)
+    // console.log(viewCoordinates)
 
     setPopupInfo(story)
   }
@@ -68,11 +68,12 @@ function Map() {
             longitude={Number(popupInfo.longitude)}
             latitude={Number(popupInfo.latitude)}
             onClose={() => setPopupInfo(null)}
+            style={{ width: '70vw', height: '40vh' }}
           >
             <div>
               {popupInfo.title}
-              <a target="_new" href={`http://en.wikipedia.org/`}>
-                Wikipedia
+              <a target="_new" href={`/stories/${popupInfo.id}`}>
+                More Information
               </a>
             </div>
             <img width="100%" src={popupInfo.photo_url} />
