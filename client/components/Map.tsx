@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Pin from './Pin'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateViewCoordinates } from '../actions/map'
+import { Link } from 'react-router-dom'
 
 import InteractiveMap, {
   Marker,
@@ -72,9 +73,7 @@ function Map() {
           >
             <div>
               {popupInfo.title}
-              <a target="_new" href={`/stories/${popupInfo.id}`}>
-                More Information
-              </a>
+              <Link to={`/stories/${popupInfo.id}`}>More Information</Link>
             </div>
             <img width="100%" src={popupInfo.photo_url} />
           </Popup>
