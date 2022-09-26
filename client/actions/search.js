@@ -25,28 +25,25 @@ export function maoriRegion (region) {
 }
 
 export function fetchAddedStory (data) {
-  return (dispatch) => {
-    return addStory(data)
-    .then((result) => {dispatch(addNewStory(result))
-      console.log('actions', data)
-      console.log('actions', result)
-      })
+  return async (dispatch) => {
+    const result = await addStory(data)
+    dispatch(addNewStory(result))
+    console.log('actions', data)
+    console.log('actions', result)
   }
 }
 
 export function fetchSearchedRegions (data) {
-    return (dispatch) => {
-      return search(data)
-      .then((result) => {dispatch(searchRegion(result))
-      })
+    return async (dispatch) => {
+      const result = await search(data)
+      dispatch(searchRegion(result))
     }
 }
 
 export function fetchMaoriSearchedRegions (data) {
-  return (dispatch) => {
-    return searchMaori(data)
-    .then((result) => {dispatch(maoriRegion(result))
-      console.log(result)
-  })
+  return async (dispatch) => {
+    const result = await searchMaori(data)
+    dispatch(maoriRegion(result))
+    console.log(result)
   }
 }
