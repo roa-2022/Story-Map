@@ -33,10 +33,10 @@ router.post('/', checkJwt, async (req, res) => {
   try {
     const auth0_id = req.user?.sub
 
-    const { title, author, synopsis, story_text } = req.body
+    const { title, author, synopsis, story_text, latitude, longitude } = req.body
     const { region_id } = req.body
 
-    const storyData = { title, author, synopsis, story_text, auth0_id }
+    const storyData = { title, author, synopsis, story_text, latitude, longitude, auth0_id }
 
     const idArr = await db.addStory(storyData)
     const storyId = idArr[0]
