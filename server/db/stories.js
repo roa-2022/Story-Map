@@ -22,6 +22,7 @@ function addStory(newStoryData, db = connection) {
 }
 
 function addStoryRegions(idObj, db = connection) {
+  console.log('idObj', idObj)
   return db('storiesRegions').insert(idObj)
 }
 

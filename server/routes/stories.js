@@ -33,20 +33,28 @@ router.post('/', checkJwt, async (req, res) => {
   try {
     const auth0_id = req.user?.sub
 
-    const { title, author, synopsis, story_text, latitude, longitude } = req.body
+    const { title, author, synopsis, story_text, latitude, longitude } =
+      req.body
     const { region_id } = req.body
 
-    const storyData = { title, author, synopsis, story_text, latitude, longitude, auth0_id }
+    const storyData = {
+      title,
+      author,
+      synopsis,
+      story_text,
+      latitude,
+      longitude,
+      auth0_id,
+    }
 
     const idArr = await db.addStory(storyData)
     const storyId = idArr[0]
 
     const idObj = {
       story_id: storyId,
-      region_id: region_id,
+      region_id: Number(region_id),
     }
     await db.addStoryRegions(idObj)
-
     const getNewStory = await db.getOneStory(storyId)
 
     res.json(getNewStory)
@@ -80,7 +88,6 @@ router.delete('/:id', checkJwt, (req, res) => {
 router.put('/', checkJwt, (req, res) => {
   const { story } = req.body
   const auth0Id = req.user?.sub
-  console.log(story)
   const newStory = {
     id: story.id,
     auth0_id: auth0Id,
