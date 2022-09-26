@@ -1,5 +1,4 @@
-import {
-  UPDATE_LOGGED_IN_USER,
+import {UPDATE_LOGGED_IN_USER,
   CLEAR_LOGGED_IN_USER,
 } from '../actions/loggedInUser'
 

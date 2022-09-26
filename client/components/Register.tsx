@@ -9,7 +9,7 @@ function Register() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [form, setForm] = useState({
-    username: '',
+    username: ''
   })
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -20,7 +20,7 @@ function Register() {
   const handleChange = (evt) => {
     setForm({
       ...form,
-      [evt.target.name]: evt.target.value,
+      [evt.target.name]: evt.target.value
     })
   }
 
@@ -29,7 +29,7 @@ function Register() {
     const userInfo = {
       auth0_id: user.auth0_id,
       email: user.email,
-      ...form,
+      ...form
     }
     addUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
@@ -42,11 +42,11 @@ function Register() {
 
   return (
     <>
-      <div className="container">
-        <div className="notification m-6">
-          {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
-          <form onSubmit={handleSubmit}>
-            {/* <label htmlFor="username">Username:</label>
+    <div className="container">
+      <div className="section is-medium m-6">
+      {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
+      <form onSubmit={handleSubmit}>
+        {/* <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
@@ -56,39 +56,40 @@ function Register() {
 
         <button disabled={!form.username}>Save Profile</button> */}
             <div className="box p-4 m-4">
-              <h2 className="subtitle">Complete profile set up</h2>
               <div className="mx-3">
+              <h3 className="subtitle is-3">Create Your Profile</h3>
+              <h5 className="subtitle is-5">Please complete the form below to create your profile.</h5>
                 <div className="field">
-                  <div className="control">
-                    <label className="label">Name</label>
+                  <label className="label">Email</label>
+                  <div className="control has-icons-left">
                     <input
                       className="input"
                       type="text"
-                      placeholder="not linked yet"
+                      placeholder="Your Email Address"
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
                   </div>
                 </div>
 
                 <div className="field">
                   <label className="label">Username</label>
-                  <div className="control has-icons-left has-icons-right">
+                  <div className="control has-icons-left">
                     <input
                       className="input"
                       type="text"
                       id="username"
                       name="username"
-                      placeholder="johndoe@gmail.com"
+                      placeholder="username123"
                       onChange={handleChange}
                     />
                     <span className="icon is-small is-left">
                       <i className="fas fa-user"></i>
                     </span>
-                    <span className="icon is-small is-right">
-                      <i className="fas fa-check"></i>
-                    </span>
                   </div>
                   <button
-                    className="button is-light mt-2"
+                    className="button is-light mt-5"
                     disabled={!form.username}
                   >
                     Save Profile
