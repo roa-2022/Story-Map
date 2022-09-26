@@ -106,21 +106,11 @@ function AddStory() {
                   onChange={handleChange}
                   placeholder="Write your story here"
                   rows={10}
-                  cols={90}
+                  cols={70}
                 />
               </div>
             </div>
-            <div>
-              <label htmlFor="story_text">Type your story: </label>
-              <br />
-              <textarea
-                name="story_text"
-                onChange={handleChange}
-                placeholder="Write your story here"
-                rows={10}
-                cols={50}
-              />
-            </div>
+           
             <div>
               <label htmlFor="latitude">Latitude: </label>
               <input type="text" name="latitude" onChange={handleChange} />
