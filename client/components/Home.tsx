@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from './NavBulma'
+import Nav from './Nav'
 
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,6 @@ function Home() {
   return (
     <>
       <section className="hero has-background-primary-light is-fullheight">
-
         <div className="hero-body">
           <div className="container ">
             <div className="columns is-vcentered">
