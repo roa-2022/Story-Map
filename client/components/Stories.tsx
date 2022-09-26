@@ -65,7 +65,7 @@ export default function Search() {
         <div className="container is-fluid has-text-left m-1 p-1">
           <p className='subtitle is-size-1-desktop has-text-weight-light'> Select Stories by Region</p>
           <form>
-            <div className="field">
+            <div className="field py-4">
               <label id="label ">Filter</label>
               <div className="control">
                 <div className="select">
