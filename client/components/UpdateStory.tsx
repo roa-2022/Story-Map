@@ -8,9 +8,11 @@ function UpdateStory() {
   const navigate = useNavigate()
   const token = useSelector((store: any) => store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
+  const viewCoordinates = useSelector((state: any) => state.map)
   const stories = useSelector((store: any) => store.stories)
   const story = stories[0]
-  const [dataForm, setDataForm] = useState(story)
+  const [dataForm, setDataForm] = useState({ ...story, ...viewCoordinates })
+  console.log(dataForm)
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log('token', token)
@@ -104,6 +106,22 @@ function UpdateStory() {
                   placeholder="Write your story here"
                   rows={10}
                   cols={50}
+                />
+              </div>
+              <div>
+                <label htmlFor="latitude">Latitude: </label>
+                <input
+                  type="text"
+                  name="latitude"
+                  defaultValue={viewCoordinates.latitude}
+                  onChange={handleChange}
+                />
+                <label htmlFor="longitude">Longitude: </label>
+                <input
+                  type="text"
+                  name="longitude"
+                  defaultValue={viewCoordinates.longitude}
+                  onChange={handleChange}
                 />
               </div>
               <div>

@@ -12,18 +12,14 @@ function AddStory() {
 
   const [dataForm, setDataForm] = useState({})
 
-
-  const token =useSelector((store: any)=> store.user.token)
+  const token = useSelector((store: any) => store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
   const viewCoordinates = useSelector((state: any) => state.map)
-
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch(fetchAddStory(dataForm, token))
     navigate('/stories')
-
-   
   }
 
   const handleChange = (e) => {
@@ -47,10 +43,18 @@ function AddStory() {
                 <label htmlFor="region_id">region </label>
                 <select name="region_id" id="type" onChange={handleChange}>
                   <option value="DEFAULT">Select an Option</option>
-                  <option value={allRegions[0]?.id}>New Zealand | Aotearoa</option>
-                  <option value={allRegions[1]?.id}>North Island | Te Ika-a-Māui</option>
-                  <option value={allRegions[2]?.id}>South Island | Te Waipounamu</option>
-                  <option value={allRegions[3]?.id}>Northland | Te Tai Tokerau </option>
+                  <option value={allRegions[0]?.id}>
+                    New Zealand | Aotearoa
+                  </option>
+                  <option value={allRegions[1]?.id}>
+                    North Island | Te Ika-a-Māui
+                  </option>
+                  <option value={allRegions[2]?.id}>
+                    South Island | Te Waipounamu
+                  </option>
+                  <option value={allRegions[3]?.id}>
+                    Northland | Te Tai Tokerau{' '}
+                  </option>
                   <option value={allRegions[4]?.id}>Auckland | </option>
                   <option value={allRegions[5]?.id}>Waikato</option>
                   <option value={allRegions[6]?.id}>Bay of Plenty</option>
@@ -93,9 +97,19 @@ function AddStory() {
               </div>
               <div>
                 <label htmlFor="latitude">Latitude: </label>
-                <input type="text" name="latitude" value={viewCoordinates.latitude} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="latitude"
+                  value={viewCoordinates.latitude}
+                  onChange={handleChange}
+                />
                 <label htmlFor="longitude">Longitude: </label>
-                <input type="text" name="longitude" value={viewCoordinates.longitude} onChange={handleChange} />
+                <input
+                  type="text"
+                  name="longitude"
+                  value={viewCoordinates.longitude}
+                  onChange={handleChange}
+                />
               </div>
               <div>
                 <button className="btn-add-venue">Add</button>

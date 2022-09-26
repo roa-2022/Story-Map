@@ -4,25 +4,25 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchStories } from '../actions/index'
 import { updateViewCoordinates } from '../actions/map'
 
-import InteractiveMap, { 
-  Marker, 
-  Popup,   
+import InteractiveMap, {
+  Marker,
+  Popup,
   NavigationControl,
   FullscreenControl,
   ScaleControl,
-  GeolocateControl } from 'react-map-gl'
+  GeolocateControl,
+} from 'react-map-gl'
 
-import {API_KEY} from '../../secrets'
-
-
+import { API_KEY } from '../../secrets'
 
 function Map() {
   const [popupInfo, setPopupInfo] = useState(null)
 
   const dispatch = useDispatch()
   const stories = useSelector((state: any) => state.stories)
+  console.log(stories)
   const viewCoordinates = useSelector((state: any) => state.map)
-  
+
   useEffect(() => {
     dispatch(fetchStories())
   }, [])
@@ -30,7 +30,7 @@ function Map() {
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
     console.log('click!')
-    console.log(story)
+    console.log('story', story)
     console.log(viewCoordinates)
 
     setPopupInfo(story)
@@ -40,9 +40,9 @@ function Map() {
     <>
       <InteractiveMap
         initialViewState={{ ...viewCoordinates }}
-        style={{width: '100vw', height: '75vh'}}
+        style={{ width: '100vw', height: '75vh' }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
-        onMove={evt => {
+        onMove={(evt) => {
           const payload = evt.viewState
           dispatch(updateViewCoordinates(payload))
         }}
@@ -53,21 +53,20 @@ function Map() {
         <NavigationControl position="top-left" />
         <ScaleControl />
 
-        {
-          stories.map((story, i) => {
-            return  <Marker
+        {stories.map((story, i) => {
+          return (
+            <Marker
               key={`${story.title}${i}`}
               longitude={story.longitude}
               latitude={story.latitude}
               onClick={(e) => {
                 handleClick(e, story)
               }}
-
             >
-              <Pin/>
+              <Pin />
             </Marker>
-          })
-        }
+          )
+        })}
 
         {popupInfo && (
           <Popup
@@ -78,19 +77,16 @@ function Map() {
           >
             <div>
               {popupInfo.title}
-              <a
-                target="_new"
-                href={`http://en.wikipedia.org/`}
-              >
+              <a target="_new" href={`http://en.wikipedia.org/`}>
                 Wikipedia
               </a>
             </div>
             <img width="100%" src={popupInfo.photo_url} />
           </Popup>
         )}
-
       </InteractiveMap>
     </>
-  )}
+  )
+}
 
 export default Map
