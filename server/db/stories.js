@@ -36,6 +36,10 @@ function deleteStory(id, db = connection) {
   return db('stories').where('id', id).delete()
 }
 
+function updateStory(newStory, db = connection) {
+  return db('stories').where('id', newStory.id).update(newStory)
+}
+
 function userCanEdit(storyId, auth0Id, db = connection) {
   return db('stories')
     .where('id', storyId)
@@ -54,5 +58,6 @@ module.exports = {
   addStoryRegions,
   getStoriesByUser,
   deleteStory,
+  updateStory,
   userCanEdit,
 }
