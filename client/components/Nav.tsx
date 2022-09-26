@@ -51,15 +51,14 @@ function Nav() {
                 <Link className="navbar-item is-hoverable" to="/">
                   Home
                 </Link>
-              
 
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">Stories</a>
 
                   <div className="navbar-dropdown">
-                    <Link className="navbar-item" to="/map">
+                    <a className="navbar-item" href="/map">
                       Search Story Map
-                    </Link>
+                    </a>
                     <Link className="navbar-item" to="/stories">
                       Search by Region
                     </Link>
@@ -109,7 +108,6 @@ function Nav() {
           </div>
         </nav>
       </div>
-      
     </>
   )
 }

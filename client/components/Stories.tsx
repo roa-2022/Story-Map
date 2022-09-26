@@ -14,7 +14,7 @@ function Stories() {
 
   useEffect(() => {
     dispatch(fetchStories())
-  }, [])
+  }, [stories])
 
   const [region, setRegion] = useState('')
   const [toggle, setToggle]: any = useState(false)
@@ -93,7 +93,9 @@ function Stories() {
                     <option className="dropdown-item">Gisborne</option>
                     <option className="dropdown-item">Hawke's Bay</option>
                     <option className="dropdown-item">Taranaki</option>
-                    <option className="dropdown-item">Manawatū-Whanganui</option>
+                    <option className="dropdown-item">
+                      Manawatū-Whanganui
+                    </option>
                     <option className="dropdown-item">Wellington</option>
                     <option className="dropdown-item">Tasman</option>
                     <option className="dropdown-item">Nelson</option>
@@ -127,10 +129,14 @@ function Stories() {
                     <option className="dropdown-item">Te Matau-a-Māui</option>
                     <option className="dropdown-item">Taranaki</option>
                     <option className="dropdown-item">Manawatū-Whanganu</option>
-                    <option className="dropdown-item">Te Whanga-nui-a-Tara</option>
+                    <option className="dropdown-item">
+                      Te Whanga-nui-a-Tara
+                    </option>
                     <option className="dropdown-item">Te Tai-o-Aorere</option>
                     <option className="dropdown-item">Whakatū</option>
-                    <option className="dropdown-item">Te Tauihu-o-te-waka</option>
+                    <option className="dropdown-item">
+                      Te Tauihu-o-te-waka
+                    </option>
                     <option className="dropdown-item">Te Tai Poutini</option>
                     <option className="dropdown-item">Waitaha</option>
                     <option className="dropdown-item">Ōtākou</option>
@@ -167,8 +173,7 @@ function Stories() {
                       </div>
                       <div className="card-content">
                         <div className="media">
-                          <div className="media-left">                        
-                          </div>
+                          <div className="media-left"></div>
 
                           <div className="media-content">
                             <p className="title is-">{story.title}</p>
@@ -219,7 +224,7 @@ function Stories() {
         </div>
       </section>
     </>
-    )
+  )
 }
 
 export default Stories
