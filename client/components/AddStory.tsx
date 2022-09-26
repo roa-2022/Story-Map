@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -10,20 +10,19 @@ function AddStory() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [dataForm, setDataForm] = useState({})
-
-
   const token =useSelector((store: any)=> store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
   const viewCoordinates = useSelector((state: any) => state.map)
-
+  
+  const [dataForm, setDataForm] = useState({
+    latitude: viewCoordinates.latitude,
+    longitude: viewCoordinates.longitude,
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch(fetchAddStory(dataForm, token))
-    navigate('/stories')
-
-   
+    navigate('/')
   }
 
   const handleChange = (e) => {
@@ -93,9 +92,9 @@ function AddStory() {
               </div>
               <div>
                 <label htmlFor="latitude">Latitude: </label>
-                <input type="text" name="latitude" value={viewCoordinates.latitude} onChange={handleChange} />
+                <input type="text" name="latitude" value={viewCoordinates.latitude} readOnly />
                 <label htmlFor="longitude">Longitude: </label>
-                <input type="text" name="longitude" value={viewCoordinates.longitude} onChange={handleChange} />
+                <input type="text" name="longitude" value={viewCoordinates.longitude} readOnly />
               </div>
               <div>
                 <button className="btn-add-venue">Add</button>
