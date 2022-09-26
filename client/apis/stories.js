@@ -1,56 +1,40 @@
 import request from 'superagent'
+import { logError } from '../auth0-utils'
 
-const rootUrl = '/api/v1/stories/'
-
-export function getOneStory(id) {
-  return request.get(rootUrl + id).then((res) => {
+export function getOneStoryAPI(id) {
+  return request.get('/api/v1/stories/' + id).then((res) => {
     return res.body
   })
 }
 
-export function getStories() {
-  return request.get(rootUrl).then((res) => {
+export function getStoriesAPI() {
+  return request.get('/api/v1/stories/').then((res) => {
     return res.body
   })
 }
 
-// Add a Story
-
-export async function addStoryApi(data, token) {
+export async function addStoryAPI(data, token) {
   const res = await request
-    .post(rootUrl)
+    .post('/api/v1/stories/')
     .set('authorization', `Bearer ${token}`)
     .send(data)
   return res.body
 }
 
-export function deleteStory(id, token) {
+export function deleteStoryAPI(id, token) {
   return request
-    .delete(rootUrl + id)
+    .delete('/api/v1/stories/' + id)
     .set('authorization', `Bearer ${token}`)
     .then((res) => res.body)
     .catch(logError)
 }
 
-export function updateStory(story, token) {
+export function updateStoryAPI(story, token) {
   return request
-    .put(rootUrl)
+    .put('/api/v1/stories/')
     .set('authorization', `Bearer ${token}`)
     .send({ story })
     .then((res) => res.body)
     .catch(logError)
 }
 
-function logError(err) {
-  if (err.response.text === 'Username Taken') {
-    throw new Error('Username already taken - please choose another')
-  } else if (err.message === 'Forbidden') {
-    throw new Error(
-      'Only the user who added the story may update and delete it'
-    )
-  } else {
-    // eslint-disable-next-line no-console
-    console.error('Error consuming the API (in client/api.js):', err.message)
-    throw err
-  }
-}

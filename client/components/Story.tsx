@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchOneStory } from '../actions/index'
-import { deleteStory } from '../apis/story'
+
 import Map from './Map'
+
+import { fetchOneStory } from '../actions/stories'
+import { deleteStoryAPI } from '../apis/story'
+
 
 function Story() {
   const { id } = useParams()
@@ -14,7 +17,7 @@ function Story() {
   const token = useSelector((state: any) => state.user.token)
 
   const handleDelete = () => {
-    deleteStory(id, token)
+    deleteStoryAPI(id, token)
     navigate('/stories')
   }
 

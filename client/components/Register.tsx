@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
 import { updateLoggedInUser } from '../actions/loggedInUser'
 import { addUser } from '../apis/users'
 
@@ -46,27 +47,12 @@ function Register() {
       <div className="notification m-6">
       {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
       <form onSubmit={handleSubmit}>
-        {/* <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          onChange={handleChange}
-        />
 
-        <button disabled={!form.username}>Save Profile</button> */}
             <div className="box p-4 m-4">
               <h2 className="subtitle">Complete profile set up</h2>
               <div className="mx-3">
                 <div className="field">
-                  <div className="control">
-                    <label className="label">Name</label>
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="not linked yet"
-                    />
-                  </div>
+                 
                 </div>
 
                 <div className="field">

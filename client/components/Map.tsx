@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Pin from './Pin'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateViewCoordinates } from '../actions/map'
 
@@ -11,6 +10,8 @@ import InteractiveMap, {
   ScaleControl,
   GeolocateControl,
 } from 'react-map-gl'
+
+import Pin from './Pin'
 
 import { API_KEY } from '../../secrets'
 

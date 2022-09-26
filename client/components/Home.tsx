@@ -11,7 +11,7 @@ function Home() {
         <div className="hero-body">
           <div className="container ">
             <div className="columns is-vcentered">
-              <div className="column is-6">{/* fist column  */}</div>
+              <div className="column is-6"></div>
               <div className="column"></div>
               
               <div className="container is-flex-direction-column home-txt-btn">

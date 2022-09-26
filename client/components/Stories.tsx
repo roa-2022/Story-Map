@@ -1,51 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchStories } from '../actions'
-import {
-  fetchSearchedRegions,
-  fetchMaoriSearchedRegions,
-  fetchAddedStory,
-} from '../actions/search'
+import { fetchStories } from '../actions/stories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function Stories() {
   const stories = useSelector((state: any) => state.stories)
-
-  useEffect(() => {
-    dispatch(fetchStories())
-  }, [])
-
+  
   const [region, setRegion] = useState('')
   const [toggle, setToggle]: any = useState(false)
   const [success, setSuccess]: any = useState(false)
   const [maoriRegion, setMaoriRegion] = useState('')
-
-  const [files, setFiles]: any = useState([])
-  const [imageURLs, setImageURLs]: any = useState([])
-
+  
   const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(fetchStories())
+  }, [])
+  // const [files, setFiles]: any = useState([])
+  // const [imageURLs, setImageURLs]: any = useState([])
 
-  const fileSelector = (imageList) => {
-    setFiles([...imageList.target.files])
-  }
 
-  const fileUploader = async () => {
-    if (files.length < 1) return
-    const newImageUrls: any = []
-    files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
-    await setImageURLs(newImageUrls)
-    console.log(newImageUrls)
+  // const fileSelector = (imageList) => {
+  //   setFiles([...imageList.target.files])
+  // }
 
-    dispatch(fetchAddedStory(newImageUrls))
-  }
+  // const fileUploader = async () => {
+  //   if (files.length < 1) return
+  //   const newImageUrls: any = []
+  //   files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
+  //   await setImageURLs(newImageUrls)
+  //   console.log(newImageUrls)
 
-  const styles = {
-    card: {
-      display: 'flex',
-      margin: 10,
-    },
-  }
+  //   dispatch(fetchAddedStory(newImageUrls))
+  // }
+
+ 
 
   const changeHandlerEng = (e) => {
     setRegion(e.target.value as string)
@@ -66,6 +56,7 @@ function Stories() {
     setToggle(false)
     setSuccess(true)
   }
+
   return (
     <>
       <section className="section-search">
@@ -228,8 +219,6 @@ function Stories() {
             return (
               <>
                  {story.maori_name == maoriRegion &&
-              // <div className="container has-text-centered">
-              //   <div className="columns is-mobile is-centered">
                   <div className="column is-3">
                     <div className="card">
                       <div className="card-image">
@@ -273,7 +262,6 @@ function Stories() {
                               <span>View Story</span>
                             </Link>
                           </p>
-                          {/* TODO: add link to Saved Stories */}
                           <IfAuthenticated>
                             <p className="card-footer-item">
                               <Link
@@ -289,8 +277,6 @@ function Stories() {
                       </div>
                     </div>
                   </div>
-              //   </div>
-              // </div>
             
                        } </>
           )})}
@@ -302,8 +288,6 @@ function Stories() {
             return (
               <>
               {story.eng_name == region &&
-              // <div className="container has-text-centered">
-              //   <div className="columns is-mobile is-centered">
                   <div  className="column is-3">
                     <div  className="card">
                       <div className="card-image">
@@ -347,7 +331,6 @@ function Stories() {
                               <span>View Story</span>
                             </Link>
                           </p>
-                          {/* TODO: add link to Saved Stories */}
                           <IfAuthenticated>
                             <p className="card-footer-item">
                               <Link
@@ -363,8 +346,6 @@ function Stories() {
                       </div>
                     </div>
                   </div>
-              //   </div>
-              // </div>
               
                       }</>
           )})}

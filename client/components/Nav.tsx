@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-import { Link } from 'react-router-dom'
 
 function Nav() {
   const user = useSelector((state: any) => state?.user)
@@ -108,7 +108,6 @@ function Nav() {
           </div>
         </nav>
       </div>
-      {/* <!-- Hero content: will be in the middle --> */}
   <div className="hero-body">
     <div className="container has-text-centered">
     <p className="title">Whenua O Korero</p>
@@ -117,7 +116,6 @@ function Nav() {
     </div>
   </div>
 
-  {/* <!-- Hero footer: will stick at the bottom --> */}
   <div className="hero-foot">
     <nav className="tabs">
       <div className="container">

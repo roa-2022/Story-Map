@@ -1,8 +1,7 @@
-import {addStoryApi } from '../apis/stories'
+import {addStoryAPI } from '../apis/stories'
 
 export const ADD_STORY ='ADD_STORY'
 
-// ---- ADD STORY
 export function addStory(data){
   return {
     type:ADD_STORY ,
@@ -10,10 +9,14 @@ export function addStory(data){
   }
 }
 
-//Thunk
+
 export function fetchAddStory(data,token) {
   return async (dispatch) => {
-    const res = await addStoryApi(data, token)
-    dispatch(addStory(res))
+    try {
+      const res = await addStoryAPI(data, token)
+      dispatch(addStory(res))
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 }

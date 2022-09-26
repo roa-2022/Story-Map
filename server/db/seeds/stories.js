@@ -80,7 +80,6 @@ exports.seed = async function (knex) {
       longitude: 170.14202433438962,
       latitude: -43.59432165218203,
     },
-<<<<<<< HEAD
     {
       id: 1007,
       auth0_id: 'auth0|632d259b6aa7af87dfa37429',
@@ -105,20 +104,5 @@ exports.seed = async function (knex) {
       photo_url: '/images/img09.jpg',
       location: '',
     },
-=======
-    // {
-    //   id: 1006,
-    //   auth0_id: 'auth0|632d259b6aa7af87dfa37429',
-    //   author: 'Whenua O Korero',
-    //   title: 'Te Ika-a-Māui',
-    //   synopsis:
-    //     'To begin – there was nothing. Papatūānuku (earth mother) and Ranginui (sky father) arose from this nothing. When Ranginui fell in love with Papatūānuku, she already belonged to Tangaroa.',
-    //   story_text:
-    //     'To begin – there was nothing. Papatūānuku (earth mother) and Ranginui (sky father) arose from this nothing. When Ranginui fell in love with Papatūānuku, she already belonged to Tangaroa.To begin – there was nothing. Papatūānuku (earth mother) and Ranginui (sky father) arose from this nothing. When Ranginui fell in love with Papatūānuku, she already belonged to Tangaroa.',
-    //   photo_url: '/images/img07.jpeg',
-    //   longitude: 174.7740,
-    //   latitude: -41.2969
-    // },
->>>>>>> de58407dcad1aeba6257215bae1daff2820bc971
   ])
 }
