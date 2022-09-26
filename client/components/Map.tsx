@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Pin from './Pin'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchStories } from '../actions/index'
 import { updateViewCoordinates } from '../actions/map'
 
 import InteractiveMap, {
@@ -20,12 +19,7 @@ function Map() {
 
   const dispatch = useDispatch()
   const stories = useSelector((state: any) => state.stories)
-  console.log(stories)
   const viewCoordinates = useSelector((state: any) => state.map)
-
-  useEffect(() => {
-    dispatch(fetchStories())
-  }, [])
 
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()

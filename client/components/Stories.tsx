@@ -28,7 +28,6 @@ function Stories() {
         </ul>
       </div>
       <Search />
-      <Map />
     </>
   )
 }

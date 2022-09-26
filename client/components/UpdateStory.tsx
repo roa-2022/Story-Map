@@ -2,22 +2,19 @@ import React, { useState } from 'react'
 import Map from './Map'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { updateStory } from '../apis/story'
+import { updateStory } from '../apis/stories'
 
 function UpdateStory() {
   const navigate = useNavigate()
   const token = useSelector((store: any) => store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
-  const viewCoordinates = useSelector((state: any) => state.map)
   const stories = useSelector((store: any) => store.stories)
   const story = stories[0]
-  const [dataForm, setDataForm] = useState({ ...story, ...viewCoordinates })
-  console.log(dataForm)
+  const [dataForm, setDataForm] = useState(story)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('token', token)
-    console.log('dataForm', dataForm)
-    updateStory(dataForm, token)
+    await updateStory(dataForm, token)
     navigate('/stories')
   }
   const handleChange = (e) => {
@@ -113,14 +110,14 @@ function UpdateStory() {
                 <input
                   type="text"
                   name="latitude"
-                  defaultValue={viewCoordinates.latitude}
+                  defaultValue={story.latitude}
                   onChange={handleChange}
                 />
                 <label htmlFor="longitude">Longitude: </label>
                 <input
                   type="text"
                   name="longitude"
-                  defaultValue={viewCoordinates.longitude}
+                  defaultValue={story.longitude}
                   onChange={handleChange}
                 />
               </div>
