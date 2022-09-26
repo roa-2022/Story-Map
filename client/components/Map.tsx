@@ -34,7 +34,7 @@ function Map() {
     <>
       <InteractiveMap
         initialViewState={{ ...viewCoordinates }}
-        style={{ width: '100vw', height: '75vh' }}
+        style={{ height: '75vh' }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         onMove={(evt) => {
           const payload = evt.viewState

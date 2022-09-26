@@ -9,7 +9,7 @@ import AddStory from './AddStory'
 import Register from './Register'
 import Nav from './Nav'
 import UpdateStory from './UpdateStory'
-import Map from './Map'
+import StoriesMapView from './StoriesMapView'
 
 import { useAuth0 } from '@auth0/auth0-react'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
@@ -62,7 +62,7 @@ function App() {
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />
-          <Route path="/map" element={<Map />} />
+          <Route path="/map" element={<StoriesMapView />} />
         </Routes>
       </section>
     </>
