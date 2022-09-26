@@ -70,7 +70,6 @@ export default function Search() {
     <>
       <section className="section-search">
         <div className="hero-body">
-          <h1>hello</h1>
           <div className="box">
             <form action="">
               <div className="field">
@@ -84,7 +83,6 @@ export default function Search() {
                     onChange={changeHandlerEng}
                   >
                     [ <option>{region}</option>]
-                    {/* <hr className="dropdown-divider" /> */}
                     <option className="dropdown-item">New Zealand</option>
                     <option className="dropdown-item">North Island</option>
                     <option className="dropdown-item">South Island</option>
@@ -95,9 +93,7 @@ export default function Search() {
                     <option className="dropdown-item">Gisborne</option>
                     <option className="dropdown-item">Hawke's Bay</option>
                     <option className="dropdown-item">Taranaki</option>
-                    <option className="dropdown-item">
-                      Manawatū-Whanganui
-                    </option>
+                    <option className="dropdown-item">Manawatū-Whanganui</option>
                     <option className="dropdown-item">Wellington</option>
                     <option className="dropdown-item">Tasman</option>
                     <option className="dropdown-item">Nelson</option>
@@ -109,7 +105,6 @@ export default function Search() {
                   </select>
                 </div>
               </div>
-              {/* search by Maori Name */}
               <div className="field">
                 <label id="demo-simple-select-label">
                   Filter By Name (Maori)
@@ -118,10 +113,9 @@ export default function Search() {
                   <select
                     id="demo-simple-select"
                     value={maoriRegion}
-                    onChange={changeHandlerEng}
+                    onChange={changeHandlerMao}
                   >
                     [ <option>{maoriRegion}</option>]
-                    {/* <hr className="dropdown-divider" /> */}
                     <option className="dropdown-item">Aotearoa</option>
                     <option className="dropdown-item">Te Ika-a-Māui</option>
                     <option className="dropdown-item">Te Waipounamu</option>
@@ -132,17 +126,11 @@ export default function Search() {
                     <option className="dropdown-item">Te Tai Rāwhiti</option>
                     <option className="dropdown-item">Te Matau-a-Māui</option>
                     <option className="dropdown-item">Taranaki</option>
-                    <option className="dropdown-item">
-                      Manawatū-Whanganui
-                    </option>
-                    <option className="dropdown-item">
-                      Te Whanga-nui-a-Tara
-                    </option>
+                    <option className="dropdown-item">Manawatū-Whanganu</option>
+                    <option className="dropdown-item">Te Whanga-nui-a-Tara</option>
                     <option className="dropdown-item">Te Tai-o-Aorere</option>
                     <option className="dropdown-item">Whakatū</option>
-                    <option className="dropdown-item">
-                      Te Tauihu-o-te-waka
-                    </option>
+                    <option className="dropdown-item">Te Tauihu-o-te-waka</option>
                     <option className="dropdown-item">Te Tai Poutini</option>
                     <option className="dropdown-item">Waitaha</option>
                     <option className="dropdown-item">Ōtākou</option>
@@ -166,12 +154,160 @@ export default function Search() {
           region.length == 0 &&
           stories.map((story) => {
             return (
+              <>
+               {/* <div className="container has-text-centered">
+                 <div className="columns is-mobile is-centered"> */}
+                  <div  className="column is-3">
+                    <div className="card">
+                      <div className="card-image">
+                        <figure className="image is-4by3">
+                          <img src={story.photo_url} alt="Story image" />
+                        </figure>
+                      </div>
+                      <div className="card-content">
+                        <div className="media">
+                          <div className="media-left">
+                            {/* <figure className="image is-48x48">
+                          <img
+                          src="https://media.geeksforgeeks.org/wpcontent/uploads/20200611151025/gfg202.png"
+                            alt="Placeholder image"
+                          />
+                        </figure> */}
+                          </div>
+
+                          <div className="media-content">
+                            <p className="title is-5">{story.title}</p>
+
+                            <p className="subtitle is-6">
+                              Sent by: {story.author}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="content">
+                          <div className="media-content">
+                            <p className="is-success">{story.synopsis}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <footer className="card-footer">
+                          <p className="card-footer-item">
+                            <Link
+                              style={{ textDecoration: 'none' }}
+                              to={`/stories/${story.id}`}
+                              key={story.id}
+                              >
+                              <span>View Story</span>
+                            </Link>
+                          </p>
+                          {/* TODO: add link to Saved Stories */}
+                          <IfAuthenticated>
+                            <p className="card-footer-item">
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={'#'}
+                                key={story.id}
+                                >
+                                <span>Save Story</span>
+                              </Link>
+                            </p>
+                          </IfAuthenticated>
+                        </footer>
+                      </div>
+                    </div>
+                  </div>
+             
+            
+          </>
+            )})}
+      </section>
+      <section className="tiles is-flex flex-wrap-wrap">
+        {maoriRegion.length > 1 &&
+          region.length == 0 &&
+          stories.map((story) => {
+            return (
+              <>
+                 {story.maori_name == maoriRegion &&
               // <div className="container has-text-centered">
               //   <div className="columns is-mobile is-centered">
                   <div className="column is-3">
                     <div className="card">
                       <div className="card-image">
-                        <figure className="image is-2by1">
+                        <figure className="image is-4by3">
+                          <img src={story.photo_url} alt="Story image" />
+                        </figure>
+                      </div>
+                      <div className="card-content">
+                        <div className="media">
+                          <div className="media-left">
+                            {/* <figure className="image is-48x48">
+                          <img
+                            src="https://media.geeksforgeeks.org/wpcontent/uploads/20200611151025/gfg202.png"
+                            alt="Placeholder image"
+                          />
+                        </figure> */}
+                          </div>
+
+                          <div className="media-content">
+                            <p className="title is-5">{story.title}</p>
+
+                            <p className="subtitle is-6">
+                              Sent by: {story.author}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="content">
+                          <div className="media-content">
+                            <p className="is-success">{story.synopsis}</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="card">
+                        <footer className="card-footer">
+                          <p className="card-footer-item">
+                            <Link
+                              style={{ textDecoration: 'none' }}
+                              to={`/stories/${story.id}`}
+                              key={story.id}
+                              >
+                              <span>View Story</span>
+                            </Link>
+                          </p>
+                          {/* TODO: add link to Saved Stories */}
+                          <IfAuthenticated>
+                            <p className="card-footer-item">
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={'#'}
+                                key={story.id}
+                                >
+                                <span>Save Story</span>
+                              </Link>
+                            </p>
+                          </IfAuthenticated>
+                        </footer>
+                      </div>
+                    </div>
+                  </div>
+              //   </div>
+              // </div>
+            
+                       } </>
+          )})}
+      </section>
+      <section className="tiles is-flex flex-wrap-wrap">
+        {region.length > 1 &&
+        maoriRegion.length == 0 &&
+          stories.map((story) => {
+            return (
+              <>
+              {story.eng_name == region &&
+              // <div className="container has-text-centered">
+              //   <div className="columns is-mobile is-centered">
+                  <div  className="column is-3">
+                    <div  className="card">
+                      <div className="card-image">
+                        <figure className="image is-4by3">
                           <img src={story.photo_url} alt="Story image" />
                         </figure>
                       </div>
@@ -229,9 +365,10 @@ export default function Search() {
                   </div>
               //   </div>
               // </div>
-            )
-          })}
+              
+                      }</>
+          )})}
       </section>
     </>
-  )
+    )
 }

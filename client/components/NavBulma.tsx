@@ -22,6 +22,8 @@ function Nav() {
 
   return (
     <>
+      <div className='has-background-primary-light'>
+        
       <div className="hero-head">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="container">
@@ -31,7 +33,7 @@ function Nav() {
                 src="https://bulma.io/images/bulma-logo.png"
                 width="112"
                 height="28"
-              />
+                />
             </Link>
             <a
               role="button"
@@ -83,14 +85,14 @@ function Nav() {
                     to="/"
                     onClick={handleSignIn}
                     className="button is-primary is-light"
-                  >
+                    >
                     <strong>Sign up</strong>
                   </Link>
                   <Link
                     to="/"
                     onClick={handleSignIn}
                     className="button is-light"
-                  >
+                    >
                     Log in
                   </Link>
                 </div>
@@ -130,6 +132,7 @@ function Nav() {
         </ul>
       </div>
     </nav>
+    </div>
   </div>
     </>
   )
