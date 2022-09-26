@@ -2,20 +2,20 @@ import { fetchRegionsAPI } from '../apis/regions'
 
 export const GET_REGIONS = 'GET_REGIONS'
 
-export function getRegions (regionsArr) {
+export function getRegions(regionsArr) {
   return {
     type: GET_REGIONS,
-    payload: regionsArr
+    payload: regionsArr,
   }
 }
 
-export  function fetchGetRegions() {
+export function fetchGetRegions() {
   return async (dispatch) => {
     try {
       const regionsArr = await fetchRegionsAPI()
       dispatch(getRegions(regionsArr))
     } catch (err) {
-      dispatch(setError(err.message))
+      console.log(err.message)
     }
   }
 }

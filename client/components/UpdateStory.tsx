@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import Map from './Map'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { updateStory } from '../apis/story'
+import { updateStory } from '../apis/stories'
 
 function UpdateStory() {
   const navigate = useNavigate()
@@ -10,11 +11,10 @@ function UpdateStory() {
   const stories = useSelector((store: any) => store.stories)
   const story = stories[0]
   const [dataForm, setDataForm] = useState(story)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('token', token)
-    console.log('dataForm', dataForm)
-    updateStory(dataForm, token)
+    await updateStory(dataForm, token)
     navigate('/stories')
   }
   const handleChange = (e) => {
@@ -106,12 +106,29 @@ function UpdateStory() {
                 />
               </div>
               <div>
+                <label htmlFor="latitude">Latitude: </label>
+                <input
+                  type="text"
+                  name="latitude"
+                  defaultValue={story.latitude}
+                  onChange={handleChange}
+                />
+                <label htmlFor="longitude">Longitude: </label>
+                <input
+                  type="text"
+                  name="longitude"
+                  defaultValue={story.longitude}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
                 <button className="btn-add-venue">Update</button>
               </div>
             </form>
           </div>
         )}
       </div>
+      <Map />
     </section>
   )
 }

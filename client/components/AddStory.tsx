@@ -2,25 +2,22 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-
 import { fetchAddStory } from '../actions/addStory'
 
 function AddStory() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [dataForm, setDataForm] = useState({})
-
-
-  const token =useSelector((store: any)=> store.user.token)
+  const token = useSelector((store: any) => store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
+  const viewCoordinates = useSelector((state: any) => state.map)
+
+  const [dataForm, setDataForm] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    dispatch(fetchAddStory(dataForm, token))
+    await dispatch(fetchAddStory(dataForm, token))
     navigate('/stories')
-
-   
   }
 
   const handleChange = (e) => {
@@ -113,8 +110,25 @@ function AddStory() {
                 />
               </div>
             </div>
-            <div >
-              <button className="button is-success">Add</button>
+            <div>
+              <label htmlFor="story_text">Type your story: </label>
+              <br />
+              <textarea
+                name="story_text"
+                onChange={handleChange}
+                placeholder="Write your story here"
+                rows={10}
+                cols={50}
+              />
+            </div>
+            <div>
+              <label htmlFor="latitude">Latitude: </label>
+              <input type="text" name="latitude" onChange={handleChange} />
+              <label htmlFor="longitude">Longitude: </label>
+              <input type="text" name="longitude" onChange={handleChange} />
+            </div>
+            <div>
+              <button className="btn-add-venue">Add</button>
             </div>
           </form>
         </div>

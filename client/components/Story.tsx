@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
 import { deleteStory } from '../apis/story'
+import Map from './Map'
 
 function Story() {
   const { id } = useParams()
@@ -13,7 +14,6 @@ function Story() {
   const token = useSelector((state: any) => state.user.token)
 
   const handleDelete = () => {
-    // TODO: pass token as second parameter
     deleteStory(id, token)
     navigate('/stories')
   }
@@ -24,19 +24,24 @@ function Story() {
 
   return (
     <>
-      <div>
-        <Link to={`/stories`} key={story?.id}>
-          <h2>{story?.title}</h2>
-        </Link>
-        <p>
-          {story?.maori_name} aka {story?.eng_name}
-        </p>
-        <p>{story?.author}</p>
-        <p>{story?.story_text}</p>
-        <img src={story?.photo_url} />
-        <button onClick={handleDelete}>Delete Story</button>
-      </div>
-      
+      {story && (
+        <div>
+          <Link to={`/stories`} key={story.id}>
+            <h2>{story.title}</h2>
+          </Link>
+          <p>
+            {story.maori_name} aka {story.eng_name}
+          </p>
+          <p>{story.author}</p>
+          <p>{story.story_text}</p>
+          <img src={story.photo_url} />
+          <button onClick={handleDelete}>Delete Story</button>
+          <button onClick={() => navigate('/stories/{story.id}/update')}>
+            Update Story
+          </button>
+          <Map />
+        </div>
+      )}
     </>
   )
 }
