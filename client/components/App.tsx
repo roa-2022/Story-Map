@@ -47,10 +47,11 @@ function App() {
 
   return (
     <>
-      <header className="header">
-        <h1>Whenua O Korero</h1>
-        <Nav />
-      </header>
+      <div>
+        <header className="header">
+          <Nav />
+        </header>
+      </div>
       <section className="main">
         <Routes>
           <Route path="/" element={<Home />} />

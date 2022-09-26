@@ -42,10 +42,11 @@ function Register() {
 
   return (
     <>
-      <h2>Complete profile set up</h2>
-      {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+      <div className="container">
+        <div className="notification m-6">
+          {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
+          <form onSubmit={handleSubmit}>
+            {/* <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
@@ -53,8 +54,51 @@ function Register() {
           onChange={handleChange}
         />
 
-        <button disabled={!form.username}>Save Profile</button>
-      </form>
+        <button disabled={!form.username}>Save Profile</button> */}
+            <div className="box p-4 m-4">
+              <h2 className="subtitle">Complete profile set up</h2>
+              <div className="mx-3">
+                <div className="field">
+                  <div className="control">
+                    <label className="label">Name</label>
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="not linked yet"
+                    />
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label className="label">Username</label>
+                  <div className="control has-icons-left has-icons-right">
+                    <input
+                      className="input"
+                      type="text"
+                      id="username"
+                      name="username"
+                      placeholder="johndoe@gmail.com"
+                      onChange={handleChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-user"></i>
+                    </span>
+                    <span className="icon is-small is-right">
+                      <i className="fas fa-check"></i>
+                    </span>
+                  </div>
+                  <button
+                    className="button is-light mt-2"
+                    disabled={!form.username}
+                  >
+                    Save Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </>
   )
 }
