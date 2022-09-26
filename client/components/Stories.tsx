@@ -71,7 +71,7 @@ function Stories() {
     <>
       <section className="section-search">
         <div className="hero-body">
-          <h1>hello</h1>
+        
           <div className="box">
             <form action="">
               <div className="field">

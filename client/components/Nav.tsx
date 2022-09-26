@@ -22,115 +22,97 @@ function Nav() {
 
   return (
     <>
-      <div className="hero-head">
+      <div className="">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="container">
-          <div className="navbar-brand">
-            <Link className="navbar-item" to="/">
-              <img
-                src="https://bulma.io/images/bulma-logo.png"
-                width="112"
-                height="28"
-              />
-            </Link>
-            <a
-              role="button"
-              className="navbar-burger"
-              aria-label="menu"
-              aria-expanded="false"
-              data-target="navbarMenuHeroA"
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
-
-          <div id="navbarMenuHeroA" className="navbar-menu">
-            <div className="navbar-end">
-              <Link className="navbar-item is-active" to="/">
-                Home
+            <div className="navbar-brand">
+              <Link className="navbar-item" to="/">
+                <img
+                  src="https://bulma.io/images/bulma-logo.png"
+                  width="112"
+                  height="28"
+                />
               </Link>
+              <a
+                role="button"
+                className="navbar-burger"
+                aria-label="menu"
+                aria-expanded="false"
+                data-target="navbarMenuHeroA"
+              >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
 
-              <Link className="navbar-item" to="/stories">
+            <div id="navbarMenuHeroA" className="navbar-menu">
+              <div className="navbar-start">
+                <Link className="navbar-item is-active" to="/">
+                  <b>Home</b>
+                </Link>
+
+                {/* <Link className="navbar-item" to="/stories">
                 Stories
-              </Link>
+              </Link> */}
 
-              <IfAuthenticated>
                 <div className="navbar-item has-dropdown is-hoverable">
-                  <a className="navbar-link">More</a>
+                  <a className="navbar-link"><b>Stories</b></a>
 
                   <div className="navbar-dropdown">
-                    <Link className="navbar-item" to="/add">
-                      Add A Story
+                    <Link className="navbar-item" to="#">
+                      Search Story Map
                     </Link>
-                    <Link className="navbar-item" to="/my_stories">
-                      My Fav Stories
+                    <Link className="navbar-item" to="/stories">
+                      Search by Region
                     </Link>
-                    <hr className="navbar-divider" />
-                    <a className="navbar-item">Profile</a>
+                    <IfAuthenticated>
+                      <hr className="navbar-divider" />
+                      <Link className="navbar-item" to="/add">
+                        Add a Story
+                      </Link>
+                    </IfAuthenticated>
                   </div>
                 </div>
-              </IfAuthenticated>
+              </div>
             </div>
-          </div>
 
-          <div className="navbar-end">
-            <div className="navbar-item">
-              <IfNotAuthenticated>
-                <div className="buttons">
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <IfNotAuthenticated>
+                  <div className="buttons">
+                    <Link
+                      to="/"
+                      onClick={handleSignIn}
+                      className="button is-primary is-light"
+                    >
+                      <strong>Sign up</strong>
+                    </Link>
+                    <Link
+                      to="/"
+                      onClick={handleSignIn}
+                      className="button is-light"
+                    >
+                      Log in
+                    </Link>
+                  </div>
+                </IfNotAuthenticated>
+                <IfAuthenticated>
+                  <p className="navbar-item">Hi! {user?.username}</p>
                   <Link
-                    to="/"
-                    onClick={handleSignIn}
-                    className="button is-primary is-light"
-                  >
-                    <strong>Sign up</strong>
-                  </Link>
-                  <Link
-                    to="/"
-                    onClick={handleSignIn}
                     className="button is-light"
+                    to="/"
+                    onClick={handleLogOff}
                   >
-                    Log in
+                    Log off
                   </Link>
-                </div>
-              </IfNotAuthenticated>
-              <IfAuthenticated>
-                <p className="navbar-item">Hi! {user?.username}</p>
-                <Link className="button is-light" to="/" onClick={handleLogOff}>
-                  Log off
-                </Link>
-              </IfAuthenticated>
+                </IfAuthenticated>
+              </div>
             </div>
-          </div>
           </div>
         </nav>
       </div>
-      {/* <!-- Hero content: will be in the middle --> */}
-  <div className="hero-body">
-    <div className="container has-text-centered">
-    <p className="title">Whenua O Korero</p>
- 
-    
-    </div>
-  </div>
-
-  {/* <!-- Hero footer: will stick at the bottom --> */}
-  <div className="hero-foot">
-    <nav className="tabs">
-      <div className="container">
-        <ul>         
-          <li><a href="/">Home</a></li>
-          <li><a  href="#">Map</a></li>
-          <li><a href="/stories">Stories</a></li>
-          <IfAuthenticated>
-            <li><a href="/add">Add a Story</a></li>
-            <li><a href="#">My Fav stories</a></li>
-          </IfAuthenticated>
-        </ul>
-      </div>
-    </nav>
-  </div>
+      
     </>
   )
 }
