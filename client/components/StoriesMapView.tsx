@@ -4,7 +4,9 @@ import Map from './Map'
 function StoriesMapView() {
 
   return <>
-    <Map/>
+    <section className="section">
+      <Map/>
+    </section>
   </>
 }
 
