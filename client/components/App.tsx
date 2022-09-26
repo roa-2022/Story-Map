@@ -11,6 +11,7 @@ import Stories from './Stories'
 import Story from './Story'
 import UpdateStory from './UpdateStory'
 import StoriesMapView from './StoriesMapView'
+import SavedStories from './SavedStories'
 
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
 import { fetchGetRegions} from '../actions/regions'
@@ -60,6 +61,7 @@ function App() {
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />
           <Route path="/map" element={<StoriesMapView />} />
+          <Route path="/saved" element={<SavedStories />} />
         </Routes>
       </section>
     </>

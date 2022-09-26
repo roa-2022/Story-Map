@@ -38,3 +38,21 @@ export function updateStoryAPI(story, token) {
     .catch(logError)
 }
 
+export function addSavedStoryAPI (story, token) {
+  return request
+  .post('/api/v1/saved/')
+  .set('authorization', `Bearer ${token}`)
+  .send(story)
+  .then((res)=> {
+    console.log(res.body) 
+  })
+  .catch(logError)
+}
+
+export function getSavedStoriesAPI (id, token) {
+  return request 
+  .get('/api/v1/saved/' + id)
+  .set('authorization', `Bearer ${token}`)
+  .then((res) => res.body)
+  .catch(logError)
+}

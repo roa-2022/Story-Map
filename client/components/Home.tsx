@@ -10,15 +10,6 @@ function Home() {
       <section className="hero-1 is-fullheight">
         <div className="hero-body">
           <div className="container ">
-<<<<<<< HEAD
-            <div className="columns is-vcentered">
-              <div className="column is-6"></div>
-              <div className="column"></div>
-              
-              <div className="container is-flex-direction-column home-txt-btn">
-                <div className="box bd-notification is-primary is-flex">
-                  <p>
-=======
             <div className="columns ">
               <div className="column is-6">
                 <div className="container is-flex-direction-column home-txt-btn">
@@ -27,7 +18,6 @@ function Home() {
                   </p>
                   <div className=" box bd-notification has-background-light ">
                     <p>
->>>>>>> f5ac58cb4c674d343b90db491b2a8fd586d8b3d5
                     Welcome to Whenua O Korero, "A Land of Your Words". This is
                     a platform for users to share local Maori stories and
                     legends, which are then displayed on a map of New Zealand.

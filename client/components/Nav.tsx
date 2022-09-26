@@ -69,6 +69,12 @@ function Nav() {
                         Add a Story
                       </Link>
                     </IfAuthenticated>
+                    <IfAuthenticated>
+                      <hr className="navbar-divider" />
+                      <Link className="navbar-item" to="/saved">
+                        Saved Stories
+                      </Link>
+                    </IfAuthenticated>
                   </div>
                 </div>
               </div>
@@ -109,34 +115,7 @@ function Nav() {
           </div>
         </nav>
       </div>
-<<<<<<< HEAD
-  <div className="hero-body">
-    <div className="container has-text-centered">
-    <p className="title">Whenua O Korero</p>
- 
-    
-    </div>
-  </div>
-
-  <div className="hero-foot">
-    <nav className="tabs">
-      <div className="container">
-        <ul>         
-          <li><a href="/">Home</a></li>
-          <li><a  href="#">Map</a></li>
-          <li><a href="/stories">Stories</a></li>
-          <IfAuthenticated>
-            <li><a href="/add">Add a Story</a></li>
-            <li><a href="#">My Fav stories</a></li>
-          </IfAuthenticated>
-        </ul>
-      </div>
-    </nav>
-    </div>
-  </div>
-=======
       
->>>>>>> f5ac58cb4c674d343b90db491b2a8fd586d8b3d5
     </>
   )
 }

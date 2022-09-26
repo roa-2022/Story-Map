@@ -7,6 +7,7 @@ import regions from './regions'
 import activepage from './activepage'
 import maoriSearch from './maoriSearch'
 import map from './map'
+import savedStories from './savedStories'
 
 export default combineReducers({
   user,
@@ -15,5 +16,6 @@ export default combineReducers({
   activepage,
   regions,
   maoriSearch,
-  map
+  map,
+  savedStories
 })

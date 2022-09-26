@@ -53,9 +53,6 @@ function Register() {
               <h3 className="subtitle is-3">Create Your Profile</h3>
               <h5 className="subtitle is-5">Please complete the form below to create your profile.</h5>
                 <div className="field">
-<<<<<<< HEAD
-                 
-=======
                   <label className="label">Email</label>
                   <div className="control has-icons-left">
                     <input
@@ -67,7 +64,6 @@ function Register() {
                       <i className="fas fa-envelope"></i>
                     </span>
                   </div>
->>>>>>> f5ac58cb4c674d343b90db491b2a8fd586d8b3d5
                 </div>
 
                 <div className="field">

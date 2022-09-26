@@ -149,10 +149,10 @@ function Stories() {
                 return (
                   // <div className="container has-text-centered">
                   //   <div className="columns is-mobile is-centered">
-                  <div className="column is-4">
+                  <div className="column is-3">
                     <div className="card">
                       <div className="card-image">
-                        <figure className="image is-2by1">
+                        <figure className="image is-4by3">
                           <img src={story.photo_url} alt="Story image" />
                         </figure>
                       </div>

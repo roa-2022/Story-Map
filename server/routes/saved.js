@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     console.error(err.message)
     })
   })
-router.get('/:id',checkJwt, (req, res) => {
+router.get('/:id', (req, res) => {
     const id = req.params.id
 db.getUserSavedStories(id)
 .then((result)=>{
@@ -24,17 +24,13 @@ console.error(err.message)
 })
 })
 router.post('/', async (req, res) => {
+   
     try {
-  
-        // const idObj = {
-        //     story_id: storyId,
-        //     auth0_id: auth0_id,
-        // }
-        // const storyId = idArr[0]
-        const idArr = await db.addSavedStory(req.body)
-      const savedStory = await db.getUserSavedStories(idArr)
-      console.log(savedStory)
-
+        const { story_id, auth0_id } = req.body
+        const data = { story_id, auth0_id }
+        const idArr = await db.addSavedStory(data)
+        const savedStory = await db.getAllUserSavedStories()
+      
       res.json(savedStory)
     } catch (err) {
       res.status(500).json({ message: err.message })
@@ -42,3 +38,4 @@ router.post('/', async (req, res) => {
   })
 
 module.exports = router
+

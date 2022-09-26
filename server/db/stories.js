@@ -35,7 +35,7 @@ function getUserSavedStories(id, db = connection) {
     .join('users', 'users.auth0_id', 'usersStories.auth0_id')
     .join('stories', 'usersStories.story_id', 'stories.id')
     .select('*')
-    .where('stories.id', id)
+    .where('users.auth0_id', id)
 }
 
 function getAllUserSavedStories( db = connection) {
