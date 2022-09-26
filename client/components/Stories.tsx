@@ -74,7 +74,7 @@ function Stories() {
             <form action="">
               <div className="field">
                 <label id="demo-simple-select-label">
-                  Filter By Name (English)
+                  Filter By Region (English)
                 </label>
                 <div className="control">
                   <select
@@ -107,7 +107,7 @@ function Stories() {
               </div>
               <div className="field">
                 <label id="demo-simple-select-label">
-                  Filter By Name (Maori)
+                  Filter By Region (Maori)
                 </label>
                 <div className="control">
                   <select
