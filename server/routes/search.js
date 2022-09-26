@@ -28,11 +28,17 @@ router.get('/maori/:region', (req, res) => {
       })
   })
 
-  router.post('/', async (req, res) => {
+  router.post('/', (req, res) => {
     const  photo_url  = req.body
     const data = { photo_url }
-    await db.addStory(data)
-    await db.getStories()
+    .then(()=> {
+      db.addStory(data)
+
+    }) 
+    .then(()=> {
+      db.getStories()
+    })
+      
     res.json(req.body)
   })
 

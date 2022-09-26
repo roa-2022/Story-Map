@@ -9,7 +9,7 @@ function Register() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [form, setForm] = useState({
-    username: '',
+    username: ''
   })
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -20,7 +20,7 @@ function Register() {
   const handleChange = (evt) => {
     setForm({
       ...form,
-      [evt.target.name]: evt.target.value,
+      [evt.target.name]: evt.target.value
     })
   }
 
@@ -29,7 +29,7 @@ function Register() {
     const userInfo = {
       auth0_id: user.auth0_id,
       email: user.email,
-      ...form,
+      ...form
     }
     addUser(userInfo, user.token)
       .then(() => dispatch(updateLoggedInUser(userInfo)))
@@ -42,11 +42,11 @@ function Register() {
 
   return (
     <>
-      <div className="container">
-        <div className="notification m-6">
-          {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
-          <form onSubmit={handleSubmit}>
-            {/* <label htmlFor="username">Username:</label>
+    <div className="container">
+      <div className="notification m-6">
+      {errorMsg && <p onClick={hideError}>Error: {errorMsg}</p>}
+      <form onSubmit={handleSubmit}>
+        {/* <label htmlFor="username">Username:</label>
         <input
           type="text"
           id="username"
