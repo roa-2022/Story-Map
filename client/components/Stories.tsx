@@ -111,12 +111,12 @@ export default function Search() {
 
         {/* {/* Card section */}
         <div className="container">
-          <div className="notification is-flex is-flex-wrap-wrap">
-            {region.length == 0 &&
+        <div className="cards-container">
+         {region.length == 0 &&
               stories.map((story) => {
                 return (
                   <>
-                    <div className="column is-4">
+                    <div className="column is-3">
                       <div className="card">
                         <div className="card-image">
                           <figure className="image is-4by3">
