@@ -16,8 +16,9 @@ import { useCacheUser } from '../auth0-utils'
 
 import { getUser } from '../apis/users'
 
-import { fetchStories } from '../actions/index'
-import { fetchGetRegions } from '../actions/regions'
+import  { fetchStories } from '../actions/index'
+import { fetchGetRegions} from '../actions/regions'
+import Search from './Search'
 
 function App() {
   useCacheUser()
@@ -56,7 +57,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/stories" element={<Stories />} />
+          <Route path="/stories" element={<Search />} />
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />

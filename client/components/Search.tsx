@@ -9,7 +9,7 @@ import {
 } from '../actions/search'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
-function Stories() {
+export default function Search() {
   const stories = useSelector((state: any) => state.stories)
 
   useEffect(() => {
@@ -372,5 +372,3 @@ function Stories() {
     </>
     )
 }
-
-export default Stories
