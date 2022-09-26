@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,16 +9,18 @@ function AddStory() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const [dataForm, setDataForm] = useState({})
+
+
   const token =useSelector((store: any)=> store.user.token)
   const allRegions = useSelector((store: any) => store.regions)
-  const viewCoordinates = useSelector((state: any) => state.map)
-  
-  const [dataForm, setDataForm] = useState({})
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch(fetchAddStory(dataForm, token))
-    navigate('/')
+    navigate('/stories')
+
+   
   }
 
   const handleChange = (e) => {
