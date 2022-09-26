@@ -19,21 +19,12 @@ router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getOneStory(id)
     .then((result) => {
-      console.log(result)
       res.json(result)
     })
     .catch((err) => {
       console.log(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
-  // db.getOneStory(id)
-  //   .then((result) => {
-  //     res.json(result)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //     res.status(500).json({ message: 'Something went wrong' })
-  //   })
 })
 
 // Add Story

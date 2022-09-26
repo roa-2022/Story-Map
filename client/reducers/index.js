@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+import search from './search'
 import stories from './stories'
 import addStory from './addstory'
 import user from './loggedInUser'

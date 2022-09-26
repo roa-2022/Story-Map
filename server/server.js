@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 
+const searchRoutes = require('./routes/search')
 const storiesRoutes = require('./routes/stories')
 const userRoutes = require('./routes/users')
 const regionsRoutes = require('./routes/regions')
