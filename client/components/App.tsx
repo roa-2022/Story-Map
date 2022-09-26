@@ -15,7 +15,6 @@ import { useCacheUser } from '../auth0-utils'
 
 import { getUser } from '../apis/users'
 
-
 import  { fetchStories } from '../actions/index'
 import { fetchGetRegions} from '../actions/regions'
 import Search from './Search'
