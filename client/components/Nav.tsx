@@ -25,7 +25,7 @@ function Nav() {
       <div className="">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="container">
-            <div className="navbar-brand">
+            {/* <div className="navbar-brand">
               <Link className="navbar-item" to="/">
                 <img
                   src="https://bulma.io/images/bulma-logo.png"
@@ -44,7 +44,7 @@ function Nav() {
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
               </a>
-            </div>
+            </div> */}
 
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-start">
