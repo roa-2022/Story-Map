@@ -1,24 +1,33 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { Auth0Provider } from '@auth0/auth0-react'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-
-import reducers from './reducers'
 import App from './components/App'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
+import store from './store'
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>,
+  ReactDOM.render(
+    /**
+     * Auth0Provider is a component that has a hook that provides
+     * all authorization operations
+     *
+     * TODO: replace the empty strings below with your own domain, clientId, and audience
+     */
+    <Auth0Provider
+      domain="roa-2022-amy1.au.auth0.com"
+      clientId="HdzEPlCSYW22Wq2GPBCxomFKm8xeIZfd"
+      redirectUri={window.location.origin}
+      audience="https://storymap/api"
+    >
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    </Auth0Provider>,
     document.getElementById('app')
   )
 })
