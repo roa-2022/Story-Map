@@ -57,7 +57,7 @@ function Nav() {
                   <a className="navbar-link">Stories</a>
 
                   <div className="navbar-dropdown">
-                    <Link className="navbar-item" to="#">
+                    <Link className="navbar-item" to="/stories/map">
                       Search Story Map
                     </Link>
                     <Link className="navbar-item" to="/stories">
