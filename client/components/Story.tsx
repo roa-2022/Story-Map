@@ -1,29 +1,47 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchOneStory } from '../actions/index'
+import { deleteStory } from '../apis/story'
+import Map from './Map'
 
 function Story() {
   const { id } = useParams()
-  console.log(id)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
   const story = storyArr[0]
-  console.log(story?.photo_url)
+  const token = useSelector((state: any) => state.user.token)
+
+  const handleDelete = () => {
+    deleteStory(id, token)
+    navigate('/stories')
+  }
+
   useEffect(() => {
     dispatch(fetchOneStory(id))
   }, [])
 
   return (
     <>
-      <div>
-        <h2>{story?.title}</h2>
-        <img src={story?.photo_url} />
-        <p>{story?.author}</p>
-        <p>{story?.story_text}</p>
-        <p>{story?.eng_name}</p>
-        <p>{story?.maori_name}</p>
-      </div>
+      {story && (
+        <div>
+          <Link to={`/stories`} key={story.id}>
+            <h2>{story.title}</h2>
+          </Link>
+          <p>
+            {story.maori_name} aka {story.eng_name}
+          </p>
+          <p>{story.author}</p>
+          <p>{story.story_text}</p>
+          <img src={story.photo_url} />
+          <button onClick={handleDelete}>Delete Story</button>
+          <button onClick={() => navigate('/stories/{story.id}/update')}>
+            Update Story
+          </button>
+          <Map />
+        </div>
+      )}
     </>
   )
 }

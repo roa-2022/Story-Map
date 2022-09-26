@@ -1,27 +1,20 @@
 import request from 'superagent'
 
-const rootUrl = '/api/v1/stories/'
+const rootUrl = '/api/v1'
 
-export function getOneStory(id) {
-  return request.get(rootUrl + id).then((res) => {
-    return res.body
-  })
-}
-
-export function deleteStory(id, token) {
+export function getUser(token) {
   return request
-    .delete(rootUrl + id)
-    .set('authorization', `Bearer ${token}`)
+    .get(`${rootUrl}/users`)
+    .set('Authorization', `Bearer ${token}`)
     .then((res) => res.body)
     .catch(logError)
 }
 
-export function updateStory(story, token) {
+export function addUser(user, token) {
   return request
-    .put(rootUrl)
-    .set('authorization', `Bearer ${token}`)
-    .send({ story })
-    .then((res) => res.body)
+    .post(`${rootUrl}/users`)
+    .set('Authorization', `Bearer ${token}`)
+    .send(user)
     .catch(logError)
 }
 

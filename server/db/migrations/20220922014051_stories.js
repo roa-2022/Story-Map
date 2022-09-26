@@ -4,13 +4,15 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('stories', (table) => {
-    table.increments('id')
+    table.increments('id').primary()
+    table.string('auth0_id')
     table.string('author')
     table.string('title')
     table.string('synopsis')
-    table.text('story_text')
-    table.string('photo_url')
-    table.string('location')
+    table.string('story_text')
+    table.binary('photo_url')
+    table.decimal('longitude')
+    table.decimal('latitude')
   })
 }
 

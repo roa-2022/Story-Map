@@ -2,6 +2,15 @@ import { getOneStory, getStories } from '../apis/stories'
 
 export const SET_STORY = 'SET_STORY'
 export const SET_STORIES = 'SET_STORIES'
+export const NAVIGATE = 'NAVIGATE'
+export const UPDATE_STORIES = 'UPDATE_STORIES'
+
+export function navigate(destination) {
+  return {
+    type: NAVIGATE,
+    payload: destination, // 'home' or 'story'
+  }
+}
 
 export function setStory(story) {
   return {
