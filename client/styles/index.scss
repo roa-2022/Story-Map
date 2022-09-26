@@ -26,7 +26,25 @@
 
 
 
-// div{
-//   border: 1px solid pink;
-// }
+div{
+  border: 1px solid pink;
+}
+
+.hero .is-fullheight{
+  background: rgb(99, 72, 72);
+}
+
+.hero-1 {
+  @extend .hero;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg')
+};
+
+.hero-1 {
+  @extend .hero;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('../../server/public/images/lake-view.jpg')
+};
 

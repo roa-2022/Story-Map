@@ -7,14 +7,14 @@ function Home() {
   const externalImage = 'https://picsum.photos/id/128'
   return (
     <>
-      <section className="hero has-background-primary-light is-fullheight">
+      <section className="hero  home-hero-img is-fullheight">
         <div className="hero-body">
           <div className="container ">
             <div className="columns is-vcentered">
               <div className="column is-6">{/* fist column  */}</div>
               <div className="column"></div>
               <div className="container is-flex-direction-column home-txt-btn">
-                <div className="box bd-notification is-primary">
+                <div className=" box bd-notification is-primary">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Libero suscipit nihil quo, a magnam enim itaque cumque odio

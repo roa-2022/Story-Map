@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
-import Home from './Home'
+import Home from './Copy-Home'
 import Stories from './Stories'
 import Story from './Story'
 import AddStory from './AddStory'

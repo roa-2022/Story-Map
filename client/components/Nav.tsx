@@ -48,16 +48,13 @@ function Nav() {
 
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-start">
-                <Link className="navbar-item is-active" to="/">
-                  <b>Home</b>
+                <Link className="navbar-item is-hoverable" to="/">
+                  Home
                 </Link>
-
-                {/* <Link className="navbar-item" to="/stories">
-                Stories
-              </Link> */}
+              
 
                 <div className="navbar-item has-dropdown is-hoverable">
-                  <a className="navbar-link"><b>Stories</b></a>
+                  <a className="navbar-link">Stories</a>
 
                   <div className="navbar-dropdown">
                     <Link className="navbar-item" to="#">
