@@ -1,49 +1,41 @@
-import { addStory, search, searchMaori } from '../apis/search'
+import { searchAPI, searchMaoriRegionAPI } from '../apis/search'
 
 export const SEARCH_REGION = 'SEARCH_REGION'
-export const ADD_SAVED = 'ADD_SAVED'
-export const MAORI_SAVED = 'MAORI_SAVED'
+export const MAORI_SEARCH = 'MAORI_SEARCH'
 
 export function searchRegion (region) {
-    return {
-      type: SEARCH_REGION,
-      payload: region
-    }
-}
-export function addNewStory (story) {
   return {
-    type: ADD_SAVED,
-    payload: story
-  }
-}
-
-export function maoriRegion (region) {
-  return {
-    type: MAORI_SAVED,
+    type: SEARCH_REGION,
     payload: region
   }
 }
 
-export function fetchAddedStory (data) {
-  return async (dispatch) => {
-    const result = await addStory(data)
-    dispatch(addNewStory(result))
-    console.log('actions', data)
-    console.log('actions', result)
+export function searchMaoriRegion (region) {
+  return {
+    type: MAORI_SEARCH,
+    payload: region
   }
 }
 
 export function fetchSearchedRegions (data) {
-    return async (dispatch) => {
-      const result = await search(data)
+  return async (dispatch) => {
+    try {
+      const result = await searchAPI(data)
       dispatch(searchRegion(result))
+    } catch (err) {
+      console.error(err.message)
     }
+  }
 }
 
-export function fetchMaoriSearchedRegions (data) {
+export function fetchSearchedMaoriRegions (data) {
   return async (dispatch) => {
-    const result = await searchMaori(data)
-    dispatch(maoriRegion(result))
-    console.log(result)
+    try {
+    const result = await searchMaoriRegionAPI(data)
+    dispatch(searchMaoriRegion(result))
+  } catch (err) {
+    console.error(err.message)
   }
+
+}
 }

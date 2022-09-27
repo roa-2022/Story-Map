@@ -1,8 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable('saved_stories', (table) => {
     table.increments('id')
-    table.integer('story_id').references('stories.id')
-    table.integer('user_id').references('users.id')
+    table.integer('auth0_id')
+    table.integer('story_id')
+
   })
 }
 

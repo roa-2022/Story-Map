@@ -11,7 +11,7 @@ router.get('/eng/:region', (req, res) => {
         res.json(results)
     })
     .catch((err) => {
-        console.log(err.message)
+        console.error(err.message)
         res.status(500).json({ message: 'Something went wrong' })
     })
 })
@@ -23,7 +23,7 @@ router.get('/maori/:region', (req, res) => {
         res.json(results)
       })
       .catch((err) => {
-        console.log(err)
+        console.error(err)
         res.status(500).json({ message: 'Something went wrong' })
       })
   })

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-import { Link } from 'react-router-dom'
 
 function Nav() {
   const user = useSelector((state: any) => state?.user)
@@ -25,27 +25,6 @@ function Nav() {
       <div className="">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="container">
-            {/* <div className="navbar-brand">
-              <Link className="navbar-item" to="/">
-                <img
-                  src="https://bulma.io/images/bulma-logo.png"
-                  width="112"
-                  height="28"
-                />
-              </Link>
-              <a
-                role="button"
-                className="navbar-burger"
-                aria-label="menu"
-                aria-expanded="false"
-                data-target="navbarMenuHeroA"
-              >
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div> */}
-
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-start">
                 <Link className="navbar-item is-hoverable" to="/">
@@ -68,6 +47,11 @@ function Nav() {
                         Add a Story
                       </Link>
                     </IfAuthenticated>
+                    <IfAuthenticated>
+                      <Link className="navbar-item" to="/saved">
+                        Saved Stories
+                      </Link>
+                    </IfAuthenticated>
                   </div>
                 </div>
               </div>
@@ -80,23 +64,23 @@ function Nav() {
                     <Link
                       to="/"
                       onClick={handleSignIn}
-                      className="button is-primary is-light"
+                      className="button is-info"
                     >
                       <strong>Sign up</strong>
                     </Link>
                     <Link
                       to="/"
                       onClick={handleSignIn}
-                      className="button is-light"
+                      className="button is-link"
                     >
-                      Log in
+                      <b>Log in</b>
                     </Link>
                   </div>
                 </IfNotAuthenticated>
                 <IfAuthenticated>
                   <p className="navbar-item">Hi! {user?.username}</p>
                   <Link
-                    className="button is-light"
+                    className="button is-link"
                     to="/"
                     onClick={handleLogOff}
                   >

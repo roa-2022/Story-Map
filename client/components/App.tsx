@@ -1,25 +1,23 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-
 import { useDispatch } from 'react-redux'
+import { useAuth0 } from '@auth0/auth0-react'
+
+import AddStory from './AddStory'
 import Home from './Home'
+import Nav from './Nav'
+import Register from './Register'
 import Stories from './Stories'
 import Story from './Story'
-import AddStory from './AddStory'
-import Register from './Register'
-import Nav from './Nav'
 import UpdateStory from './UpdateStory'
 import StoriesMapView from './StoriesMapView'
+import SavedStories from './SavedStories'
 
-import { useAuth0 } from '@auth0/auth0-react'
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
-import { useCacheUser } from '../auth0-utils'
-
+import { fetchGetRegions } from '../actions/regions'
+import { fetchStories } from '../actions/stories'
 import { getUser } from '../apis/users'
-
-import  { fetchStories } from '../actions/index'
-import { fetchGetRegions} from '../actions/regions'
-import Search from './Search'
+import { useCacheUser } from '../auth0-utils'
 
 function App() {
   useCacheUser()
@@ -58,11 +56,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/stories" element={<Search />} />
+          <Route path="/stories" element={<Stories />} />
           <Route path="/stories/:id" element={<Story />} />
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />
           <Route path="/map" element={<StoriesMapView />} />
+          <Route path="/saved" element={<SavedStories />} />
         </Routes>
       </section>
     </>

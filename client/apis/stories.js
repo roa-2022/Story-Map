@@ -1,56 +1,44 @@
 import request from 'superagent'
+import { logError } from '../auth0-utils'
 
-const rootUrl = '/api/v1/stories/'
-
-export function getOneStory(id) {
-  return request.get(rootUrl + id).then((res) => {
-    return res.body
-  })
+export async function getOneStoryAPI(id) {
+  const res = await request.get('/api/v1/stories/' + id)
+  return res.body
 }
 
-export function getStories() {
-  return request.get(rootUrl).then((res) => {
-    return res.body
-  })
+export async function getStoriesAPI() {
+  const res = await request.get('/api/v1/stories/')
+  return res.body
 }
 
-// Add a Story
-
-export async function addStoryApi(data, token) {
+export async function addStoryAPI(data, token) {
   const res = await request
-    .post(rootUrl)
+    .post('/api/v1/stories/')
     .set('authorization', `Bearer ${token}`)
     .send(data)
   return res.body
 }
 
-export function deleteStory(id, token) {
-  return request
-    .delete(rootUrl + id)
-    .set('authorization', `Bearer ${token}`)
-    .then((res) => res.body)
-    .catch(logError)
-}
-
-export function updateStory(story, token) {
-  return request
-    .put(rootUrl)
-    .set('authorization', `Bearer ${token}`)
-    .send({ story })
-    .then((res) => res.body)
-    .catch(logError)
-}
-
-function logError(err) {
-  if (err.response.text === 'Username Taken') {
-    throw new Error('Username already taken - please choose another')
-  } else if (err.message === 'Forbidden') {
-    throw new Error(
-      'Only the user who added the story may update and delete it'
-    )
-  } else {
-    // eslint-disable-next-line no-console
-    console.error('Error consuming the API (in client/api.js):', err.message)
-    throw err
+export async function deleteStoryAPI(id, token) {
+  try {
+    const res = await request
+      .delete('/api/v1/stories/' + id)
+      .set('authorization', `Bearer ${token}`)
+    return res.body
+  } catch (err) {
+    return logError(err)
   }
 }
+
+export async function updateStoryAPI(story, token) {
+  try {
+    const res = await request
+      .put('/api/v1/stories/')
+      .set('authorization', `Bearer ${token}`)
+      .send({ story })
+    return res.body
+  } catch (err) {
+    return logError(err)
+  }
+}
+
