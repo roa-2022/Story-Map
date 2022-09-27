@@ -48,8 +48,7 @@ function Nav() {
                         Add a Story
                       </Link>
                     </IfAuthenticated>
-                    <IfAuthenticated>
-                      <hr className="navbar-divider" />
+                    <IfAuthenticated>                  
                       <Link className="navbar-item" to="/saved">
                         Saved Stories
                       </Link>

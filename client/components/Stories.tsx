@@ -21,20 +21,6 @@ export default function Search() {
   useEffect(() => {
     dispatch(fetchStories())
   }, [])
-  // const [files, setFiles]: any = useState([])
-  // const [imageURLs, setImageURLs]: any = useState([])
-
-
-  // const fileSelector = (imageList) => {
-  //   setFiles([...imageList.target.files])
-  // }
-
-  // const fileUploader = async () => {
-  //   if (files.length < 1) return
-  //   const newImageUrls: any = []
-  //   files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
-  //   await setImageURLs(newImageUrls)
-  //   console.log(newImageUrls)
 
   const changeHandlerEng = (e) => {
     setRegion(e.target.value as string)
@@ -110,7 +96,13 @@ export default function Search() {
                       <div className="card">
                         <div className="card-image">
                           <figure className="image is-4by3">
+                          <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`/stories/${story.id}`}
+                                key={story.id}
+                              >
                             <img src={story.photo_url} alt="Story image" />
+                            </Link>
                           </figure>
                         </div>
                         <div className="card-content">

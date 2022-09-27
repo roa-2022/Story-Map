@@ -9,7 +9,6 @@ import { deleteStoryAPI } from '../apis/story'
 import { fetchAddSavedStory } from '../actions/addStory'
 import { addSavedStoryAPI } from '../apis/stories'
 
-
 function Story() {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -25,7 +24,7 @@ function Story() {
   }
   const addSaved = () => {
     dispatch(fetchAddSavedStory(story, token))
-    console.log(savedStories);
+    console.log(savedStories)
   }
 
   useEffect(() => {
@@ -34,25 +33,54 @@ function Story() {
 
   return (
     <>
-      {story && (
-        <div>
-          <Link to={`/stories`} key={story.id}>
-            <h2>{story.title}</h2>
-          </Link>
-          <p>
-            {story.maori_name} aka {story.eng_name}
-          </p>
-          <p>{story.author}</p>
-          <p>{story.story_text}</p>
-          <img src={story.photo_url} />
-          <button onClick={addSaved}>Add to Saved Stories</button>
-          <button onClick={handleDelete}>Delete Story</button>
-          <button onClick={() => navigate('/stories/{story.id}/update')}>
-            Update Story
-          </button>
-         
+      <section className="container search-view  ">
+        <div className="container ">
+          {story && (
+            <div className="container story-text">
+
+              <p className="story-title title p-2 mt-6"> The story of:  <span className="subtitle p-4">{story.title}</span></p>
+     
+             
+              <p className="p-4">
+                <b>Region: </b>
+                {story.maori_name} <b> - Aka - </b> {story.eng_name}
+              </p>
+              <p className="p-4">
+                <b>Sent by: </b>
+                {story.author}
+              </p>
+              <div className="container-grid-story  container is-flex ">       
+                <p className= "p-4">{story.story_text}</p>
+                <div className="img-btn-box">
+                  <figure className='is-flex is-justify-content-center '>
+                    <img className="story-img" src={story.photo_url} />
+                  </figure>
+                </div>
+              </div>
+              <div className="btns is-flex is-align-content-center">
+                <button
+                  className="button is-primary is-light mr-2"
+                  onClick={addSaved}
+                >
+                  <i className="fa-regular fa-heart mx-3"></i>Save
+                </button>
+                <button
+                  className="button is-danger is-light mr-5"
+                  onClick={handleDelete}
+                ><i className="fa-regular fa-trash-can mx-3"></i>
+                  Delete
+                </button>
+                <button
+                  className="button is-info is-light mr-2"
+                  onClick={() => navigate('/stories/{story.id}/update')}
+                ><i className="fa-regular fa-pen-to-square mx-3"></i>
+                  Update
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </section>
     </>
   )
 }
