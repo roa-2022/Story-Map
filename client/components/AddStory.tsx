@@ -16,7 +16,6 @@ function AddStory() {
   const [dataForm, setDataForm] = useState({})
 
   const handleSubmit = async (e) => {
-    console.log(dataForm)
     e.preventDefault()
     setDataForm({
       ...dataForm,

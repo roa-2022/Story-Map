@@ -14,8 +14,7 @@ function Story() {
   const savedStories = useSelector((state: any) => state.savedStories)
   const story = storyArr[0]
   const token = useSelector((state: any) => state.user.token)
-  const user = useSelector((state: any) => state.user)
-  console.log(story)
+  const user = useSelector((state: any) => state.user.auth0_id)
 
   const handleDelete = () => {
     deleteStoryAPI(id, token)
@@ -23,11 +22,9 @@ function Story() {
   }
   const addSaved = () => {
     dispatch(fetchAddSavedStory(story, token))
-    console.log(savedStories)
   }
 
   useEffect(() => {
-    console.log(user)
     dispatch(fetchOneStory(id))
   }, [])
 
@@ -63,7 +60,7 @@ function Story() {
                 >
                   <i className="fa-regular fa-heart mx-3"></i>Save
                 </button>
-                {user === story.auth0_id && (
+                {user == story.auth0_id && (
                   <button
                     className="button is-danger is-light mr-5"
                     onClick={handleDelete}
@@ -72,7 +69,7 @@ function Story() {
                     Delete
                   </button>
                 )}
-                {user === story.auth0_id && (
+                {user == story.auth0_id && (
                   <button
                     className="button is-info is-light mr-2"
                     onClick={() => navigate('/stories/{story.id}/update')}
