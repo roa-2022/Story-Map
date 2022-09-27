@@ -32,17 +32,15 @@ function getStoriesByUser(db = connection) {
 
 function getUserSavedStories(id, db = connection) {
   return db('usersStories')
-    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
     .join('stories', 'usersStories.story_id', 'stories.id')
     .select('*')
-    .where('users.auth0_id', id)
+    .where('usersStories.auth0_id', id)
 }
 
 function getAllUserSavedStories( db = connection) {
   return db('usersStories')
-    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
     .join('stories', 'usersStories.story_id', 'stories.id')
-    .select('*')
+    .select('*', 'usersStories.id AS id')
 }
 
 function addSavedStory (obj, db = connection) {   
@@ -57,6 +55,11 @@ function deleteStory(id, db = connection) {
 function updateStory(newStory, db = connection) {
   return db('stories').where('id', newStory.id).update(newStory)
 }
+
+function deleteSaved(id, db = connection) {
+  return db('usersStories').where('id', id).delete()
+}
+
 
 function userCanEdit(storyId, auth0Id, db = connection) {
   return db('stories')
@@ -80,5 +83,6 @@ module.exports = {
   userCanEdit,
   getUserSavedStories, 
   getAllUserSavedStories,
-  addSavedStory
+  addSavedStory,
+  deleteSaved
 }

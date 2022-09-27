@@ -15,8 +15,8 @@ function Story() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
-  const savedStories = useSelector((state: any) => state.savedStories)
   const story = storyArr[0]
+  const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
 
   const handleDelete = () => {
@@ -24,8 +24,9 @@ function Story() {
     navigate('/stories')
   }
   const addSaved = () => {
+    console.log('adding');
     dispatch(fetchAddSavedStory(story, token))
-    console.log(savedStories);
+    navigate('/stories')
   }
 
   useEffect(() => {
