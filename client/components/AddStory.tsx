@@ -138,6 +138,20 @@ function AddStory() {
                 />
               </div>
             </div>
+
+            <div className="field">
+              <label htmlFor="photo_url" className="label">
+                photo_url
+              </label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  name="photo_url"
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
             <div className="field">
               <label htmlFor="story_text" className="label">
                 Type Story:{' '}

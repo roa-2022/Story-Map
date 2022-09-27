@@ -31,11 +31,19 @@ router.post('/', checkJwt, async (req, res) => {
   try {
     const auth0_id = req.user?.sub
 
-    const { title, author, synopsis, story_text, latitude, longitude } =
-      req.body
+    const {
+      title,
+      author,
+      synopsis,
+      story_text,
+      latitude,
+      longitude,
+      photo_url,
+    } = req.body
     const { region_id } = req.body
 
     const storyData = {
+      photo_url,
       title,
       author,
       synopsis,

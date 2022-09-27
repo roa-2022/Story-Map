@@ -57,7 +57,6 @@ export function fetchSavedStories(id, token) {
     try {
       const results = await getSavedStoriesAPI(id, token)
       dispatch(setSaved(results))
-      console.log(object)
     } catch (err) {
       console.error(err.message)
     }
