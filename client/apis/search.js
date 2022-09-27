@@ -23,11 +23,3 @@ export async function addStory(story){
   return res.body
 }
 
-// export async function search (regionmaori) {
-// try {
-//     const res = await request.get(`/api/search/${regionmaori}`);
-//     return res.body;
-// } catch (err) {
-//     console.log("Error in search API: " + err.message);
-// }
-// }

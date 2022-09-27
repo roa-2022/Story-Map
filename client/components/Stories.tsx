@@ -14,7 +14,7 @@ export default function Search() {
 
   useEffect(() => {
     dispatch(fetchStories())
-  }, [])
+  }, [stories])
 
   const [region, setRegion] = useState('')
   const [toggle, setToggle]: any = useState(false)
