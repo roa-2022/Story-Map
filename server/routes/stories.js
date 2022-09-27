@@ -20,7 +20,6 @@ router.get('/:id', (req, res) => {
   db.getOneStory(id)
     .then((result) => {
       res.json(result)
-      console.log('result', result)
     })
     .catch((err) => {
       console.log(err)
@@ -49,13 +48,11 @@ router.post('/', checkJwt, async (req, res) => {
     const idArr = await db.addStory(storyData)
     const storyIdObj = idArr[0]
     const storyId = storyIdObj.id
-    console.log('storyId', storyId)
     const idObj = {
       story_id: storyId,
       region_id: Number(region_id),
     }
     const getNewStory = await db.getOneStory(storyId)
-    console.log(getNewStory)
     res.json(getNewStory)
     await db.addStoryRegions(idObj)
   } catch (err) {
