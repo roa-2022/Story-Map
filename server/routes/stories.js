@@ -58,7 +58,7 @@ router.post('/', checkJwt, async (req, res) => {
     }
     await db.addStoryRegions(idObj)
     const getNewStory = await db.getOneStory(storyId)
-
+    console.log(getNewStory)
     res.json(getNewStory)
   } catch (err) {
     res.status(500).json({ message: err.message })
