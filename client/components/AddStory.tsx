@@ -154,9 +154,7 @@ function AddStory() {
               <input type="text" name="longitude" onChange={handleChange} />
             </div>
             <div>
-              <a href="/stories">
-                <button className="btn-add-venue">Add</button>
-              </a>
+              <button className="btn-add-venue">Add</button>
             </div>
           </form>
         </div>
