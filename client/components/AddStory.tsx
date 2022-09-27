@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import MapForPlacingMarker from './MapForPlacingMarker'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
@@ -16,6 +17,11 @@ function AddStory() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setDataForm({
+      ...dataForm,
+      'latitude': viewCoordinates.latitude,
+      'longitude': viewCoordinates.longitude
+    })
     await dispatch(fetchAddStory(dataForm, token))
     navigate('/stories')
   }
@@ -24,6 +30,8 @@ function AddStory() {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
+      'latitude': viewCoordinates.latitude,
+      'longitude': viewCoordinates.longitude
     })
   }
 
@@ -106,12 +114,12 @@ function AddStory() {
                 />
               </div>
             </div>
-           
+            <MapForPlacingMarker />
             <div>
               <label htmlFor="latitude">Latitude: </label>
-              <input type="text" name="latitude" onChange={handleChange} />
+              <input type="text" name="latitude" value={viewCoordinates.latitude} readOnly />
               <label htmlFor="longitude">Longitude: </label>
-              <input type="text" name="longitude" onChange={handleChange} />
+              <input type="text" name="longitude" value={viewCoordinates.longitude} readOnly />
             </div>
             <div>
               <button className="btn-add-venue">Add</button>

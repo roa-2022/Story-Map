@@ -48,8 +48,7 @@ function Nav() {
                         Add a Story
                       </Link>
                     </IfAuthenticated>
-                    <IfAuthenticated>
-                      <hr className="navbar-divider" />
+                    <IfAuthenticated>                  
                       <Link className="navbar-item" to="/saved">
                         Saved Stories
                       </Link>
@@ -66,23 +65,24 @@ function Nav() {
                     <Link
                       to="/"
                       onClick={handleSignIn}
-                      className="button is-primary is-light"
+                      className="button is-info"
                     >
                       <strong>Sign up</strong>
                     </Link>
                     <Link
                       to="/"
                       onClick={handleSignIn}
-                      className="button is-light"
-                    >
+                      className="button is-link"
+                    ><b>
                       Log in
+                    </b>
                     </Link>
                   </div>
                 </IfNotAuthenticated>
                 <IfAuthenticated>
                   <p className="navbar-item">Hi! {user?.username}</p>
                   <Link
-                    className="button is-light"
+                    className="button is-link"
                     to="/"
                     onClick={handleLogOff}
                   >

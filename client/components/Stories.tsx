@@ -21,25 +21,11 @@ export default function Search() {
   const token = useSelector((state: any) => state.user.token)
   
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(fetchStories())
     dispatch(fetchSavedStories())
   }, [])
-  // const [files, setFiles]: any = useState([])
-  // const [imageURLs, setImageURLs]: any = useState([])
-
-
-  // const fileSelector = (imageList) => {
-  //   setFiles([...imageList.target.files])
-  // }
-
-  // const fileUploader = async () => {
-  //   if (files.length < 1) return
-  //   const newImageUrls: any = []
-  //   files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
-  //   await setImageURLs(newImageUrls)
-  //   console.log(newImageUrls)
 
   const changeHandler = (e) => {
     setRegion(e.target.value as string)
@@ -55,13 +41,17 @@ export default function Search() {
     <>
       <section className="search-view hero-body is-fullwidth has-text-centered ">
         <div className="container is-fluid has-text-left m-1 p-1">
-          <p className='subtitle is-size-1-desktop has-text-weight-light'> Select Stories by Region</p>
+          <p className="subtitle is-size-1-desktop has-text-weight-light">
+            {' '}
+            Select Stories by Region
+          </p>
           <form>
             <div className="field py-4">
               <label id="label ">Filter</label>
               <div className="control">
                 <div className="select">
-                  <select className='p-1"'
+                  <select
+                    className='p-1"'
                     id="demo-simple-select"
                     onChange={changeHandler}
                     
@@ -90,13 +80,15 @@ export default function Search() {
                 </div>
               </div>
             </div>
+            <Link to="/add" className="button is-success">
+              Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
+            </Link>
           </form>
-        
         </div>
 
         <div className="container">
-        <div className="cards-container">
-         {region.length == 0 &&
+          <div className="cards-container">
+            {region.length == 0 &&
               stories.map((story) => {
                 return (
                   <>
@@ -104,7 +96,13 @@ export default function Search() {
                       <div className="card">
                         <div className="card-image">
                           <figure className="image is-4by3">
-                            <img src={story.photo_url} alt="Story image" />
+                            <Link
+                              style={{ textDecoration: 'none' }}
+                              to={`/stories/${story.id}`}
+                              key={story.id}
+                            >
+                              <img src={story.photo_url} alt="Story image" />
+                            </Link>
                           </figure>
                         </div>
                         <div className="card-content">
