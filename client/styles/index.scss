@@ -6,6 +6,9 @@
 // Import custom variables and Bulma overides
 @import "./variables.scss";
 
+// views Style
+@import './story.scss';
+
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/base/_all.sass";
