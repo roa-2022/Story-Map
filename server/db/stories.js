@@ -29,31 +29,42 @@ function getStoriesByUser(db = connection) {
     .select()
 }
 
-function getUserSavedStories(id, db = connection) {
-  return db('usersStories')
-    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
-    .join('stories', 'usersStories.story_id', 'stories.id')
-    .select('*')
-    .where('users.auth0_id', id)
-}
-
-function getAllUserSavedStories(db = connection) {
-  return db('usersStories')
-    .join('users', 'users.auth0_id', 'usersStories.auth0_id')
-    .join('stories', 'usersStories.story_id', 'stories.id')
-    .select('*')
-}
-
-function addSavedStory(obj, db = connection) {
-  return db('usersStories').insert(obj)
-}
-
 function deleteStory(id, db = connection) {
   return db('stories').where('id', id).delete()
 }
 
 function updateStory(newStory, db = connection) {
   return db('stories').where('id', newStory.id).update(newStory)
+}
+
+function getUserSavedStories(auth0_id, db = connection) {
+  return db('usersStories')
+    .join('stories', 'usersStories.story_id', 'stories.id')
+    .select(
+      '*',
+      'usersStories.id AS id',
+      'usersStories.auth0_id AS usersSavedAuth0Id'
+    )
+
+    .where('usersStories.auth0_id', auth0_id)
+}
+
+function getAllUserSavedStories(db = connection) {
+  return db('usersStories')
+    .join('stories', 'usersStories.story_id', 'stories.id')
+    .select(
+      '*',
+      'usersStories.id AS id',
+      'usersStories.auth0_id AS usersSavedAuth0Id'
+    )
+}
+
+function addSavedStory(obj, db = connection) {
+  return db('usersStories').insert(obj)
+}
+
+function deleteSaved(id, db = connection) {
+  return db('usersStories').where('id', id).delete()
 }
 
 function userCanEdit(storyId, auth0Id, db = connection) {
@@ -79,4 +90,5 @@ module.exports = {
   getUserSavedStories,
   getAllUserSavedStories,
   addSavedStory,
+  deleteSaved,
 }

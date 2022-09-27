@@ -1,17 +1,29 @@
-import { ADD_SAVED, SET_SAVED } from "../actions/addStory"
+import { ADD_SAVED, SET_SAVED, DEL_SAVED } from '../actions/savedStories'
 
 const initialState = []
 
 const reducer = (state = initialState, action) => {
-    const { type, payload } = action
-    switch (type) {
+  const { type, payload } = action
+  switch (type) {
     case SET_SAVED:
-        return payload
+      console.log('reducer', payload)
+      return payload
     case ADD_SAVED:
-        return [...state, payload[payload.length-1]]
+      // eslint-disable-next-line no-case-declarations
+      let story = state.find(
+        (story) => story.story_id == payload.map((v) => v.story_id)
+      )
+      if (story) {
+        return [...state]
+      } else {
+        return [...state, payload]
+      }
+
+    case DEL_SAVED:
+      return state.filter((usersStories) => usersStories.id != payload)
     default:
-        return state
-    }
+      return state
+  }
 }
 
 export default reducer
