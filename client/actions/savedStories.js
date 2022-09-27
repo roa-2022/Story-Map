@@ -1,47 +1,47 @@
-import { addSavedStoryAPI, getSavedStoriesAPI, deleteSavedAPI } from '../apis/savedStories'
+import { addFavoriteAPI, getFavoriteAPI, deleteFavoriteAPI } from '../apis/savedStories'
 
 
-export const ADD_SAVED = 'ADD_SAVED'
-export const SET_SAVED = 'SET_SAVED'
-export const DEL_SAVED = 'DEL_SAVED'
+export const ADD_FAVORITE = 'ADD_FAVORITE'
+export const SET_FAVORITE = 'SET_FAVORITE'
+export const DEL_FAVORITE = 'DEL_FAVORITE'
 
-export function setSaved(story) {
+export function setFavorite(story) {
     return {
-            type: SET_SAVED,
+            type: SET_FAVORITE,
             payload: story
           }
         }
         
-export function deleteSaved(id) {
+export function deleteFavorite(id) {
 return {
-    type: DEL_SAVED,
+    type: DEL_FAVORITE,
     payload: id,
 }
 }
 
-export function addSavedStory(story) {
+export function addFavorite(story) {
 return {
-type: ADD_SAVED,
+type: ADD_FAVORITE,
 payload: story
 }
 }
-export function fetchAddSavedStory (story, token) {
+export function dispatchAddedFavorites (story, token) {
     return async (dispatch) => {
     try {
-        const result = await addSavedStoryAPI(story, token)
+        const result = await addFavoriteAPI(story, token)
         console.log('actions', result)
-        dispatch(addSavedStory(result))
+        dispatch(addFavorite(result))
     } catch (err) {
         console.error(err.message)
     }
     }
 }
 
-export function fetchSavedStories (auth0_id, token) {
+export function fetchFavorites (auth0_id, token) {
     return async (dispatch) => {
     try {
-        const results = await getSavedStoriesAPI(auth0_id, token)
-        dispatch(setSaved(results))
+        const results = await getFavoriteAPI(auth0_id, token)
+        dispatch(setFavorite(results))
         console.log('actions cool', results)
     } catch (err) {
         console.error(err.message)
@@ -49,10 +49,10 @@ export function fetchSavedStories (auth0_id, token) {
     }
 }
 
-export function fetchDeletedSaved(id, token) {
+export function dispatchDeletedFavorites(id, token) {
     return (dispatch) => {
-    return deleteSavedAPI(id, token).then(() => {
-        dispatch(deleteSaved(id))
+    return deleteFavoriteAPI(id, token).then(() => {
+        dispatch(deleteFavorite(id))
     })
     }
 }

@@ -1,14 +1,13 @@
-import { ADD_SAVED, SET_SAVED, DEL_SAVED } from "../actions/savedStories"
+import { SET_FAVORITE, ADD_FAVORITE, DEL_FAVORITE } from "../actions/savedStories"
 
 const initialState = []
 
 const reducer = (state = initialState, action) => {
     const { type, payload } = action
     switch (type) {
-    case SET_SAVED:
-        console.log('reducer',payload)
+    case SET_FAVORITE:
         return payload
-    case ADD_SAVED:
+    case ADD_FAVORITE:
         let story = state.find((story => story.story_id == payload.map((v)=> v.story_id)))
         if (story) {
           return [...state]
@@ -16,7 +15,7 @@ const reducer = (state = initialState, action) => {
           return [...state, payload]
         }
 
-    case DEL_SAVED:
+    case DEL_FAVORITE:
         return state.filter((usersStories) => usersStories.id != payload)
     default:
         return state

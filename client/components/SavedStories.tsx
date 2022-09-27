@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
+import Map from './Map'
 
-import { fetchSavedStories, fetchDeletedSaved } from '../actions/savedStories'
+import { fetchFavorites, dispatchDeletedFavorites } from '../actions/savedStories'
 
 
 function Story() {
@@ -11,14 +12,14 @@ function Story() {
   const dispatch = useDispatch()
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
-  
 
   useEffect(() => {
-    dispatch(fetchSavedStories(savedStories, token))
+    dispatch(fetchFavorites(savedStories, token))
+    console.log(savedStories);
 }, [])
 
 const handleDelete = (id) => {
-  dispatch(fetchDeletedSaved(id))
+  dispatch(dispatchDeletedFavorites(id))
 }
 
 

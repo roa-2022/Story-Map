@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
-import { fetchAddSavedStory, fetchSavedStories } from '../actions/savedStories'
-import { addSavedStoryAPI } from '../apis/savedStories'
+import { dispatchAddedFavorites, fetchFavorites } from '../actions/savedStories'
+import { addFavoriteAPI } from '../apis/savedStories'
 
 
 function Story() {
@@ -22,8 +22,7 @@ function Story() {
     navigate('/stories')
   }
   const addSaved = () => {
-    dispatch(fetchAddSavedStory(story, token))
-    dispatch(fetchSavedStories(savedStories))
+    dispatch(dispatchAddedFavorites(story, token))
     navigate('/stories')
   }
 

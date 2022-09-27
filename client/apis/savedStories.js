@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { logError } from '../auth0-utils'
 
-export async function addSavedStoryAPI (story, auth0_id, token) {
+export async function addFavoriteAPI (story, auth0_id, token) {
     try {
       const res = await request
         .post('/api/v1/saved/')
@@ -13,7 +13,7 @@ export async function addSavedStoryAPI (story, auth0_id, token) {
     }
   }
   
-  export async function getSavedStoriesAPI (auth0_id, token) {
+  export async function getFavoriteAPI (auth0_id, token) {
     try {
       const res = await request
         .get('/api/v1/saved/' + auth0_id)
@@ -23,7 +23,7 @@ export async function addSavedStoryAPI (story, auth0_id, token) {
       return logError(err)
     }
   }
-  export async function deleteSavedAPI(id, token) {
+  export async function deleteFavoriteAPI(id, token) {
     try {
       const res = await request
         .delete('/api/v1/saved/' + id)

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
-import { fetchSavedStories } from '../actions/savedStories'
+import { fetchFavorites } from '../actions/savedStories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Search() {
@@ -24,7 +24,7 @@ export default function Search() {
 
   useEffect(() => {
     dispatch(fetchStories())
-    dispatch(fetchSavedStories())
+    dispatch(fetchFavorites())
   }, [])
 
   const changeHandler = (e) => {

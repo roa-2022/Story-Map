@@ -7,7 +7,7 @@ const checkJwt = require('../auth0')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-    db.getAllUserSavedStories()
+    db.getAllFavorites()
   .then((result)=>{
     res.json(result)
   }) .catch ((err) => {
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   })
 router.get('/:auth0_id', (req, res) => {
   const id = req.params.auth0_id
-  db.getUserSavedStories(id)
+  db.getUserFavorites(id)
   .then((result)=>{
   res.json(result)
   }) .catch ((err) => {
@@ -27,8 +27,8 @@ router.post('/', async (req, res) => {
   try {
       const { story_id, auth0_id } = req.body
       const data = {story_id, auth0_id}
-      const idArr = await db.addSavedStory(data)
-    const savedStoryArr = await db.getAllUserSavedStories()
+      const idArr = await db.addFavorite(data)
+    const savedStoryArr = await db.getAllFavorites()
     console.log(req.body)
 
     res.json(savedStoryArr)
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     const id = req.params.id
-    const deleteSaved = await db.deleteSaved(id)
+    const deleteSaved = await db.deleteFavorite(id)
     res.json(deleteSaved)
   } catch (err) {
     res.status(500).json({ msg: err.message })
