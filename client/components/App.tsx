@@ -8,14 +8,14 @@ import Home from './Home'
 import Nav from './Nav'
 import Register from './Register'
 import Stories from './Stories'
-import Story from './StoryCopy'
+import Story from './Story'
 import UpdateStory from './UpdateStory'
 import StoriesMapView from './StoriesMapView'
 import SavedStories from './SavedStories'
 
 import { clearLoggedInUser, updateLoggedInUser } from '../actions/loggedInUser'
-import { fetchGetRegions} from '../actions/regions'
-import  { fetchStories } from '../actions/stories'
+import { fetchGetRegions } from '../actions/regions'
+import { fetchStories } from '../actions/stories'
 import { getUser } from '../apis/users'
 import { useCacheUser } from '../auth0-utils'
 
@@ -45,7 +45,6 @@ function App() {
     dispatch(fetchStories())
   }, [])
 
-  
   return (
     <>
       <div>
@@ -57,8 +56,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/stories" element={<Stories/>} />
-          <Route path="/stories/:id" element={<Story/>} />
+          <Route path="/stories" element={<Stories />} />
+          <Route path="/stories/:id" element={<Story />} />
           <Route path="/stories/:id/update" element={<UpdateStory />} />
           <Route path="/add" element={<AddStory />} />
           <Route path="/map" element={<StoriesMapView />} />

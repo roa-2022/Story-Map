@@ -2,25 +2,25 @@ const connection = require('./connection')
 
 function getStories(db = connection) {
   return db('regions')
-    .join('storiesRegions', 'regions.id', 'storiesRegions.region_id')
-    .join('stories', 'storiesRegions.story_id', 'stories.id')
+    .join('stories_regions', 'regions.id', 'stories_regions.region_id')
+    .join('stories', 'stories_regions.story_id', 'stories.id')
     .select('*')
 }
 
 function getOneStory(id, db = connection) {
   return db('regions')
-    .join('storiesRegions', 'regions.id', 'storiesRegions.region_id')
-    .join('stories', 'storiesRegions.story_id', 'stories.id')
+    .join('stories_regions', 'regions.id', 'stories_regions.region_id')
+    .join('stories', 'stories_regions.story_id', 'stories.id')
     .select('*')
     .where('stories.id', id)
 }
 
 function addStory(newStoryData, db = connection) {
-  return db('stories').insert(newStoryData)
+  return db('stories').insert(newStoryData, 'id')
 }
 
 function addStoryRegions(idObj, db = connection) {
-  return db('storiesRegions').insert(idObj)
+  return db('stories_regions').insert(idObj, 'id')
 }
 
 function getStoriesByUser(db = connection) {

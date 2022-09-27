@@ -25,7 +25,6 @@ function Nav() {
       <div className="">
         <nav className="navbar" role="navigation" aria-label="main navigation">
           <div className="container">
-          
             <div id="navbarMenuHeroA" className="navbar-menu">
               <div className="navbar-start">
                 <Link className="navbar-item is-hoverable" to="/">
@@ -73,9 +72,8 @@ function Nav() {
                       to="/"
                       onClick={handleSignIn}
                       className="button is-link"
-                    ><b>
-                      Log in
-                    </b>
+                    >
+                      <b>Log in</b>
                     </Link>
                   </div>
                 </IfNotAuthenticated>

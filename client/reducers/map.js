@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case UPDATE_VIEW_COORDINATES:
-      return [{...state}, payload].reverse()[0]
+      return [{ ...state }, payload].reverse()[0]
     default:
       return state
   }

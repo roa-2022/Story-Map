@@ -18,9 +18,8 @@ const reducer = (state = initialState, action) => {
     case DEL_FAVORITE:
         return state.filter((usersStories) => usersStories.id != payload)
     default:
-        return state
-    }
+      return state
+  }
 }
-
 
 export default reducer
