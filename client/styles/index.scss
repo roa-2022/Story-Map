@@ -26,11 +26,23 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css';
 
 // Flaticon
-@import 'https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import 'https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css';
 
 // *{
 //   border: 1px solid pink;
 // }
+
+// Landing page
+
+.korero-title{
+  font-size: 8rem!important;
+  line-height: 0.9;
+  font-weight: 100;
+}
+
+.box-home{
+  line-height: 1.6;
+}
 .hero .is-fullheight{
   background: rgb(99, 72, 72);
 }
@@ -108,6 +120,13 @@ flex-wrap: wrap;
 
 }
 
+.box-txt{
+  max-width: 400px;
+}
+.container-grid-story{
+  gap:20px;
+ 
+}
 // breakpoint change for grid change row to column txt-img
 
   @media screen and (max-width: 720px){
