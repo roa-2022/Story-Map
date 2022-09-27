@@ -20,14 +20,13 @@ router.get('/:id', (req, res) => {
   db.getOneStory(id)
     .then((result) => {
       res.json(result)
+      console.log('result', result)
     })
     .catch((err) => {
       console.log(err)
       res.status(500).json({ message: 'Something went wrong' })
     })
 })
-
-// Add Story
 
 router.post('/', checkJwt, async (req, res) => {
   try {
@@ -48,10 +47,9 @@ router.post('/', checkJwt, async (req, res) => {
     }
 
     const idArr = await db.addStory(storyData)
-    console.log(idArr)
     const storyIdObj = idArr[0]
     const storyId = storyIdObj.id
-
+    console.log('storyId', storyId)
     const idObj = {
       story_id: storyId,
       region_id: Number(region_id),
@@ -65,7 +63,6 @@ router.post('/', checkJwt, async (req, res) => {
   }
 })
 
-// DELETE /api/v1/stories
 router.delete('/:id', checkJwt, (req, res) => {
   const id = Number(req.params.id)
   const auth0Id = req.user?.sub
@@ -86,7 +83,6 @@ router.delete('/:id', checkJwt, (req, res) => {
     })
 })
 
-// PUT /api/v1/stories
 router.put('/', checkJwt, (req, res) => {
   const { story } = req.body
   const auth0Id = req.user?.sub

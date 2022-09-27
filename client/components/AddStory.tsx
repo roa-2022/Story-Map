@@ -15,6 +15,7 @@ function AddStory() {
   const [dataForm, setDataForm] = useState({})
 
   const handleSubmit = async (e) => {
+    console.log(dataForm)
     e.preventDefault()
     await dispatch(fetchAddStory(dataForm, token))
     navigate('/stories')

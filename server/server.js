@@ -5,6 +5,7 @@ const searchRoutes = require('./routes/search')
 const storiesRoutes = require('./routes/stories')
 const userRoutes = require('./routes/users')
 const regionsRoutes = require('./routes/regions')
+const savedRoutes = require('./routes/saved')
 
 const server = express()
 
@@ -15,6 +16,7 @@ server.use('/api/v1/search', searchRoutes)
 server.use('/api/v1/stories', storiesRoutes)
 server.use('/api/v1/users', userRoutes)
 server.use('/api/v1/regions', regionsRoutes)
+server.use('/api/v1/saved', savedRoutes)
 
 
 // to go to front end routes

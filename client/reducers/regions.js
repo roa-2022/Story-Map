@@ -7,7 +7,6 @@ const reducer = (state = [], action) => {
   switch (type) {
     case GET_REGIONS:
       return payload
-    
     default:
       return state
   }

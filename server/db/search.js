@@ -17,7 +17,6 @@ function searchMaori(region, db = connection) {
 }
 
 function addStory (data, db = connection) {
-  console.log('data',data)
   return db('stories').insert(data)
 }
 function getStories (db = connection) {

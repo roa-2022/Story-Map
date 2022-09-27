@@ -15,7 +15,7 @@ export function fetchGetRegions() {
       const regionsArr = await fetchRegionsAPI()
       dispatch(getRegions(regionsArr))
     } catch (err) {
-      console.log(err.message)
+      console.error(err.message)
     }
   }
 }
