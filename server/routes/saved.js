@@ -24,13 +24,14 @@ console.error(err.message)
 })
 })
 router.post('/', async (req, res) => {
-   
     try {
+
         const { story_id, auth0_id } = req.body
-        const data = { story_id, auth0_id }
+        const data = {story_id, auth0_id}
         const idArr = await db.addSavedStory(data)
-        const savedStory = await db.getAllUserSavedStories()
-      
+      const savedStory = await db.getAllUserSavedStories()
+      console.log(savedStory)
+
       res.json(savedStory)
     } catch (err) {
       res.status(500).json({ message: err.message })

@@ -44,7 +44,8 @@ export function addSavedStoryAPI (story, token) {
   .set('authorization', `Bearer ${token}`)
   .send(story)
   .then((res)=> {
-    console.log(res.body) 
+    console.log('api',res.body) 
+    return res.body
   })
   .catch(logError)
 }

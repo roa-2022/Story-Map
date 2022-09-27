@@ -1,4 +1,4 @@
-import { SET_STORY, SET_STORIES, SET_SAVED } from '../actions/stories'
+import { SET_STORY, SET_STORIES } from '../actions/stories'
 import { ADD_STORY } from '../actions/addStory'
 
 const initialState = []

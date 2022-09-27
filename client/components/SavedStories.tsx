@@ -4,26 +4,28 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import Map from './Map'
 
-import { fetchSavedStories } from '../actions/stories'
+import { fetchSavedStories } from '../actions/addStory'
 
 
 function Story() {
-  const { id } = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
 
   useEffect(() => {
-    dispatch(fetchSavedStories(id, token))
-  }, [])
+    dispatch(fetchSavedStories(savedStories, token))
+    console.log(savedStories);
+}, [])
 
-  return (
+return (
     <>
-     <h2>Your Saved Stories</h2>
       {savedStories.map((story) => {
         return (
-            story?.title
+            <>
+            <h2>{story?.title}</h2><br></br>
+            <p>Written By {story?.author}</p><br></br><br></br>
+            </>
             )
       })}
      

@@ -24,7 +24,7 @@ function Story() {
     navigate('/stories')
   }
   const addSaved = () => {
-    dispatch(fetchAddSavedStory(id, token))
+    dispatch(fetchAddSavedStory(story, token))
     console.log(savedStories);
   }
 

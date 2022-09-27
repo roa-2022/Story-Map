@@ -54,19 +54,19 @@ exports.seed = async function (knex) {
       longitude: 173.39324189846081,
       latitude: -35.505450113296575,
     },
-    // {
-    //   id: 1004,
-    //   auth0_id: 'auth0|632d259b6aa7af87dfa37429',
-    //   author: 'Whenua O Korero',
-    //   title: 'The story of Paikea',
-    //   synopsis:
-    //     'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.',
-    //   story_text:
-    //     'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.',
-    //   photo_url: '/images/img05.jpeg',
-    //   longitude: 174.7740,
-    //   latitude: -41.2969
-    // },
+    {
+      id: 1004,
+      auth0_id: 'auth0|632d259b6aa7af87dfa37429',
+      author: 'Whenua O Korero',
+      title: 'The story of Paikea',
+      synopsis:
+        'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.',
+      story_text:
+        'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.',
+      photo_url: '/images/img05.jpeg',
+      longitude: 174.7740,
+      latitude: -41.2969
+    },
     {
       id: 1005,
       auth0_id: 'auth0|632d259b6aa7af87dfa37429',

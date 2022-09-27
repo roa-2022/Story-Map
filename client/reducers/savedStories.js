@@ -1,5 +1,4 @@
-import { SET_SAVED } from "../actions/stories"
-import { ADD_SAVED } from "../actions/addStory"
+import { ADD_SAVED, SET_SAVED } from "../actions/addStory"
 
 const initialState = []
 
@@ -9,7 +8,7 @@ const reducer = (state = initialState, action) => {
     case SET_SAVED:
         return payload
     case ADD_SAVED:
-        return payload
+        return [...state, payload[payload.length-1]]
     default:
         return state
     }
