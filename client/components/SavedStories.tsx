@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 
-import { fetchSavedStories, fetchDeletedSaved } from '../actions/addStory'
+import { fetchSavedStories, fetchDeletedSaved } from '../actions/savedStories'
 
 
 function Story() {
@@ -11,6 +11,7 @@ function Story() {
   const dispatch = useDispatch()
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
+  
 
   useEffect(() => {
     dispatch(fetchSavedStories(savedStories, token))

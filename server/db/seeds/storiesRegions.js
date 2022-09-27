@@ -13,5 +13,6 @@ exports.seed = async function(knex) {
     {id: 8, story_id: 1007, region_id:2001 },
     {id: 9, story_id: 1008, region_id:2017 },
     {id: 10, story_id: 1009, region_id:2004 },
+    {id: 11, story_id: 1010, region_id:2005 },
   ]);
 };

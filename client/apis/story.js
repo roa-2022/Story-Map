@@ -24,15 +24,4 @@ export function updateStoryAPI(story, token) {
     .catch(logError)
 }
 
-export async function deleteSavedAPI(id, token) {
-  try {
-    const res = await request
-      .delete('/api/v1/saved/' + id)
-      .set('authorization', `Bearer ${token}`)
-      console.log(res.body)
-    return res.body
-  } catch (err) {
-    console.error(err.message)
-  }
-}
 

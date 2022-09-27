@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
+import { fetchSavedStories } from '../actions/savedStories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
+
 
   useEffect(() => {
     dispatch(fetchStories())
@@ -22,6 +24,7 @@ export default function Search() {
   
   useEffect(() => {
     dispatch(fetchStories())
+    dispatch(fetchSavedStories())
   }, [])
   // const [files, setFiles]: any = useState([])
   // const [imageURLs, setImageURLs]: any = useState([])
@@ -38,7 +41,7 @@ export default function Search() {
   //   await setImageURLs(newImageUrls)
   //   console.log(newImageUrls)
 
-  const changeHandlerEng = (e) => {
+  const changeHandler = (e) => {
     setRegion(e.target.value as string)
     setToggle(true)
     setMaoriRegion('')
@@ -60,14 +63,12 @@ export default function Search() {
                 <div className="select">
                   <select className='p-1"'
                     id="demo-simple-select"
-                    value={region}
-                    onChange={changeHandlerEng}
+                    onChange={changeHandler}
                     
                   >
-                    [ <option>{region}</option>]
-                    <option>New Zealand </option>
-                    <option>North Island</option>
-                    <option>South Island </option>
+                    <option disabled></option>
+                    <option value = "">All Regions </option>
+                    <option disabled>──────────</option>
                     <option>Northland </option>
                     <option>Auckland</option>
                     <option>Waikato</option>
@@ -76,6 +77,7 @@ export default function Search() {
                     <option>Hawke's Bay</option>
                     <option>Taranaki</option>
                     <option>Manawatū-Whanganui</option>
+                    <option disabled>──────────</option>
                     <option>Wellington</option>
                     <option>Tasman</option>
                     <option>Nelson</option>

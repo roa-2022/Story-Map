@@ -14,8 +14,8 @@ router.get('/', (req, res) => {
     console.error(err.message)
     })
   })
-router.get('/:id', (req, res) => {
-    const id = req.params.id
+router.get('/:auth0_id', (req, res) => {
+  const id = req.params.auth0_id
   db.getUserSavedStories(id)
   .then((result)=>{
   res.json(result)
@@ -28,10 +28,10 @@ router.post('/', async (req, res) => {
       const { story_id, auth0_id } = req.body
       const data = {story_id, auth0_id}
       const idArr = await db.addSavedStory(data)
-    const savedStory = await db.getAllUserSavedStories()
-    console.log(savedStory)
+    const savedStoryArr = await db.getAllUserSavedStories()
+    console.log(req.body)
 
-    res.json(savedStory)
+    res.json(savedStoryArr)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }

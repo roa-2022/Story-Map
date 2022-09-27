@@ -6,8 +6,8 @@ import Map from './Map'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
-import { fetchAddSavedStory } from '../actions/addStory'
-import { addSavedStoryAPI } from '../apis/stories'
+import { fetchAddSavedStory, fetchSavedStories } from '../actions/savedStories'
+import { addSavedStoryAPI } from '../apis/savedStories'
 
 
 function Story() {
@@ -24,8 +24,8 @@ function Story() {
     navigate('/stories')
   }
   const addSaved = () => {
-    console.log('adding');
     dispatch(fetchAddSavedStory(story, token))
+    dispatch(fetchSavedStories(savedStories))
     navigate('/stories')
   }
 
