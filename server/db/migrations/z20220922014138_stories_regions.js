@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  return knex.schema.createTable('stories_regions', (table) => {
+  return knex.schema.createTable('storiesregions', (table) => {
     table.increments('id')
     table.integer('story_id')
     table.integer('region_id')
@@ -7,5 +7,5 @@ exports.up = function (knex) {
 }
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('stories_regions')
+  return knex.schema.dropTable('storiesregions')
 }

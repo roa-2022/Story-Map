@@ -2,15 +2,15 @@ const connection = require('./connection')
 
 function getStories(db = connection) {
   return db('regions')
-    .join('stories_regions', 'regions.id', 'stories_regions.region_id')
-    .join('stories', 'stories_regions.story_id', 'stories.id')
+    .join('storiesregions', 'regions.id', 'storiesregions.region_id')
+    .join('stories', 'storiesregions.story_id', 'stories.id')
     .select('*')
 }
 
 function getOneStory(id, db = connection) {
   return db('regions')
-    .join('stories_regions', 'regions.id', 'stories_regions.region_id')
-    .join('stories', 'stories_regions.story_id', 'stories.id')
+    .join('storiesregions', 'regions.id', 'storiesregions.region_id')
+    .join('stories', 'storiesregions.story_id', 'stories.id')
     .select('*')
     .where('stories.id', id)
 }
