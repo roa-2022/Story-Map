@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
     })
 })
 
-
 router.get('/:id', (req, res) => {
   const id = req.params.id
   db.getOneStory(id)
@@ -28,28 +27,42 @@ router.get('/:id', (req, res) => {
     })
 })
 
-
 router.post('/', checkJwt, async (req, res) => {
   try {
     const auth0_id = req.user?.sub
 
-    const { title, author, synopsis, story_text, latitude, longitude } = req.body
+    const {
+      title,
+      author,
+      synopsis,
+      story_text,
+      latitude,
+      longitude,
+      photo_url,
+    } = req.body
     const { region_id } = req.body
 
-    const storyData = { title, author, synopsis, story_text, latitude, longitude, auth0_id }
+    const storyData = {
+      photo_url,
+      title,
+      author,
+      synopsis,
+      story_text,
+      latitude,
+      longitude,
+      auth0_id,
+    }
 
     const idArr = await db.addStory(storyData)
-    const storyId = idArr[0]
-
+    const storyIdObj = idArr[0]
+    const storyId = storyIdObj.id
     const idObj = {
       story_id: storyId,
-      region_id: region_id,
+      region_id: Number(region_id),
     }
-    await db.addStoryRegions(idObj)
-
     const getNewStory = await db.getOneStory(storyId)
-
     res.json(getNewStory)
+    await db.addStoryRegions(idObj)
   } catch (err) {
     res.status(500).json({ message: err.message })
   }
