@@ -1,16 +1,14 @@
 import request from 'superagent'
 import { logError } from '../auth0-utils'
 
-export function getOneStoryAPI(id) {
-  return request.get('/api/v1/stories/' + id).then((res) => {
-    return res.body
-  })
+export async function getOneStoryAPI(id) {
+  const res = await request.get('/api/v1/stories/' + id)
+  return res.body
 }
 
-export function getStoriesAPI() {
-  return request.get('/api/v1/stories/').then((res) => {
-    return res.body
-  })
+export async function getStoriesAPI() {
+  const res = await request.get('/api/v1/stories/')
+  return res.body
 }
 
 export async function addStoryAPI(data, token) {
@@ -21,39 +19,26 @@ export async function addStoryAPI(data, token) {
   return res.body
 }
 
-export function deleteStoryAPI(id, token) {
-  return request
-    .delete('/api/v1/stories/' + id)
-    .set('authorization', `Bearer ${token}`)
-    .then((res) => res.body)
-    .catch(logError)
-}
-
-export function updateStoryAPI(story, token) {
-  return request
-    .put('/api/v1/stories/')
-    .set('authorization', `Bearer ${token}`)
-    .send({ story })
-    .then((res) => res.body)
-    .catch(logError)
-}
-
-export function addSavedStoryAPI (story, token) {
-  return request
-  .post('/api/v1/saved/')
-  .set('authorization', `Bearer ${token}`)
-  .send(story)
-  .then((res)=> {
-    console.log('api',res.body) 
+export async function deleteStoryAPI(id, token) {
+  try {
+    const res = await request
+      .delete('/api/v1/stories/' + id)
+      .set('authorization', `Bearer ${token}`)
     return res.body
-  })
-  .catch(logError)
+  } catch (err) {
+    return logError(err)
+  }
 }
 
-export function getSavedStoriesAPI (id, token) {
-  return request 
-  .get('/api/v1/saved/' + id)
-  .set('authorization', `Bearer ${token}`)
-  .then((res) => res.body)
-  .catch(logError)
+export async function updateStoryAPI(story, token) {
+  try {
+    const res = await request
+      .put('/api/v1/stories/')
+      .set('authorization', `Bearer ${token}`)
+      .send({ story })
+    return res.body
+  } catch (err) {
+    return logError(err)
+  }
 }
+

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
+import { fetchSavedStories } from '../actions/savedStories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
+
 
   useEffect(() => {
     dispatch(fetchStories())
@@ -15,32 +17,25 @@ export default function Search() {
   const [toggle, setToggle]: any = useState(false)
   const [success, setSuccess]: any = useState(false)
   const [maoriRegion, setMaoriRegion] = useState('')
-
+  const savedStories = useSelector((state: any) => state.savedStories)
+  const token = useSelector((state: any) => state.user.token)
+  
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchStories())
+    dispatch(fetchSavedStories())
   }, [])
 
-  const changeHandlerEng = (e) => {
+  const changeHandler = (e) => {
     setRegion(e.target.value as string)
     setToggle(true)
     setMaoriRegion('')
     setSuccess(false)
   }
-  const changeHandlerMao = (e) => {
-    setMaoriRegion(e.target.value as string)
-    setToggle(true)
-    setRegion('')
-    setSuccess(false)
-  }
-
-  const clearFilter = () => {
-    setMaoriRegion('')
-    setRegion('')
-    setToggle(false)
-    setSuccess(true)
-  }
+  // const addSaved = () => {
+  //   dispatch(fetchAddSavedStory(story, token))
+  // }
 
   return (
     <>
@@ -58,12 +53,12 @@ export default function Search() {
                   <select
                     className='p-1"'
                     id="demo-simple-select"
-                    value={region}
-                    onChange={changeHandlerEng}
+                    onChange={changeHandler}
+                    
                   >
-                    [ <option>{region}</option>]<option>New Zealand </option>
-                    <option>North Island</option>
-                    <option>South Island </option>
+                    <option disabled></option>
+                    <option value = "">All Regions </option>
+                    <option disabled>──────────</option>
                     <option>Northland </option>
                     <option>Auckland</option>
                     <option>Waikato</option>
@@ -72,6 +67,7 @@ export default function Search() {
                     <option>Hawke's Bay</option>
                     <option>Taranaki</option>
                     <option>Manawatū-Whanganui</option>
+                    <option disabled>──────────</option>
                     <option>Wellington</option>
                     <option>Tasman</option>
                     <option>Nelson</option>
@@ -144,6 +140,7 @@ export default function Search() {
                                   style={{ textDecoration: 'none' }}
                                   to={'#'}
                                   key={story.id}
+
                                 >
                                   <span>Save Story</span>
                                 </Link>
