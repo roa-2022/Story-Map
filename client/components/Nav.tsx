@@ -73,8 +73,9 @@ function Nav() {
                       to="/"
                       onClick={handleSignIn}
                       className="button is-link"
-                    >
+                    ><b>
                       Log in
+                    </b>
                     </Link>
                   </div>
                 </IfNotAuthenticated>

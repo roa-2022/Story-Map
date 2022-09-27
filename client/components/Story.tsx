@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-
-import Map from './Map'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
 import { fetchAddSavedStory } from '../actions/addStory'
-import { addSavedStoryAPI } from '../apis/stories'
+
 
 function Story() {
   const { id } = useParams()
@@ -43,7 +41,7 @@ function Story() {
              
               <p className="p-4">
                 <b>Region: </b>
-                {story.maori_name} <b> - Aka - </b> {story.eng_name}
+                {story.name} 
               </p>
               <p className="p-4">
                 <b>Sent by: </b>
