@@ -2,15 +2,15 @@ const connection = require('./connection')
 
 function getStories(db = connection) {
   return db('regions')
-    .join('storiesRegions', 'regions.id', 'storiesRegions.region_id')
-    .join('stories', 'storiesRegions.story_id', 'stories.id')
+    .join('storiesregions', 'regions.id', 'storiesregions.region_id')
+    .join('stories', 'storiesregions.story_id', 'stories.id')
     .select('*')
 }
 
 function getOneStory(id, db = connection) {
   return db('regions')
-    .join('storiesRegions', 'regions.id', 'storiesRegions.region_id')
-    .join('stories', 'storiesRegions.story_id', 'stories.id')
+    .join('storiesregions', 'regions.id', 'storiesregions.region_id')
+    .join('stories', 'storiesregions.story_id', 'stories.id')
     .select('*')
     .where('stories.id', id)
 }
@@ -23,7 +23,7 @@ function addStory(newStoryData, db = connection) {
 
 function addStoryRegions(idObj, db = connection) {
   console.log('idObj', idObj)
-  return db('storiesRegions').insert(idObj)
+  return db('storiesregions').insert(idObj)
 }
 
 //only users can del story by themsevles
