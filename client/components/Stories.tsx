@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchStories } from '../actions'
-import {
-  fetchSearchedRegions,
-  fetchMaoriSearchedRegions,
-  fetchAddedStory,
-} from '../actions/search'
+import { fetchStories } from '../actions/stories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Search() {
@@ -20,25 +15,26 @@ export default function Search() {
   const [toggle, setToggle]: any = useState(false)
   const [success, setSuccess]: any = useState(false)
   const [maoriRegion, setMaoriRegion] = useState('')
-
-  const [files, setFiles]: any = useState([])
-  const [imageURLs, setImageURLs]: any = useState([])
-
+  
   const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(fetchStories())
+  }, [])
+  // const [files, setFiles]: any = useState([])
+  // const [imageURLs, setImageURLs]: any = useState([])
 
-  const fileSelector = (imageList) => {
-    setFiles([...imageList.target.files])
-  }
 
-  const fileUploader = async () => {
-    if (files.length < 1) return
-    const newImageUrls: any = []
-    files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
-    await setImageURLs(newImageUrls)
-    console.log(newImageUrls)
+  // const fileSelector = (imageList) => {
+  //   setFiles([...imageList.target.files])
+  // }
 
-    dispatch(fetchAddedStory(newImageUrls))
-  }
+  // const fileUploader = async () => {
+  //   if (files.length < 1) return
+  //   const newImageUrls: any = []
+  //   files.forEach((file) => newImageUrls.push(URL.createObjectURL(file)))
+  //   await setImageURLs(newImageUrls)
+  //   console.log(newImageUrls)
 
   const changeHandlerEng = (e) => {
     setRegion(e.target.value as string)
@@ -59,6 +55,7 @@ export default function Search() {
     setToggle(false)
     setSuccess(true)
   }
+
   return (
     <>
       <section className="search-view hero-body is-fullwidth has-text-centered ">
@@ -76,40 +73,33 @@ export default function Search() {
                     
                   >
                     [ <option>{region}</option>]
-                    <option> Aotearoa | New Zealand </option>
-                    <option>Te Ika-a-Māui |North Island</option>
-                    <option>Te Waipounamu | South Island </option>
-                    <option>Te Tai Tokerau | Northland </option>
-                    <option>Tāmaki-makau-rau | Auckland</option>
+                    <option>New Zealand </option>
+                    <option>North Island</option>
+                    <option>South Island </option>
+                    <option>Northland </option>
+                    <option>Auckland</option>
                     <option>Waikato</option>
-                    <option> Te Moana-a-Toi |Bay of Plenty</option>
-                    <option>Te Tai Rāwhiti | Gisborne</option>
-                    <option>Te Matau-a-Māui | Hawke's Bay</option>
+                    <option>Bay of Plenty</option>
+                    <option>Gisborne</option>
+                    <option>Hawke's Bay</option>
                     <option>Taranaki</option>
                     <option>Manawatū-Whanganui</option>
-                    <option>Te Whanga-nui-a-Tara | Wellington</option>
-                    <option>Te Tai-o-Aorere | Tasman</option>
-                    <option>Whakatū | Nelson</option>
-                    <option>Te Tauihu-o-te-waka | Marlborough</option>
-                    <option>Te Tai Poutini | West Coast</option>
-                    <option>Waitaha | Canterbury</option>
-                    <option>Ōtākou | Otago</option>
-                    <option>Murihiku | Southland</option>
+                    <option>Wellington</option>
+                    <option>Tasman</option>
+                    <option>Nelson</option>
+                    <option>Marlborough</option>
+                    <option>West Coast</option>
+                    <option>Canterbury</option>
+                    <option>Otago</option>
+                    <option>Southland</option>
                   </select>
                 </div>
               </div>
             </div>
           </form>
-          {success == true && (
-            <article className="message is-primary">
-              <div className="message-header">
-                <p>Filters Cleared!</p>
-              </div>
-            </article>
-          )}
+        
         </div>
 
-        {/* {/* Card section */}
         <div className="container">
         <div className="cards-container">
          {region.length == 0 &&
@@ -152,7 +142,6 @@ export default function Search() {
                                 <span>View Story</span>
                               </Link>
                             </p>
-                            {/* TODO: add link to Saved Stories */}
                             <IfAuthenticated>
                               <p className="card-footer-item">
                                 <Link
@@ -180,7 +169,7 @@ export default function Search() {
               stories.map((story) => {
                 return (
                   <>
-                    {story.eng_name == region && (
+                    {story.name == region && (
                       <div className="column is-3">
                         <div className="card">
                           <div className="card-image">

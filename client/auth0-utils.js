@@ -28,3 +28,15 @@ export function useCacheUser() {
     }
   }
 }
+export function logError(err) {
+  if (err.response.text === 'Username Taken') {
+    throw new Error('Username already taken - please choose another')
+  } else if (err.message === 'Forbidden') {
+    throw new Error(
+      'Only the user who added the story may update and delete it'
+    )
+  } else {
+    console.error('Error consuming the API (in client/api.js):', err.message)
+    throw err
+  }
+}

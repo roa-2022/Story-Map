@@ -4,98 +4,79 @@ exports.seed = async function (knex) {
   await knex('regions').insert([
     {
       id: 2000,
-      eng_name: 'New Zealand',
-      maori_name: 'Aotearoa',
+      name: 'New Zealand',
     },
     {
       id: 2001,
-      eng_name: 'North Island',
-      maori_name: 'Te Ika-a-Māui',
+      name: 'North Island',
     },
     {
       id: 2002,
-      eng_name: 'South Island',
-      maori_name: 'Te Waipounamu',
+      name: 'South Island',
     },
     {
       id: 2003,
-      eng_name: 'Northland',
-      maori_name: 'Te Tai Tokerau',
+      name: 'Northland',
     },
     {
       id: 2004,
-      eng_name: 'Auckland',
-      maori_name: 'Tāmaki-makau-rau',
+      name: 'Auckland',
     },
     {
       id: 2005,
-      eng_name: 'Waikato',
-      maori_name: 'Waikato',
+      name: 'Waikato',
     },
     {
       id: 2006,
-      eng_name: 'Bay of Plenty',
-      maori_name: 'Te Moana-a-Toi',
+      name: 'Bay of Plenty',
     },
     {
       id: 2007,
-      eng_name: 'Gisborne',
-      maori_name: 'Te Tai Rāwhiti',
+      name: 'Gisborne',
     },
     {
       id: 2008,
-      eng_name: "Hawke's Bay",
-      maori_name: 'Te Matau-a-Māui',
+      name: "Hawke's Bay",
     },
     {
       id: 2009,
-      eng_name: 'Taranaki',
-      maori_name: 'Taranaki',
+      name: 'Taranaki',
     },
     {
       id: 2010,
-      eng_name: 'Manawatū-Whanganui',
-      maori_name: 'Manawatū-Whanganui',
+      name: 'Manawatū-Whanganui',
     },
     {
       id: 2011,
-      eng_name: 'Wellington',
-      maori_name: 'Te Whanga-nui-a-Tara',
+      name: 'Wellington',
     },
     {
       id: 2012,
-      eng_name: 'Tasman',
-      maori_name: 'Te Tai-o-Aorere',
+      name: 'Tasman',
     },
     {
       id: 2013,
-      eng_name: 'Nelson',
-      maori_name: 'Whakatū',
+      name: 'Nelson',
     },
     {
       id: 2014,
-      eng_name: 'Marlborough',
-      maori_name: 'Te Tauihu-o-te-waka',
+      name: 'Marlborough',
     },
     {
       id: 2015,
-      eng_name: ' West Coast',
-      maori_name: 'Te Tai Poutini',
+      name: ' West Coast',
     },
     {
       id: 2016,
-      eng_name: 'Canterbury',
-      maori_name: 'Waitaha',
+      name: 'Canterbury',
     },
     {
       id: 2017,
-      eng_name: 'Otago',
-      maori_name: 'Ōtākou',
+      name: 'Otago',
     },
     {
       id: 2018,
-      eng_name: 'Southland',
-      maori_name: 'Murihiku',
+      name: 'Southland',
     },
   ])
 }

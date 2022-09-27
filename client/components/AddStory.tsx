@@ -45,7 +45,7 @@ function AddStory() {
             width : "40%",
             margin: 'auto',
             textAlign: "center",
-            borderRadius: '20%',
+            borderRadius: '10%',
             backgroundColor: 'rgb(252, 245, 229)',
             padding: '20px',
             marginTop: '30px'
@@ -94,10 +94,6 @@ function AddStory() {
                 <input className="input" type="text" name = "title" onChange={handleChange}/>
               </div>
             </div>
-            {/* <div>
-              <label htmlFor="title">Title: </label>
-              <input type="text" name="title" onChange={handleChange} />
-            </div> */}
             <div className='field'>
               <label htmlFor="synopsis" className='label'>Synopsis: </label>
               <div className='control'>

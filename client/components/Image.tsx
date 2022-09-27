@@ -5,7 +5,6 @@ export function App() {
   const [images, setImages] = useState([]);
 
   const onChange = (imageList) => {
-    // data for submit
     console.log(imageList);
     setImages(imageList);
   };
@@ -24,7 +23,6 @@ export function App() {
           isDragging,
           dragProps,
         }) => (
-          // write your building UI
           <div className="upload__image-wrapper">
             <button
               style={isDragging ? { color: 'red' } : undefined}
