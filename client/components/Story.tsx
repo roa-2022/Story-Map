@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-
-import Map from './Map'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
 import { fetchAddSavedStory } from '../actions/addStory'
-import { addSavedStoryAPI } from '../apis/stories'
 
 function Story() {
   const { id } = useParams()
@@ -17,9 +14,8 @@ function Story() {
   const savedStories = useSelector((state: any) => state.savedStories)
   const story = storyArr[0]
   const token = useSelector((state: any) => state.user.token)
-  const user = useSelector((state: any) => state.user.auth0_id)
-  console.log(user)
-  console.log(story.auth0_id)
+  const user = useSelector((state: any) => state.user)
+  console.log(story)
 
   const handleDelete = () => {
     deleteStoryAPI(id, token)
@@ -31,6 +27,7 @@ function Story() {
   }
 
   useEffect(() => {
+    console.log(user)
     dispatch(fetchOneStory(id))
   }, [])
 
@@ -45,7 +42,7 @@ function Story() {
 
               <p className="p-4">
                 <b>Region: </b>
-                {story.maori_name} <b> - Aka - </b> {story.eng_name}
+                {story.name}
               </p>
               <p className="p-4">
                 <b>Sent by: </b>

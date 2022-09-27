@@ -15,9 +15,9 @@ export default function Search() {
   const [toggle, setToggle]: any = useState(false)
   const [success, setSuccess]: any = useState(false)
   const [maoriRegion, setMaoriRegion] = useState('')
-  
+
   const dispatch = useDispatch()
-  
+
   useEffect(() => {
     dispatch(fetchStories())
   }, [])
@@ -46,20 +46,22 @@ export default function Search() {
     <>
       <section className="search-view hero-body is-fullwidth has-text-centered ">
         <div className="container is-fluid has-text-left m-1 p-1">
-          <p className='subtitle is-size-1-desktop has-text-weight-light'> Select Stories by Region</p>
+          <p className="subtitle is-size-1-desktop has-text-weight-light">
+            {' '}
+            Select Stories by Region
+          </p>
           <form>
             <div className="field py-4">
               <label id="label ">Filter</label>
               <div className="control">
                 <div className="select">
-                  <select className='p-1"'
+                  <select
+                    className='p-1"'
                     id="demo-simple-select"
                     value={region}
                     onChange={changeHandlerEng}
-                    
                   >
-                    [ <option>{region}</option>]
-                    <option>New Zealand </option>
+                    [ <option>{region}</option>]<option>New Zealand </option>
                     <option>North Island</option>
                     <option>South Island </option>
                     <option>Northland </option>
@@ -82,14 +84,15 @@ export default function Search() {
                 </div>
               </div>
             </div>
-              <Link to='/add' className='button'>Add Story <i className="fa-regular fa-paper-plane mx-4"></i></Link>
+            <Link to="/add" className="button is-success">
+              Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
+            </Link>
           </form>
-        
         </div>
 
         <div className="container">
-        <div className="cards-container">
-         {region.length == 0 &&
+          <div className="cards-container">
+            {region.length == 0 &&
               stories.map((story) => {
                 return (
                   <>
@@ -97,12 +100,12 @@ export default function Search() {
                       <div className="card">
                         <div className="card-image">
                           <figure className="image is-4by3">
-                          <Link
-                                style={{ textDecoration: 'none' }}
-                                to={`/stories/${story.id}`}
-                                key={story.id}
-                              >
-                            <img src={story.photo_url} alt="Story image" />
+                            <Link
+                              style={{ textDecoration: 'none' }}
+                              to={`/stories/${story.id}`}
+                              key={story.id}
+                            >
+                              <img src={story.photo_url} alt="Story image" />
                             </Link>
                           </figure>
                         </div>
