@@ -18,12 +18,12 @@ function getOneStory(id, db = connection) {
 // Add Story
 
 function addStory(newStoryData, db = connection) {
-  return db('stories').insert(newStoryData)
+  return db('stories').insert(newStoryData, 'id')
 }
 
 function addStoryRegions(idObj, db = connection) {
   console.log('idObj', idObj)
-  return db('stories_regions').insert(idObj)
+  return db('stories_regions').insert(idObj, 'id')
 }
 
 //only users can del story by themsevles
