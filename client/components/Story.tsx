@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
-import { fetchAddSavedStory } from '../actions/addStory'
+import { fetchAddSavedStory, fetchSavedStories } from '../actions/savedStories'
+import { addSavedStoryAPI } from '../apis/savedStories'
 
 
 function Story() {
@@ -12,8 +13,8 @@ function Story() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const storyArr = useSelector((state: any) => state.stories)
-  const savedStories = useSelector((state: any) => state.savedStories)
   const story = storyArr[0]
+  const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
 
   const handleDelete = () => {
@@ -22,7 +23,8 @@ function Story() {
   }
   const addSaved = () => {
     dispatch(fetchAddSavedStory(story, token))
-    console.log(savedStories)
+    dispatch(fetchSavedStories(savedStories))
+    navigate('/stories')
   }
 
   useEffect(() => {
