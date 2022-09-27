@@ -6,10 +6,10 @@ import Map from './Map'
 
 import { fetchOneStory } from '../actions/stories'
 import { deleteStoryAPI } from '../apis/story'
-import { fetchAddSavedStory } from '../actions/addStory'
-import { addSavedStoryAPI } from '../apis/stories'
+import { fetchAddSavedStory } from '../actions/savedStories'
+import { addSavedStoryAPI } from '../apis/savedStories'
 
-function Story() {
+function StoryCopy() {
   const { id } = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -88,4 +88,4 @@ function Story() {
   )
 }
 
-export default Story
+export default StoryCopy
