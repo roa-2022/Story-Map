@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import Map from './Map'
+
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { updateStory } from '../apis/stories'
+import { updateStoryAPI } from '../apis/stories'
+
+import Map from './Map'
 
 function UpdateStory() {
   const navigate = useNavigate()
@@ -14,7 +16,7 @@ function UpdateStory() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await updateStory(dataForm, token)
+    await updateStoryAPI(dataForm, token)
     navigate('/stories')
   }
   const handleChange = (e) => {

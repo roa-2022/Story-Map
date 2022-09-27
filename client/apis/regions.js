@@ -1,12 +1,11 @@
 import request from 'superagent'
 
-const storiesUrl = "/api/v1/regions"
 
 export async function fetchRegionsAPI() {
   try {
-    const regions = await request.get(storiesUrl)
+    const regions = await request.get("/api/v1/regions")
     return regions.body
   } catch (err) {
-    console.log('Error in search API: ' + err.message)
+    console.error('Error in search API: ' + err.message)
   }
 }

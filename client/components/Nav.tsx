@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
-import { Link } from 'react-router-dom'
 
 function Nav() {
   const user = useSelector((state: any) => state?.user)
@@ -46,6 +46,12 @@ function Nav() {
                       <hr className="navbar-divider" />
                       <Link className="navbar-item" to="/add">
                         Add a Story
+                      </Link>
+                    </IfAuthenticated>
+                    <IfAuthenticated>
+                      <hr className="navbar-divider" />
+                      <Link className="navbar-item" to="/saved">
+                        Saved Stories
                       </Link>
                     </IfAuthenticated>
                   </div>
