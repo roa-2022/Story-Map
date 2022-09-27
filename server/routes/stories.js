@@ -49,7 +49,8 @@ router.post('/', checkJwt, async (req, res) => {
 
     const idArr = await db.addStory(storyData)
     console.log(idArr)
-    const storyId = idArr[0]
+    const storyIdObj = idArr[0]
+    const storyId = storyIdObj.id
 
     const idObj = {
       story_id: storyId,
