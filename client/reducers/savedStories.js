@@ -1,4 +1,4 @@
-import { ADD_SAVED, SET_SAVED, DEL_SAVED } from "../actions/addStory"
+import { ADD_SAVED, SET_SAVED, DEL_SAVED } from "../actions/savedStories"
 
 const initialState = []
 
