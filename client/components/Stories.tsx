@@ -4,9 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
-function Stories() {
+export default function Search() {
   const stories = useSelector((state: any) => state.stories)
-  
+
+  useEffect(() => {
+    dispatch(fetchStories())
+  }, [stories])
+
   const [region, setRegion] = useState('')
   const [toggle, setToggle]: any = useState(false)
   const [success, setSuccess]: any = useState(false)
@@ -32,11 +36,6 @@ function Stories() {
   //   await setImageURLs(newImageUrls)
   //   console.log(newImageUrls)
 
-  //   dispatch(fetchAddedStory(newImageUrls))
-  // }
-
- 
-
   const changeHandlerEng = (e) => {
     setRegion(e.target.value as string)
     setToggle(true)
@@ -59,295 +58,177 @@ function Stories() {
 
   return (
     <>
-      <section className="section-search">
-        <div className="hero-body">
-          <div className="box">
-            <form action="">
-              <div className="field">
-                <label id="demo-simple-select-label">
-                  Filter By Region (English)
-                </label>
-                <div className="control">
-                  <select
+      <section className="search-view hero-body is-fullwidth has-text-centered ">
+        <div className="container is-fluid has-text-left m-1 p-1">
+          <p className='subtitle is-size-1-desktop has-text-weight-light'> Select Stories by Region</p>
+          <form>
+            <div className="field py-4">
+              <label id="label ">Filter</label>
+              <div className="control">
+                <div className="select">
+                  <select className='p-1"'
                     id="demo-simple-select"
                     value={region}
                     onChange={changeHandlerEng}
+                    
                   >
                     [ <option>{region}</option>]
-                    <option className="dropdown-item">New Zealand</option>
-                    <option className="dropdown-item">North Island</option>
-                    <option className="dropdown-item">South Island</option>
-                    <option className="dropdown-item">Northland</option>
-                    <option className="dropdown-item">Auckland</option>
-                    <option className="dropdown-item">Waikato</option>
-                    <option className="dropdown-item">Bay of Plenty</option>
-                    <option className="dropdown-item">Gisborne</option>
-                    <option className="dropdown-item">Hawke's Bay</option>
-                    <option className="dropdown-item">Taranaki</option>
-                    <option className="dropdown-item">Manawatū-Whanganui</option>
-                    <option className="dropdown-item">Wellington</option>
-                    <option className="dropdown-item">Tasman</option>
-                    <option className="dropdown-item">Nelson</option>
-                    <option className="dropdown-item">Marlborough</option>
-                    <option className="dropdown-item">West Coast</option>
-                    <option className="dropdown-item">Canterbury</option>
-                    <option className="dropdown-item">Otago</option>
-                    <option className="dropdown-item">Southland</option>
+                    <option>New Zealand </option>
+                    <option>North Island</option>
+                    <option>South Island </option>
+                    <option>Northland </option>
+                    <option>Auckland</option>
+                    <option>Waikato</option>
+                    <option>Bay of Plenty</option>
+                    <option>Gisborne</option>
+                    <option>Hawke's Bay</option>
+                    <option>Taranaki</option>
+                    <option>Manawatū-Whanganui</option>
+                    <option>Wellington</option>
+                    <option>Tasman</option>
+                    <option>Nelson</option>
+                    <option>Marlborough</option>
+                    <option>West Coast</option>
+                    <option>Canterbury</option>
+                    <option>Otago</option>
+                    <option>Southland</option>
                   </select>
                 </div>
               </div>
-              <div className="field">
-                <label id="demo-simple-select-label">
-                  Filter By Region (Maori)
-                </label>
-                <div className="control">
-                  <select
-                    id="demo-simple-select"
-                    value={maoriRegion}
-                    onChange={changeHandlerMao}
-                  >
-                    [ <option>{maoriRegion}</option>]
-                    <option className="dropdown-item">Aotearoa</option>
-                    <option className="dropdown-item">Te Ika-a-Māui</option>
-                    <option className="dropdown-item">Te Waipounamu</option>
-                    <option className="dropdown-item">Te Tai Tokerau</option>
-                    <option className="dropdown-item">Tāmaki-makau-rau</option>
-                    <option className="dropdown-item">Waikato</option>
-                    <option className="dropdown-item">Te Moana-a-Toi</option>
-                    <option className="dropdown-item">Te Tai Rāwhiti</option>
-                    <option className="dropdown-item">Te Matau-a-Māui</option>
-                    <option className="dropdown-item">Taranaki</option>
-                    <option className="dropdown-item">Manawatū-Whanganu</option>
-                    <option className="dropdown-item">Te Whanga-nui-a-Tara</option>
-                    <option className="dropdown-item">Te Tai-o-Aorere</option>
-                    <option className="dropdown-item">Whakatū</option>
-                    <option className="dropdown-item">Te Tauihu-o-te-waka</option>
-                    <option className="dropdown-item">Te Tai Poutini</option>
-                    <option className="dropdown-item">Waitaha</option>
-                    <option className="dropdown-item">Ōtākou</option>
-                    <option className="dropdown-item">Murihiku</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-            {success == true && (
-              <article className="message is-primary">
-                <div className="message-header">
-                  <p>Filters Cleared!</p>
-                </div>
-              </article>
-            )}
+            </div>
+          </form>
+        
+        </div>
+
+        <div className="container">
+        <div className="cards-container">
+         {region.length == 0 &&
+              stories.map((story) => {
+                return (
+                  <>
+                    <div className="column is-3">
+                      <div className="card">
+                        <div className="card-image">
+                          <figure className="image is-4by3">
+                            <img src={story.photo_url} alt="Story image" />
+                          </figure>
+                        </div>
+                        <div className="card-content">
+                          <div className="media">
+                            <div className="media-left"></div>
+
+                            <div className="media-content">
+                              <p className="title is-5">{story.title}</p>
+
+                              <p className="subtitle is-6">
+                                Sent by: {story.author}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="content">
+                            <div className="media-content">
+                              <p className="is-success">{story.synopsis}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="card">
+                          <footer className="card-footer">
+                            <p className="card-footer-item">
+                              <Link
+                                style={{ textDecoration: 'none' }}
+                                to={`/stories/${story.id}`}
+                                key={story.id}
+                              >
+                                <span>View Story</span>
+                              </Link>
+                            </p>
+                            <IfAuthenticated>
+                              <p className="card-footer-item">
+                                <Link
+                                  style={{ textDecoration: 'none' }}
+                                  to={'#'}
+                                  key={story.id}
+                                >
+                                  <span>Save Story</span>
+                                </Link>
+                              </p>
+                            </IfAuthenticated>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )
+              })}
+          </div>
+        </div>
+
+        <div className="section-container">
+          <div className="cards-container">
+            {region.length > 1 &&
+              stories.map((story) => {
+                return (
+                  <>
+                    {story.name == region && (
+                      <div className="column is-3">
+                        <div className="card">
+                          <div className="card-image">
+                            <figure className="image is-4by3">
+                              <img src={story.photo_url} alt="Story image" />
+                            </figure>
+                          </div>
+                          <div className="card-content">
+                            <div className="is-flex is-justify-content-center">
+                              <div className="card-tilte"></div>
+
+                              <div className="">
+                                <p className="title is-5">{story.title}</p>
+
+                                <p className="subtitle is-6">
+                                  Sent by: {story.author}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="content">
+                              <div className="media-content">
+                                <p className="is-success">{story.synopsis}</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="card">
+                            <footer className="card-footer">
+                              <p className="card-footer-item">
+                                <Link
+                                  style={{ textDecoration: 'none' }}
+                                  to={`/stories/${story.id}`}
+                                  key={story.id}
+                                >
+                                  <span>View Story</span>
+                                </Link>
+                              </p>
+
+                              <IfAuthenticated>
+                                <p className="card-footer-item">
+                                  <Link
+                                    style={{ textDecoration: 'none' }}
+                                    to={'#'}
+                                    key={story.id}
+                                  >
+                                    <span>Save Story</span>
+                                  </Link>
+                                </p>
+                              </IfAuthenticated>
+                            </footer>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )
+              })}
           </div>
         </div>
       </section>
-      <section className="container is-widescreen ">
-        <div className="hero-body ">
-          <div className="cards-container">
-            {maoriRegion.length == 0 &&
-              region.length == 0 &&
-              stories.map((story) => {
-                return (
-                  // <div className="container has-text-centered">
-                  //   <div className="columns is-mobile is-centered">
-                  <div className="column is-3">
-                    <div className="card">
-                      <div className="card-image">
-                        <figure className="image is-4by3">
-                          <img src={story.photo_url} alt="Story image" />
-                        </figure>
-                      </div>
-                      <div className="card-content">
-                        <div className="media">
-                          <div className="media-left">                        
-                          </div>
-
-                          <div className="media-content">
-                            <p className="title is-5">{story.title}</p>
-
-                            <p className="subtitle is-6">
-                              Sent by: {story.author}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <div className="media-content">
-                            <p className="is-success">{story.synopsis}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card">
-                        <footer className="card-footer">
-                          <p className="card-footer-item">
-                            <Link
-                              style={{ textDecoration: 'none' }}
-                              to={`/stories/${story.id}`}
-                              key={story.id}
-                              >
-                              <span>View Story</span>
-                            </Link>
-                          </p>
-                          {/* TODO: add link to Saved Stories */}
-                          <IfAuthenticated>
-                            <p className="card-footer-item">
-                              <Link
-                                style={{ textDecoration: 'none' }}
-                                to={'#'}
-                                key={story.id}
-                                >
-                                <span>Save Story</span>
-                              </Link>
-                            </p>
-                          </IfAuthenticated>
-                        </footer>
-                      </div>
-                    </div>
-                  </div>
-             
-            
-            )})}
-            </div>
-            </div>
-      </section>
-      <section className="tiles is-flex flex-wrap-wrap">
-        {maoriRegion.length > 1 &&
-          region.length == 0 &&
-          stories.map((story) => {
-            return (
-              <>
-                 {story.maori_name == maoriRegion &&
-                  <div className="column is-3">
-                    <div className="card">
-                      <div className="card-image">
-                        <figure className="image is-4by3">
-                          <img src={story.photo_url} alt="Story image" />
-                        </figure>
-                      </div>
-                      <div className="card-content">
-                        <div className="media">
-                          <div className="media-left">
-                            {/* <figure className="image is-48x48">
-                          <img
-                            src="https://media.geeksforgeeks.org/wpcontent/uploads/20200611151025/gfg202.png"
-                            alt="Placeholder image"
-                          />
-                        </figure> */}
-                          </div>
-
-                          <div className="media-content">
-                            <p className="title is-5">{story.title}</p>
-
-                            <p className="subtitle is-6">
-                              Sent by: {story.author}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <div className="media-content">
-                            <p className="is-success">{story.synopsis}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card">
-                        <footer className="card-footer">
-                          <p className="card-footer-item">
-                            <Link
-                              style={{ textDecoration: 'none' }}
-                              to={`/stories/${story.id}`}
-                              key={story.id}
-                              >
-                              <span>View Story</span>
-                            </Link>
-                          </p>
-                          <IfAuthenticated>
-                            <p className="card-footer-item">
-                              <Link
-                                style={{ textDecoration: 'none' }}
-                                to={'#'}
-                                key={story.id}
-                                >
-                                <span>Save Story</span>
-                              </Link>
-                            </p>
-                          </IfAuthenticated>
-                        </footer>
-                      </div>
-                    </div>
-                  </div>
-            
-                       } </>
-          )})}
-      </section>
-      <section className="tiles is-flex flex-wrap-wrap">
-        {region.length > 1 &&
-        maoriRegion.length == 0 &&
-          stories.map((story) => {
-            return (
-              <>
-              {story.eng_name == region &&
-                  <div  className="column is-3">
-                    <div  className="card">
-                      <div className="card-image">
-                        <figure className="image is-4by3">
-                          <img src={story.photo_url} alt="Story image" />
-                        </figure>
-                      </div>
-                      <div className="card-content">
-                        <div className="media">
-                          <div className="media-left">
-                            {/* <figure className="image is-48x48">
-                          <img
-                            src="https://media.geeksforgeeks.org/wpcontent/uploads/20200611151025/gfg202.png"
-                            alt="Placeholder image"
-                          />
-                        </figure> */}
-                          </div>
-
-                          <div className="media-content">
-                            <p className="title is-5">{story.title}</p>
-
-                            <p className="subtitle is-6">
-                              Sent by: {story.author}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="content">
-                          <div className="media-content">
-                            <p className="is-success">{story.synopsis}</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="card">
-                        <footer className="card-footer">
-                          <p className="card-footer-item">
-                            <Link
-                              style={{ textDecoration: 'none' }}
-                              to={`/stories/${story.id}`}
-                              key={story.id}
-                            >
-                              <span>View Story</span>
-                            </Link>
-                          </p>
-                          <IfAuthenticated>
-                            <p className="card-footer-item">
-                              <Link
-                                style={{ textDecoration: 'none' }}
-                                to={'#'}
-                                key={story.id}
-                              >
-                                <span>Save Story</span>
-                              </Link>
-                            </p>
-                          </IfAuthenticated>
-                        </footer>
-                      </div>
-                    </div>
-                  </div>
-              
-                      }</>
-          )})}
-      </section>
     </>
-    )
+  )
 }
-
-export default Stories

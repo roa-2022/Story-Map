@@ -106,6 +106,4 @@ router.put('/', checkJwt, (req, res) => {
     })
 })
 
-
-
 module.exports = router

@@ -50,7 +50,7 @@ function Story() {
           <button onClick={() => navigate('/stories/{story.id}/update')}>
             Update Story
           </button>
-          <Map />
+         
         </div>
       )}
     </>

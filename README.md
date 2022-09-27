@@ -1,5 +1,13 @@
 # Final Project Plan
 
+* whenua-o-korero.herokuapp.com
+
+Yani copy this bad boy!! blob:http://localhost:3000/2a5d813e-60ad-4338-ac09-b22d2f1f1663
+
+LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
+
+Heroku App: https://whenua-o-korero.herokuapp.com/
+
 ## Human Skills
 
 ### Wellbeing: Stress profiles and needs
@@ -59,11 +67,20 @@ Check out and retro. Sprints  2 per day
 
 # Tech Planning
 
+### To get started:
+
+When running the repo for the first time run the following commands in your terminal:
+```
+npm install
+npm run knex migrate:latest
+npm run knex seed:run
+npm run dev
+```
 ## The Idea
 
-### Story Map - Pending name change
+### Whenua O Korero
 
-Story Map is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
+Whenua O Korero is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
 
 ## External API
 
@@ -103,7 +120,7 @@ Our store will contain an array of objects once populated.  We will only need on
 |---|---|---|---|
 | /api/v1/stories | GET | -- | Array of stories objects |
 | /api/v1/stories | POST | New story object | Object containing new id |
-| /api/v1/| ?| -- | -- |
+| /api/v1/regions| GET| -- | Array of region objects |
 | /api/v1/| ? | -- | -- |
 
 
@@ -157,7 +174,9 @@ Regions Table
    ....then add the 16 regions 
 ```
 ## DB diagram
-![Story-Map (2)](https://user-images.githubusercontent.com/99714877/191626378-82295c94-c75f-46f8-ad4b-cf06ba29dc60.png)
+
+![Story-Map](https://user-images.githubusercontent.com/99714877/191877801-2a9320e5-3351-4072-b874-6cb035747fd9.png)
+
 
 ## User Stories
 
