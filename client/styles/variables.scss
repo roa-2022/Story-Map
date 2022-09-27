@@ -1,0 +1,43 @@
+$primary: #3ba7bf;
+
+$color-dark-blue: #2e78a6;
+
+$color-green: #677131;
+
+$color-orange: #feaa67;
+
+$color-yellow: #fdde91;
+
+.btn-light-blue {
+  border: none;
+  // color: #fff;
+  background-color: $primary;
+}
+
+.btn-dark-blue {
+  border: none;
+  color: #fff;
+  background-color: $color-dark-blue;
+}
+
+.btn-orange {
+  border: none;
+  color: #fff;
+  background-color: $color-orange;
+}
+
+.btn-green {
+  border: none;
+  color: #fff;
+  background-color: $color-green;
+}
+
+.btn-yellow {
+  border: none;
+  color: #fff;
+  background-color: $color-yellow;
+}
+// Fonts
+@import 'https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+
+// font-family: 'Mulish', sans-serif;

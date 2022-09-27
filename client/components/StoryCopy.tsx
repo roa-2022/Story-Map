@@ -38,7 +38,7 @@ function Story() {
           {story && (
             <div className="container story-text">
 
-              <p className="story-title title p-2 mt-6"> The story of:  </p>
+              <p className="story-title title p-2 mt-6"> The story of </p>
               <span className="subtitle p-4">{story.title}</span>
              
               <p className="p-4">
@@ -57,7 +57,8 @@ function Story() {
                   </figure>
                 </div>
               </div>
-              <div className="btns is-flex is-align-content-center">
+            <div className="hero is-small">
+              <div className="btns is-flex is-align-content-center is-justify-content-flex-start ">
                 <button
                   className="button is-primary is-light mr-2"
                   onClick={addSaved}
@@ -65,7 +66,7 @@ function Story() {
                   <i className="fa-regular fa-heart mx-3"></i>Save
                 </button>
                 <button
-                  className="button is-danger is-light mr-5"
+                  className="button is-danger is-light mr-2"
                   onClick={handleDelete}
                 ><i className="fa-regular fa-trash-can mx-3"></i>
                   Delete
@@ -76,6 +77,8 @@ function Story() {
                 ><i className="fa-regular fa-pen-to-square mx-3"></i>
                   Update
                 </button>
+              </div>
+                <span className='my-2'></span>
               </div>
             </div>
           )}
