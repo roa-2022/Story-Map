@@ -82,6 +82,7 @@ export default function Search() {
                 </div>
               </div>
             </div>
+              <Link to='/add' className='button'>Add Story <i className="fa-regular fa-paper-plane mx-4"></i></Link>
           </form>
         
         </div>

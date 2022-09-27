@@ -5,6 +5,7 @@
 
 // Import custom variables and Bulma overides
 @import "./variables.scss";
+@import './mystyles.scss';
 
 // Import only what you need from Bulma
 @import "bulma/sass/utilities/_all.sass";
@@ -61,6 +62,9 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('../../server/public/images/lake-view.jpg')
 };
 
+.btn-home{
+  background-color:$color-dark-blue;
+}
 // Stories by region style
 .search-view{
   display: grid;

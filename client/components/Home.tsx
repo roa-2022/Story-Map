@@ -30,7 +30,7 @@ function Home() {
                   </div>
                   <div>
                     <Link to="/stories">
-                      <button className="button is-large is-primary my-6">
+                      <button className="button is-primary is-large my-6">
                         Stories
                         <i className="fa-sharp fa-solid fa-arrow-right mx-2"></i>
                       </button>
