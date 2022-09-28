@@ -6,7 +6,6 @@ const reducer = (state = initialState, action) => {
   const { type, payload } = action
   switch (type) {
     case SET_SAVED:
-      console.log('reducer', payload)
       return payload
     case ADD_SAVED:
       // eslint-disable-next-line no-case-declarations
