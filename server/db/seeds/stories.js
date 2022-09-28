@@ -63,7 +63,7 @@ exports.seed = async function (knex) {
         'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited. The story of Paikea inspired Witi Ihimaera’s book Whale Rider, which in turn inspired an award-winning film of the same name.',
       story_text:
         'The story of Paikea begins in Hawaiki, where Paikea was known by another name, Kahutiaterangi, the sole survivor of a vengeful plot devised by his half-brother Ruatapu to drown all the first born sons of Hawaiki out at sea under the guise of a fishing expedition. Ruatapu flooded the canoe they were in and the battle at sea called ‘Te Huripureiata’ commenced. Ruatapu drowned the first born sons, then he confronted his brother Kahutiaterangi. As Ruatapu swam towards him Kahutiaterangi called to his kaitiaki to help him. When he had completed his calls there was a sudden stirring in the water and a pod of whales surged up. There is an expression that suggests that the sea was a smokey haze of whales, “kauria ana te moana.” Kahutiaterangi then climbed onto the whale and survived. This marked the beginning of his legendary and celebrated journey from Hawaiki to Aotearoa, New Zealand.  A significant, spiritual, mythical, and symbolic journey of transformation where Kahutiaterangi the man became Paikea the whale, he was the man riding the whale, he was the spirit of the whale, he was the whale.  From then onwards he became known as Paikea, the whale rider.',
-      photo_url: 'https://seethesouthisland.com/wp-content/uploads/2021/04/obelisk-central-otago-nz.jpg.webp',
+      photo_url: 'https://www.moatrek.com/sites/default/files/styles/crop_from_top_845_x_400/public/2016-10/Kaikoura-New-Zealand.webp?itok=zYxFT4xM',
       longitude: 173.63115302604407,
       latitude: -42.334170885962834,
     },
@@ -115,7 +115,7 @@ exports.seed = async function (knex) {
         'The Ngāi Tahu creation story explains the southern landscape. Te Waka o Aoraki is the South Island. Aoraki is Mount Cook, Rakirua Mount Teichelmann, Rakiroa Mount Dampier and Rarakiroa is Mount Tasman. Together they reside on Ngā Tiritiri o te Moana – or the whitecaps of the ocean, more commonly known as the Southern Alps.',
       story_text:
         'Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.Māori legend tells the story of the ancestor Paikea who journeyed to a new life in Aotearoa, New Zealand, on the back of the Tohorā whale. The story represents the spiritual bond between humans and the natural world and the potential revealed when nature is respected rather than exploited.',
-      photo_url: 'https://www.moatrek.com/sites/default/files/styles/crop_from_top_845_x_400/public/2016-10/Kaikoura-New-Zealand.webp?itok=zYxFT4xM',
+      photo_url: 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/ef/e0/a9.jpg',
       longitude: 170.14202433438962,
       latitude: -43.59432165218203,
 },
