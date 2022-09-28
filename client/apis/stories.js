@@ -8,6 +8,7 @@ export async function getOneStoryAPI(id) {
 
 export async function getStoriesAPI() {
   const res = await request.get('/api/v1/stories/')
+  console.log(res.body)
   return res.body
 }
 
@@ -41,4 +42,3 @@ export async function updateStoryAPI(story, token) {
     return logError(err)
   }
 }
-

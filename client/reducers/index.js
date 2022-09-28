@@ -13,5 +13,5 @@ export default combineReducers({
   search,
   stories,
   regions,
-  savedStories
+  savedStories,
 })
