@@ -3,15 +3,10 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
 import { fetchSavedStories } from '../actions/savedStories'
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { IfAuthenticated } from './Authenticated'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
-
-  useEffect(() => {
-    dispatch(fetchStories())
-  }, [])
-
   const [region, setRegion] = useState('')
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
