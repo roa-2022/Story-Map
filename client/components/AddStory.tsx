@@ -36,22 +36,12 @@ function AddStory() {
   }
 
   return (
-    <section className="add-container">
-      <div className="add-box">
-        <div className="add-box-text">
+    <section className="container">
+      <div className="box">
+        <div className="addbox-text">
         </div>
         <div className="form-container">
-          <form style = {{
-            width : "40%",
-            margin: 'auto',
-            textAlign: "center",
-            borderRadius: '10%',
-            backgroundColor: 'rgb(252, 245, 229)',
-            padding: '20px',
-            marginTop: '30px'
-            
-          }} 
-          className="grid-stacked" onSubmit={handleSubmit}>
+          <form  className="grid-stacked" onSubmit={handleSubmit}>
             <h1>Add your Story</h1>
           <div className="field">
             <label htmlFor="region_id"className="label">Region</label>
@@ -104,14 +94,7 @@ function AddStory() {
               <label htmlFor="story_text" className='label'>Type Story: </label>
               <div className="control">
                 <br />
-                <textarea
-                  name="story_text"
-                  className='text-area'
-                  onChange={handleChange}
-                  placeholder="Write your story here"
-                  rows={10}
-                  cols={70}
-                />
+               
               </div>
             </div>
             <MapForPlacingMarker />
