@@ -81,7 +81,7 @@ export default function Search() {
             <IfNotAuthenticated>
               <Link to="/add">
                 <button
-                  className="button is-danger"
+                  className="button is-success is-light"
                   title="Disabled button"
                   disabled
                 >
