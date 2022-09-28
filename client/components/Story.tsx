@@ -28,7 +28,7 @@ function Story() {
 
   useEffect(() => {
     dispatch(fetchOneStory(id))
-  }, [])
+  }, [story])
 
   return (
     <>
