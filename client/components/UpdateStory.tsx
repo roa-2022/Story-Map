@@ -56,7 +56,7 @@ function UpdateStory() {
                 />
               </div>
               <div className="field">
-                <label className="label" htmlFor="title">
+                <label className="label mt-4" htmlFor="title">
                   Title:{' '}
                 </label>
                 <input
@@ -82,7 +82,7 @@ function UpdateStory() {
                 
               </div>
               <div className="field">
-                <label className="label" htmlFor="story_text">
+                <label className="label mt-2" htmlFor="story_text">
                   Type your story:{' '}
                 </label>
                 <br />
@@ -97,21 +97,21 @@ function UpdateStory() {
                 />
               </div>
               <div>
-                <label className="control" htmlFor="latitude">
+                <label className="label" htmlFor="latitude">
                   Latitude:
                 </label>
                 <input
-                  className="input mt-2"
+                  className="input "
                   type="text "
                   name="latitude"
                   value={viewCoordinates.latitude}
                   readOnly
                 />
-                <label className="control" htmlFor="longitude">
+                <label className="label mt-2" htmlFor="longitude">
                   Longitude:{' '}
                 </label>
                 <input
-                  className="input mt-2"
+                  className="input "
                   type="text"
                   name="longitude"
                   value={viewCoordinates.longitude}
@@ -119,7 +119,7 @@ function UpdateStory() {
                 />
               </div>
               <div className="map-section">
-                <p className="map-title is-size-6 px-1 mb-2 has-text-weight-medium">
+                <p className="map-title is-size-6 px-1 mt-5 mb-2 has-text-weight-medium">
                   Place your marker on the Map and press the Add{' '}
                   <i className="fa-solid fa-location-dot mx-2"></i> button
                 </p>

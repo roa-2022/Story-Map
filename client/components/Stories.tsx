@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
 import { fetchSavedStories } from '../actions/savedStories'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { useAuth0 } from '@auth0/auth0-react'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
@@ -22,13 +23,21 @@ export default function Search() {
     setRegion(e.target.value as string)
   }
 
+    // link to register
+    const { logout, loginWithRedirect } = useAuth0()
+
+    const handleSignIn = (e) => {
+      e.preventDefault()
+      loginWithRedirect()
+    }
+
   return (
     <>
       <section className="search-view hero-body is-fullwidth has-text-centered ">
         <div className="container is-fluid has-text-left m-1 p-1">
-          <p className="subtitle is-size-1-desktop has-text-weight-light">
+          <p className="title is-size-1-desktop has-text-weight-light">
             {' '}
-            Select Stories by Region
+           Stories by Region
           </p>
           <form>
             <div className="field py-4">
@@ -80,7 +89,11 @@ export default function Search() {
                   Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
                 </button>
               </Link>
-              <p className='my-4 is-size-5'>Log In to add a story</p>
+              
+              <p className='my-4 is-size-5'>
+              <Link to="/" onClick={handleSignIn}>
+              Log In
+              </Link> to add a story</p>
             </IfNotAuthenticated>
           </form>
         </div>
@@ -140,7 +153,8 @@ export default function Search() {
                                   to={'#'}
                                   key={story.id}
                                 >
-                                  <span>Save Story</span>
+                                  <i className=" is-danger is-light fa-regular fa-heart mx-3"></i>
+                                  
                                 </Link>
                               </p>
                             </IfAuthenticated>
