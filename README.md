@@ -115,10 +115,14 @@ Our store will contain an array of objects once populated.  We will only need on
 
 | path | method | data | response |
 |---|---|---|---|
-| /api/v1/stories | GET | -- | Array of stories objects |
-| /api/v1/stories | POST | New story object | Object containing new id |
-| /api/v1/regions| GET| -- | Array of region objects |
-| /api/v1/| ? | -- | -- |
+| /api/v1/stories        | GET  | --                                | Array of stories objects                            |
+| /api/v1/stories        | POST | New story object                  | Object containing new id                            |
+| /api/v1/regions        | GET  | --                                | Array of region objects                             |
+| /api/v1/search/:region | GET  |                                   | Array of stories objects with matching region name  |
+| /api/v1/saved          | POST | added favourites data             | New Object                                          |
+| /api/v1/saved/:auth0_id| GET  | --                                | Array of saved objects pertaining to auth0_id value |
+| /api/v1/users          | GET  | --                                | Array of users                                      |
+| /api/v1/users          | POST | new user data                     | --                                                  |
 
 
 Example seed content: 
