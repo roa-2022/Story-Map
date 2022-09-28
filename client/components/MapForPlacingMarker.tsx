@@ -43,13 +43,12 @@ function MapForPlacingMarker() {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "center",
-        marginLeft: '10%',
-        marginRight: '10%',
+   
       }}
     >
       <InteractiveMap
         initialViewState={{ ...initialState }}
-        style={{ height: 200, width: '100%' }}
+        style={{ height: 300, width: '100%' }}
         mapStyle="mapbox://styles/mapbox/satellite-v9"
         onMove={(evt) => {
           setViewCoordinatesState(evt.viewState)
@@ -70,7 +69,8 @@ function MapForPlacingMarker() {
           </Marker>
       </InteractiveMap>
 
-      <button onClick={(e) => {
+      <button className='button is-primary is-small mx-4'
+      onClick={(e) => {
           e.preventDefault()
           setButtonStyle({
             display: 'block',
@@ -79,7 +79,7 @@ function MapForPlacingMarker() {
           saveViewStateToRedux()
         }}
       >
-        Place Marker Here
+        <b>Add</b><i className="fa-solid fa-location-dot mx-2"></i>
       </button>
       
       <p style={buttonStyle}>

@@ -36,13 +36,11 @@ function AddStory() {
   }
 
   return (
-    <section className="container">
-      <div className="box">
-        <div className="addbox-text">
-        </div>
-        <div className="form-container">
+    <section className="story-section">
+      <div className="story-container">
+        <div className="form-container ">
           <form  className="grid-stacked" onSubmit={handleSubmit}>
-            <h1>Add your Story</h1>
+            <h1 className='title'>Add your Story</h1>
             <div className="field">
               <label htmlFor="region_id" className="label">
                 Region
@@ -88,9 +86,9 @@ function AddStory() {
               <label htmlFor="author" className="label">
                 Author
               </label>
-              <div className="control">
+              <div className="control ">
                 <input
-                  className="input"
+                  className="input input-width"
                   type="text"
                   name="author"
                   onChange={handleChange}
@@ -103,24 +101,21 @@ function AddStory() {
               </label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input input-width"
                   type="text"
                   name="title"
                   onChange={handleChange}
                 />
               </div>
             </div>
-            {/* <div>
-              <label htmlFor="title">Title: </label>
-              <input type="text" name="title" onChange={handleChange} />
-            </div> */}
+           
             <div className="field">
               <label htmlFor="synopsis" className="label">
                 Synopsis:{' '}
               </label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input input-width"
                   type="text"
                   name="synopsis"
                   onChange={handleChange}
@@ -130,14 +125,15 @@ function AddStory() {
 
             <div className="field">
               <label htmlFor="photo_url" className="label">
-                photo_url
+                Photo_url
               </label>
               <div className="control">
                 <input
-                  className="input"
+                  className="input input-width"
                   type="text"
                   name="photo_url"
                   onChange={handleChange}
+                  placeholder='paste your picture Url: http://'
                 />
               </div>
             </div>
@@ -147,28 +143,35 @@ function AddStory() {
               </label>
               <div className="control">
                 <br />
-               
+                <textarea className="textarea" placeholder="Once upon a time ..."></textarea>
               </div>
             </div>
-            <MapForPlacingMarker />
-            <div>
-              <label htmlFor="latitude">Latitude: </label>
-              <input
-                type="text"
-                name="latitude"
-                value={viewCoordinates.latitude}
-                readOnly
-              />
-              <label htmlFor="longitude">Longitude: </label>
-              <input
-                type="text"
-                name="longitude"
-                value={viewCoordinates.longitude}
-                readOnly
-              />
-            </div>
-            <div>
-              <button className="btn-add-venue">Add</button>
+            <div className="map-section">
+              <div className="map-container">
+                <p className='map-title my-4'>
+                  Place your marker on the Map and press the Add <i className="fa-solid fa-location-dot mx-2"></i> button
+                </p>
+                <MapForPlacingMarker />
+              </div>
+              <div>
+                <label htmlFor="latitude">Latitude: </label>
+                <input
+                  type="text "
+                  name="latitude"
+                  value={viewCoordinates.latitude}
+                  readOnly
+                />
+                <label htmlFor="longitude">Longitude: </label>
+                <input
+                  type="text"
+                  name="longitude"
+                  value={viewCoordinates.longitude}
+                  readOnly
+                />
+              </div>
+              <div>
+                <button className="btn-add-venue">Add</button>
+              </div>
             </div>
           </form>
         </div>
