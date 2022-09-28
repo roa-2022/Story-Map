@@ -21,8 +21,6 @@ npm run dev
 ## Heroku App
 * whenua-o-korero.herokuapp.com
 
-LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
-
 ------------------------------------------
 
 ## Human Skills
@@ -117,18 +115,12 @@ What we used in our project:
 
 ![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629529-a57cb85b-f3a0-4685-92f0-0f503c178909.jpg)
 
-## External API
-
-Our chosen API will be Mapbox (www.mapbox.com).  We will use this service to gain access to a map of New Zealand and be able to interact with said map.
-There are several endpoints we can access but the main routes we will use are:
-
-* Endpoint 1
-* Endpoint 2
+LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
 
 
 ## Redux store
 
-Our store will contain an array of objects once populated.  We will only need one reducer to make this function correctly
+Our store will contain an array of objects once populated.  There is a number of reducers fabricated to give us control over what gets stored.  We have seperate stores for our map, as well as for our list of stories, regions, users and saved stories
 
 ## Routes
 
