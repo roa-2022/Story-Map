@@ -40,7 +40,7 @@ function UpdateStory() {
           {story && (
             <form className="grid-stacked" onSubmit={handleSubmit}>
               <h1 className="title">
-                <i className="fa-regular fa-pen-to-square mx-2"></i>Edit your
+                <i className="fa-regular fa-pen-to-square mx-3"></i>Edit your
                 Story
               </h1>
               <div className="input-group">

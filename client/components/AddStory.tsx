@@ -40,7 +40,7 @@ function AddStory() {
       <div className="story-container">
         <div className="form-container box">
           <form className="grid-stacked" onSubmit={handleSubmit}>
-            <h1 className="title">Add your Story</h1>
+            <h1 className="title"><i className="fa-solid fa-location-dot mx-3"></i>Add your Story</h1>
             <div className="field">
               <label htmlFor="region_id" className="label">
                 Region
