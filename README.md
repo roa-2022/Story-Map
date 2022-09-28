@@ -14,8 +14,6 @@ npm run knex migrate:latest
 npm run knex seed:run
 npm run dev
 ```
-## The Idea
-
 # Deployed url on Heroku.com 
 * whenua-o-korero.herokuapp.com
 
