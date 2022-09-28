@@ -10,12 +10,9 @@ export default function Search() {
 
   useEffect(() => {
     dispatch(fetchStories())
-  }, [stories])
+  }, [])
 
   const [region, setRegion] = useState('')
-  const [toggle, setToggle]: any = useState(false)
-  const [success, setSuccess]: any = useState(false)
-  const [maoriRegion, setMaoriRegion] = useState('')
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
 
@@ -28,13 +25,7 @@ export default function Search() {
 
   const changeHandler = (e) => {
     setRegion(e.target.value as string)
-    setToggle(true)
-    setMaoriRegion('')
-    setSuccess(false)
   }
-  // const addSaved = () => {
-  //   dispatch(fetchAddSavedStory(story, token))
-  // }
 
   return (
     <>

@@ -1,22 +1,29 @@
+import { addStoryAPI } from '../apis/stories'
 import { getOneStoryAPI, getStoriesAPI } from '../apis/stories'
-
 
 export const SET_STORY = 'SET_STORY'
 export const SET_STORIES = 'SET_STORIES'
-export const NAVIGATE = 'NAVIGATE'
+export const ADD_STORY = 'ADD_STORY'
 
 export const UPDATE_STORIES = 'UPDATE_STORIES'
-
-export function navigate(destination) {
-  return {
-    type: NAVIGATE,
-    payload: destination, 
-  }
-}
 
 export function setStory(story) {
   return {
     type: SET_STORY,
+    payload: story,
+  }
+}
+
+export function setStories(stories) {
+  return {
+    type: SET_STORIES,
+    payload: stories,
+  }
+}
+
+export function addStory(story) {
+  return {
+    type: ADD_STORY,
     payload: story,
   }
 }
@@ -32,22 +39,24 @@ export function fetchOneStory(id) {
   }
 }
 
-export function setStories(stories) {
-  return {
-    type: SET_STORIES,
-    payload: stories,
-  }
-}
-
 export function fetchStories () {
   return async (dispatch) => {
     try {
-    const results = await getStoriesAPI()
-    dispatch(setStories(results))
-  } catch (err) {
-    console.error(err.message)
+      const results = await getStoriesAPI()
+      dispatch(setStories(results))
+    } catch (err) {
+      console.error(err.message)
+    }
+}
+}
+
+export function fetchAddStory(data, token) {
+  return async (dispatch) => {
+    try {
+      const res = await addStoryAPI(data, token)
+      dispatch(addStory(res))
+    } catch (err) {
+      console.error(err.message)
+    }
   }
-
 }
-}
-
