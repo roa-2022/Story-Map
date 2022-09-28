@@ -50,18 +50,18 @@ function AddStory() {
                   <select name="region_id" id="type" onChange={handleChange}>
                     <option value="DEFAULT">Select an Option</option>
                     <option value={allRegions[0]?.id}>
-                      New Zealand | Aotearoa
+                      New Zealand
                     </option>
                     <option value={allRegions[1]?.id}>
-                      North Island | Te Ika-a-Māui
+                      North Island
                     </option>
                     <option value={allRegions[2]?.id}>
-                      South Island | Te Waipounamu
+                      South Island
                     </option>
                     <option value={allRegions[3]?.id}>
-                      Northland | Te Tai Tokerau{' '}
+                      Northland
                     </option>
-                    <option value={allRegions[4]?.id}>Auckland | </option>
+                    <option value={allRegions[4]?.id}>Auckland</option>
                     <option value={allRegions[5]?.id}>Waikato</option>
                     <option value={allRegions[6]?.id}>Bay of Plenty</option>
                     <option value={allRegions[7]?.id}>Gisborne</option>
