@@ -1,5 +1,22 @@
 # Final Project Plan
 
+
+## Korero O Te Whenua
+
+Whenua O Korero is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
+
+## To get started:
+
+When running the repo for the first time run the following commands in your terminal:
+```
+npm i
+npm run knex migrate:latest
+npm run knex seed:run
+npm run dev
+```
+## The Idea
+
+# Deployed url on Heroku.com 
 * whenua-o-korero.herokuapp.com
 
 Yani copy this bad boy!! blob:http://localhost:3000/2a5d813e-60ad-4338-ac09-b22d2f1f1663
@@ -66,21 +83,6 @@ Check out and retro. Sprints  2 per day
  Lunch:  around 12/12.30 duration will last, depending on the duration.
 
 # Tech Planning
-
-### To get started:
-
-When running the repo for the first time run the following commands in your terminal:
-```
-npm install
-npm run knex migrate:latest
-npm run knex seed:run
-npm run dev
-```
-## The Idea
-
-### Whenua O Korero
-
-Whenua O Korero is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
 
 ## External API
 
