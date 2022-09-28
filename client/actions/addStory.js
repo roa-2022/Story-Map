@@ -1,16 +1,15 @@
-import {addStoryAPI} from '../apis/stories'
+import { addStoryAPI } from '../apis/stories'
 
-export const ADD_STORY ='ADD_STORY'
+export const ADD_STORY = 'ADD_STORY'
 
-export function addStory(story){
+export function addStory(story) {
   return {
-    type:ADD_STORY ,
-    payload: story
+    type: ADD_STORY,
+    payload: story,
   }
 }
 
-
-export function fetchAddStory(data,token) {
+export function fetchAddStory(data, token) {
   return async (dispatch) => {
     try {
       const res = await addStoryAPI(data, token)
