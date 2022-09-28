@@ -60,8 +60,8 @@ export default function Search() {
                     <option>Hawke's Bay</option>
                     <option>Taranaki</option>
                     <option>Manawatū-Whanganui</option>
-                    <option disabled>──────────</option>
                     <option>Wellington</option>
+                    <option disabled>──────────</option>
                     <option>Tasman</option>
                     <option>Nelson</option>
                     <option>Marlborough</option>
