@@ -62,10 +62,13 @@ export function updateStories(stories) {
 }
 
 export function fetchUpdateStories(stories, token) {
-  return (dispatch) => {
-    return updateStoryAPI(stories, token).then((res) => {
-      dispatch(updateStories(res))
-    })
+  return async (dispatch) => {
+    try {
+      await updateStoryAPI(stories, token)
+      dispatch(updateStories(stories))
+    } catch (err) {
+      console.error(err.message)
+    }
   }
 }
 

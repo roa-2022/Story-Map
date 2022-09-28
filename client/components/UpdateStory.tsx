@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Stories from './Stories'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchUpdateStories } from '../actions/stories'
@@ -20,7 +20,6 @@ function UpdateStory() {
   const viewCoordinates = useSelector((state: any) => state.map)
 
   const handleSubmit = (e) => {
-    console.log(dataForm)
     e.preventDefault()
     dispatch(fetchUpdateStories(dataForm, token))
     navigate('/stories')
@@ -37,7 +36,7 @@ function UpdateStory() {
     <section className="story-section">
       <div className="story-container">
         <div className="form-container box">
-          {story && (
+          {stories.length == 1 ? (
             <form className="grid-stacked" onSubmit={handleSubmit}>
               <h1 className="title">
                 <i className="fa-regular fa-pen-to-square mx-3"></i>Edit your
@@ -48,7 +47,7 @@ function UpdateStory() {
                   Author:{' '}
                 </label>
                 <input
-                className="input input-width"
+                  className="input input-width"
                   type="text"
                   name="author"
                   defaultValue={story.author}
@@ -60,7 +59,7 @@ function UpdateStory() {
                   Title:{' '}
                 </label>
                 <input
-                className="input input-width"
+                  className="input input-width"
                   type="text"
                   name="title"
                   defaultValue={story.title}
@@ -79,7 +78,6 @@ function UpdateStory() {
                   rows={3}
                   cols={50}
                 />
-                
               </div>
               <div className="field">
                 <label className="label mt-2" htmlFor="story_text">
@@ -127,9 +125,13 @@ function UpdateStory() {
                 <div className="map-container"></div>
               </div>
               <div>
-                <button className="button  is-success is-medium mt-2">Update</button>
+                <button className="button  is-success is-medium mt-2">
+                  Update
+                </button>
               </div>
             </form>
+          ) : (
+            <Stories />
           )}
         </div>
       </div>

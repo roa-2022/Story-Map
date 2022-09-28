@@ -16,14 +16,10 @@ const reducer = (state = initialState, action) => {
       return payload
     case ADD_STORY:
       return [...state, payload]
-    case UPDATE_STORIES: {
-      return state.map((story) => {
-        const updated = payload.findLast(
-          (updatedItem) => updatedItem.id == story.id
-        )
-        return updated ? updated : story
-      })
-    }
+    case UPDATE_STORIES:
+      return [...state].map((story) =>
+        story.id == payload.id ? (story = payload) : story
+      )
     default:
       return state
   }

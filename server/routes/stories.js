@@ -81,7 +81,7 @@ router.delete('/:id', checkJwt, (req, res) => {
       if (err.message === 'Unauthorized') {
         res
           .status(403)
-          .send('Unauthorized: Only the user who added the fruit may update it')
+          .send('Unauthorized: Only the user who added the story may update it')
       } else {
         res.status(500).send(err.message)
       }
@@ -112,7 +112,7 @@ router.put('/', checkJwt, (req, res) => {
       if (err.message === 'Unauthorized') {
         res
           .status(403)
-          .send('Unauthorized: Only the user who added the fruit may update it')
+          .send('Unauthorized: Only the user who added the story may update it')
       } else {
         res.status(500).send(err.message)
       }
