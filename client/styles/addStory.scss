@@ -1,26 +1,15 @@
+// add btn container in MapForPlacingMarker
 
+.add-btn-container {
+  // padding: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+}
 
-// style = {{
-//   width : "40%",
-//   margin: 'auto',
-//   textAlign: "center",
-//   borderRadius: '10%',
-//   backgroundColor: 'rgb(252, 245, 229)',
-//   padding: '20px',
-//   marginTop: '30px'
-  
-// }} 
-
-
-// .input-width{
-//   max-width: 60vw!important
-// }
-
-// .map-container{
-//   border:1px solid red;
-//   max-width: 600px;
-// }
-
-// .form-container{
-// max-width: 60vw !important;
-// }
+.small-map-add-story {
+  border: 1px solid blue;
+  display: 'flex';
+  flex-wrap: 'wrap';
+  justify-content: 'center';
+  margin: '20px 0';
+}

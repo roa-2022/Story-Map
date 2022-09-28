@@ -148,13 +148,13 @@ function AddStory() {
             </div>
             <div className="map-section">
               <div className="map-container">
-                <p className='map-title my-4'>
+                <p className='map-title is-size-6 px-1 has-text-weight-medium'>
                   Place your marker on the Map and press the Add <i className="fa-solid fa-location-dot mx-2"></i> button
                 </p>
                 <MapForPlacingMarker />
               </div>
               <div>
-                <label htmlFor="latitude">Latitude: </label>
+                <label className="" htmlFor="latitude">Latitude: </label>
                 <input
                   type="text "
                   name="latitude"

@@ -58,14 +58,14 @@
 
 .story-img {
   max-width: 600px;
-  max-height: 600;
+  max-height: 500px!important;
   object-fit: cover;
 }
 // query for img-txt-container
 @media screen and (max-width: 900px) {
   .story-img {
     max-width: 300px;
-    max-height: 600;
+    max-height: 600!important;
     object-fit: cover;
   }
 }
