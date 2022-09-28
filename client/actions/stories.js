@@ -1,5 +1,4 @@
-import { getOneStoryAPI, getStoriesAPI } from '../apis/stories'
-
+import { getOneStoryAPI, getStoriesAPI, updateStoryAPI } from '../apis/stories'
 
 export const SET_STORY = 'SET_STORY'
 export const SET_STORIES = 'SET_STORIES'
@@ -10,7 +9,7 @@ export const UPDATE_STORIES = 'UPDATE_STORIES'
 export function navigate(destination) {
   return {
     type: NAVIGATE,
-    payload: destination, 
+    payload: destination,
   }
 }
 
@@ -39,15 +38,28 @@ export function setStories(stories) {
   }
 }
 
-export function fetchStories () {
+export function fetchStories() {
   return async (dispatch) => {
     try {
-    const results = await getStoriesAPI()
-    dispatch(setStories(results))
-  } catch (err) {
-    console.error(err.message)
+      const results = await getStoriesAPI()
+      dispatch(setStories(results))
+    } catch (err) {
+      console.error(err.message)
+    }
   }
-
-}
 }
 
+export function updateStories(stories) {
+  return {
+    type: UPDATE_STORIES,
+    payload: stories,
+  }
+}
+
+export function fetchUpdateStories(stories, token) {
+  return (dispatch) => {
+    return updateStoryAPI(stories, token).then((res) => {
+      dispatch(updateStories(res))
+    })
+  }
+}
