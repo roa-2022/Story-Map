@@ -26,6 +26,7 @@ function Map() {
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
 
+
     setPopupInfo(story)
   }
 
@@ -69,8 +70,8 @@ function Map() {
             onClose={() => setPopupInfo(null)}
             style={{ width: '70vw', height: '40vh' }}
           >
-            <div>
-              {popupInfo.title}
+            <div style= {{overflowWrap : "anywhere", }}>
+              <p>{popupInfo.title}</p>
               <Link to={`/stories/${popupInfo.id}`}>More Information</Link>
             </div>
             <img width="100%" src={popupInfo.photo_url} />
