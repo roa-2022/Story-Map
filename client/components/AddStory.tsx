@@ -125,6 +125,7 @@ function AddStory() {
                   name="photo_url"
                   onChange={handleChange}
                   placeholder='Paste your picture Url: http://'
+
                 />
               </div>
             </div>
@@ -140,14 +141,17 @@ function AddStory() {
             <div className="map-section">
               <div className="map-container">
                 <p className='map-title is-size-6 px-1 mb-2 has-text-weight-medium'>
+
                   Place your marker on the Map and press the Add <i className="fa-solid fa-location-dot mx-2"></i> button
                 </p>
                 <MapForPlacingMarker />
               </div>
+
               <div className='input-box'>
                 <label className="control" htmlFor="latitude">Latitude: </label>
                 <input
                 className="input mt-2"
+
                   type="text "
                   name="latitude"
                   value={viewCoordinates.latitude}
