@@ -7,7 +7,6 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 function Nav() {
   const user = useSelector((state: any) => state?.user)
-  // DONE call the useAuth0 hook and destructure logout and loginWithRedirect
   const { logout, loginWithRedirect } = useAuth0()
 
   const handleLogOff = (e) => {
@@ -48,9 +47,9 @@ function Nav() {
                       </Link>
                     </IfAuthenticated>
                     <IfAuthenticated>
-                      <Link className="navbar-item" to="/saved">
-                        Saved Stories
-                      </Link>
+                    <a className="navbar-item" href="/saved">
+                    Saved Stories
+                    </a>
                     </IfAuthenticated>
                   </div>
                 </div>

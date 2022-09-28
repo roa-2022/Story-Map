@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { fetchOneStory } from '../actions/stories'
-import { deleteStoryAPI } from '../apis/story'
+import { deleteStoryAPI } from '../apis/stories'
 import { fetchAddSavedStory, fetchSavedStories } from '../actions/savedStories'
 
 function Story() {

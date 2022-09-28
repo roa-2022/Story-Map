@@ -3,7 +3,7 @@ import MapForPlacingMarker from './MapForPlacingMarker'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { fetchAddStory } from '../actions/addStory'
+import { fetchAddStory } from '../actions/stories'
 
 function AddStory() {
   const dispatch = useDispatch()
