@@ -8,10 +8,9 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
 
-
   useEffect(() => {
     dispatch(fetchStories())
-  }, [stories])
+  }, [])
 
   const [region, setRegion] = useState('')
   const [toggle, setToggle]: any = useState(false)
@@ -19,7 +18,7 @@ export default function Search() {
   const [maoriRegion, setMaoriRegion] = useState('')
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
-  
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -54,10 +53,9 @@ export default function Search() {
                     className='p-1"'
                     id="demo-simple-select"
                     onChange={changeHandler}
-                    
                   >
                     <option disabled></option>
-                    <option value = "">All Regions </option>
+                    <option value="">All Regions </option>
                     <option disabled>──────────</option>
                     <option>Northland </option>
                     <option>Auckland</option>
@@ -140,7 +138,6 @@ export default function Search() {
                                   style={{ textDecoration: 'none' }}
                                   to={'#'}
                                   key={story.id}
-
                                 >
                                   <span>Save Story</span>
                                 </Link>
