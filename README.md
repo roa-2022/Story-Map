@@ -69,7 +69,7 @@ Listening to other people learning goals. Making sure things are communicated in
 
 Scrum lead: Matt
 Product owner: Matthew
-Git Keeper: Git keeper
+Git Keeper: Amy
 Vibe watcher: Yani
 
 Check-in = 15 min after everybody is around
