@@ -1,9 +1,12 @@
 # Final Project Plan
+---------------------------------------------
 
 
 ## Korero O Te Whenua
 
 Korero O Te Whenua is a platform for users to share local Maori stories and legends, which then have their focal location points traced on a map of New Zealand. Users will be able to add their local stories and will have the story published on our site. Join us and explore local areas and learn about myths, legends and stories associated with that place
+
+---------------------------------------------
 
 ## To get started:
 
@@ -72,22 +75,29 @@ Git Keeper: Git keeper
 Vibe watcher: Yani
 
 Check-in = 15 min after everybody is around
-Check out and retro. Sprints  2 per day
+Check out and retro. Sprints  1 per day
+Retro to be conducted and the end of every day at 4.45pm
 
 
 * How will you survive (Will you eat together? How will you break the tension? What is your fun times plan?)
 
  Lunch:  around 12/12.30 duration will last, depending on the duration.
+ 
+ ---------------------------------------------------------
 
 # Tech Planning
 
-## External API
+What we used in our project: 
 
-Our chosen API will be Mapbox (www.mapbox.com).  We will use this service to gain access to a map of New Zealand and be able to interact with said map.
-There are several endpoints we can access but the main routes we will use are:
+- React
+- Redux
+- Node.js
+- Express
+- SQLite3
+- Bulma / Scss
+- Mapbox
+- auth0
 
-* Endpoint 1
-* Endpoint 2
 
 ## Wireframes
 
@@ -107,6 +117,13 @@ There are several endpoints we can access but the main routes we will use are:
 
 ![Story-Map (3)](https://user-images.githubusercontent.com/99714877/191629529-a57cb85b-f3a0-4685-92f0-0f503c178909.jpg)
 
+## External API
+
+Our chosen API will be Mapbox (www.mapbox.com).  We will use this service to gain access to a map of New Zealand and be able to interact with said map.
+There are several endpoints we can access but the main routes we will use are:
+
+* Endpoint 1
+* Endpoint 2
 
 
 ## Redux store
@@ -135,6 +152,8 @@ Stories Table
 [
   { 
     id: 1 
+    auth0_id: *secret info*
+    author: Admin
     title: 'Taumatawhakatangihangakoauauotamateapokaiwhenuakitanatahu'
     sinopsis: "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one."
     story_txt : "The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one- The summit where Tamatea, the man with the big knees, the slider, climber of mountains, the land-swallower who travelled about, played his koauau to his loved one."
@@ -145,6 +164,8 @@ Stories Table
   { 
     
     id: 2
+    auth0_id: *secret info*
+    author: Admin
     title: "Tāne Mahuta"
     sinopsis: "Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today."
     story_txt : "Tāne Mahuta, Lord of the Forest, is an important figure in Māori history. The oldest of six siblings, Tāne Mahuta, grew tired of living in darkness, closed in between his sky father (Ranginui) and earth mother (Papa-tū-ā-nuku). He decided to push them apart and, in doing so, created the world of light (Te Ao Mārama) we live in today."
@@ -196,7 +217,7 @@ Regions Table
 AUTHENTICATION
 * As a user, I would like to have the power to delete my stories
 * As a user, I want to be able to log in to the site, in order to add stories safely
-* As a user, I want to be able to save stories that I find interesting or important to my profile
+* As a user, I want to be able to save stories to my profile
 * As a user, I would like to be able to have input on Iwi relations and ties to the selected story
 
 --------------
@@ -220,10 +241,9 @@ MVP+ -	  	The ‘Add Story’ prompt will only appear when a visitor is logged i
 
 ## Add a new story
 
-MVP - 	This page will display a form that allows a visitor to add a story to the database.  The details will need to include a name for the story, a region associated with the story, the actual story itself and an image to be connected with it.  
+MVP - 	This page will display a form that allows a visitor to add a story to the database.  The details will need to include a name for the story, a region associated with the story, the actual story itself and an image to be connected with it.  A user will also be able to pin the location they most want associated with the story using the map  
 
 MVP+-		Restricted Access to this page, logged in users only
-
 
 
 ## View a Single Story
@@ -233,19 +253,15 @@ MVP - 	This page will display the clicked on story from the previous page.  From
 MVP+ - 		Additionally, a user logged in will be able to save this story to their own personal collection of saved stories. 
 ## Admin controlled sections!!
 
+
 ##Login/Registration
 
 MVP+ - 		Users will be directed to login or register to the site if they wish to add stories.  A user can peruse the site without any form of registration required
 
 ## Saved Stories
 
-MVP+ - 		A user can go to a route that shows all their saved stories.  This will be collected into its own database.  A user will the ability to remove stories from their saved list
+MVP+ - 		A user can go to a route that shows all their saved stories.  This will be collected into its own database.  A user will the ability to remove stories from their saved list.  Users can delete the stories they have saved from their list of saved stories
 
-
-
-## Users Own Stories
-
-MVP+- 		There will be a separate view for users to view their own profile, or even simpler, just to view their own stories they have submitted to the site.  A user will have the ability to delete their own stories they have entered but not have that ability with other stories they did not enter.  This data could be stored on the same view as a list of user saved stories.  	
 
 
 ## Admin Related Controls (Not Complete)
