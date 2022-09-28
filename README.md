@@ -3,25 +3,22 @@
 
 ## Korero O Te Whenua
 
-Whenua O Korero is a platform for users to share local Maori stories and legends, which are then displayed on a map of New Zealand. Users will be able to add their local stories and, pending admin approval, will have the story published on our site. Users will be prompted to enter a location (regional or more specific), and this will place a pin on our map, which can be clicked on to recall the story.
+Korero O Te Whenua is a platform for users to share local Maori stories and legends, which then have their focal location points traced on a map of New Zealand. Users will be able to add their local stories and will have the story published on our site. Join us and explore local areas and learn about myths, legends and stories associated with that place
 
 ## To get started:
 
-When running the repo for the first time run the following commands in your terminal:
+Clone down this repo and run the following commands in your terminal
+
 ```
 npm i
 npm run knex migrate:latest
 npm run knex seed:run
 npm run dev
 ```
-# Deployed url on Heroku.com 
+## Deployed url on Heroku.com 
 * whenua-o-korero.herokuapp.com
 
-Yani copy this bad boy!! blob:http://localhost:3000/2a5d813e-60ad-4338-ac09-b22d2f1f1663
-
 LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
-
-Heroku App: https://whenua-o-korero.herokuapp.com/
 
 ## Human Skills
 
@@ -156,22 +153,17 @@ Regions Table
 [
   { 
     id: 1 
-    eng_name: "New Zealand"
-    maori_name: "Aotearoa"        
+    name: "New Zealand"
     },
   { 
     id: 2 
-    eng_name: "North Island"
-    maori_name: "Te Ika-a-Māui"
+    name: "North Island"
   },
    { 
     id: 3 
-    eng_name: "South Island"
-    maori_name: "Te Waipounamu"
+    name: "South Island"
   },
   ]
-  
-   ....then add the 16 regions 
 ```
 ## DB diagram
 
@@ -186,25 +178,20 @@ Regions Table
 * As a visitor, I would like to view a list of collected stories
 * As a visitor, from the list of collected stories, I would like to select and view a single story
 * As a visitor, I would like to filter stories by region
-* As a visitor, I would like to add a story to the collection (no authentication yet)
 
 ### MVP+
-( add user & admin priviledges)	
+(add user priviledges & map functionality)	
 
-* As a user, I would like to choose whether I view the collection of stories from a list, or from a map [can we word this so it’s like…. I want to be able to do either? Or that I can do both?]
-* As a user, when I view the map, I want to be able to click on pins to view a list of stories from regions surrounding the pin
-* I want to be able to click a pin on the map to view the entire story
+* As a user, I would like to choose whether I view the collection of stories from a list, or from the map via seperately labelled routing links
+* As a user, when I view the map, I want to be able to click a pin on the map to view the story associated with that pin
+* As a user, when I add a story, I want to be able to select a region that my story pertains to and a specific location point for the map
+
 
 AUTHENTICATION
-* As a user, I want to be able log in to the site, in order to add stories safely
-* As an admin, I want to be able to have authority to accept or decline entries to the collection of stories
-* As a user, I want to be able to save stories that I find interesting or important to my profile
 * As a user, I would like to have the power to delete my stories
-* As an admin, I would like to have the power to delete entries
+* As a user, I want to be able to log in to the site, in order to add stories safely
+* As a user, I want to be able to save stories that I find interesting or important to my profile
 * As a user, I would like to be able to have input on Iwi relations and ties to the selected story
-
-### STRETCH
-* As a user, I would like to post an upvote to stories I enjoy, I can only post one upvote
 
 --------------
 
