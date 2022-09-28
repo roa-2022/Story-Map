@@ -1,7 +1,5 @@
 import { GET_REGIONS } from '../actions/regions'
 
-
-
 const reducer = (state = [], action) => {
   const { type, payload } = action
   switch (type) {

@@ -25,9 +25,6 @@ function Map() {
 
   const handleClick = (e, story) => {
     e.originalEvent.stopPropagation()
-    // console.log('click!')
-    // console.log('story', story)
-    // console.log(viewCoordinates)
 
     setPopupInfo(story)
   }
