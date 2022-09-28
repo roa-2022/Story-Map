@@ -15,10 +15,12 @@ npm run knex migrate:latest
 npm run knex seed:run
 npm run dev
 ```
-## Deployed url on Heroku.com 
+## Heroku App
 * whenua-o-korero.herokuapp.com
 
 LATEST DB. https://dbdiagram.io/d/632b85a87b3d2034ff82c1c0
+
+------------------------------------------
 
 ## Human Skills
 
