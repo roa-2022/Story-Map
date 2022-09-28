@@ -1,7 +1,4 @@
 // Stles for Story page
-// * {
-//   border: 1px solid orange;
-// }
 
 .fix-pad {
   padding: 20px;
@@ -25,7 +22,7 @@
 
 @media screen and (max-width: 1400px) {
   .story-container {
-    max-width: 90vw;
+    max-width: 100%;
   }
 }
 

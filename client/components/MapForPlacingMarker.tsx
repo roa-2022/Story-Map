@@ -64,7 +64,7 @@ function MapForPlacingMarker() {
       </InteractiveMap>
       <div className="add-btn-container">
         <button
-          className="button is-primary is-small mx-4"
+          className="button  is-danger is-light is-small my-2"
           onClick={(e) => {
             e.preventDefault()
             setButtonStyle({
@@ -74,7 +74,7 @@ function MapForPlacingMarker() {
             saveViewStateToRedux()
           }}
         >
-          <b>Add</b>
+          <b>Place marker</b>
           <i className="fa-solid fa-location-dot mx-2"></i>
         </button>
       </div>

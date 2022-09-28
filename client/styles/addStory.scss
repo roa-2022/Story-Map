@@ -7,9 +7,13 @@
 }
 
 .small-map-add-story {
-  border: 1px solid blue;
   display: 'flex';
   flex-wrap: 'wrap';
   justify-content: 'center';
-  margin: '20px 0';
+  margin: '40px 0';
+}
+
+.input-box{
+  // border: 1px solid blue;
+  margin-top: 10px ;
 }

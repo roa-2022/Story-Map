@@ -38,7 +38,7 @@ function AddStory() {
   return (
     <section className="story-section">
       <div className="story-container">
-        <div className="form-container ">
+        <div className="form-container box">
           <form  className="grid-stacked" onSubmit={handleSubmit}>
             <h1 className='title'>Add your Story</h1>
             <div className="field">
@@ -49,17 +49,8 @@ function AddStory() {
                 <div className="select">
                   <select name="region_id" id="type" onChange={handleChange}>
                     <option value="DEFAULT">Select an Option</option>
-                    <option value={allRegions[0]?.id}>
-                      New Zealand | Aotearoa
-                    </option>
-                    <option value={allRegions[1]?.id}>
-                      North Island | Te Ika-a-Māui
-                    </option>
-                    <option value={allRegions[2]?.id}>
-                      South Island | Te Waipounamu
-                    </option>
                     <option value={allRegions[3]?.id}>
-                      Northland | Te Tai Tokerau{' '}
+                      Northland {' '}
                     </option>
                     <option value={allRegions[4]?.id}>Auckland | </option>
                     <option value={allRegions[5]?.id}>Waikato</option>
@@ -133,7 +124,7 @@ function AddStory() {
                   type="text"
                   name="photo_url"
                   onChange={handleChange}
-                  placeholder='paste your picture Url: http://'
+                  placeholder='Paste your picture Url: http://'
                 />
               </div>
             </div>
@@ -148,21 +139,23 @@ function AddStory() {
             </div>
             <div className="map-section">
               <div className="map-container">
-                <p className='map-title is-size-6 px-1 has-text-weight-medium'>
+                <p className='map-title is-size-6 px-1 mb-2 has-text-weight-medium'>
                   Place your marker on the Map and press the Add <i className="fa-solid fa-location-dot mx-2"></i> button
                 </p>
                 <MapForPlacingMarker />
               </div>
-              <div>
-                <label className="" htmlFor="latitude">Latitude: </label>
+              <div className='input-box'>
+                <label className="control" htmlFor="latitude">Latitude: </label>
                 <input
+                className="input mt-2"
                   type="text "
                   name="latitude"
                   value={viewCoordinates.latitude}
                   readOnly
                 />
-                <label htmlFor="longitude">Longitude: </label>
+                <label className="control"  htmlFor="longitude">Longitude: </label>
                 <input
+                className="input mt-2"
                   type="text"
                   name="longitude"
                   value={viewCoordinates.longitude}
@@ -170,7 +163,7 @@ function AddStory() {
                 />
               </div>
               <div>
-                <button className="btn-add-venue">Add</button>
+                <button className="button  is-link is-light is-small mt-2">Add</button>
               </div>
             </div>
           </form>
