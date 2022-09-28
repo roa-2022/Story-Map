@@ -2,16 +2,16 @@ const connection = require('./connection')
 
 
 function searchEnglish(region, db = connection) {
-  return db('storiesRegions')
-  .join('regions', 'regions.id', 'storiesRegions.region_id')
-  .join('stories', 'storiesRegions.story_id', 'stories.id')
+  return db('stories_regions')
+  .join('regions', 'regions.id', 'stories_regions.region_id')
+  .join('stories', 'stories_regions.story_id', 'stories.id')
   .select('*')
   .where('eng_name', region)
 }
 function searchMaori(region, db = connection) {
-  return db('storiesRegions')
-  .join('regions', 'regions.id', 'storiesRegions.region_id')
-  .join('stories', 'storiesRegions.story_id', 'stories.id')
+  return db('stories_regions')
+  .join('regions', 'regions.id', 'stories_regions.region_id')
+  .join('stories', 'stories_regions.story_id', 'stories.id')
   .select('*')
   .where('maori_name', region)
 }
