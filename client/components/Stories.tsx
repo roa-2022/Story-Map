@@ -69,9 +69,11 @@ export default function Search() {
                 </div>
               </div>
             </div>
-            <Link to="/add" className="button is-success">
-              Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
-            </Link>
+            <IfAuthenticated>
+              <Link to="/add" className="button is-success">
+                Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
+              </Link>
+            </IfAuthenticated>
           </form>
         </div>
 

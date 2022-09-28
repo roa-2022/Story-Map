@@ -1,0 +1,77 @@
+// Stles for Story page
+// * {
+//   border: 1px solid orange;
+// }
+
+.fix-pad {
+  padding: 20px;
+}
+
+.fix-pad-tb {
+  padding: 5px 20px;
+}
+.story-section {
+  margin: 40px 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-container {
+  padding-left: 32px;
+  padding-right: 32px;
+  max-width: 70vw;
+}
+
+@media screen and (max-width: 1400px) {
+  .story-container {
+    max-width: 90vw;
+  }
+}
+
+.sub-title {
+  color: hsl(0deg, 0%, 29%);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.story-title {
+  max-width: 600px;
+  word-break: break-all;
+  font-size: 2rem;
+}
+
+.img-txt-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  max-width: 600px;
+}
+
+.story-txt {
+  max-width: 600px;
+  text-align: left;
+}
+
+.story-img {
+  max-width: 600px;
+  max-height: 600;
+  object-fit: cover;
+}
+// query for img-txt-container
+@media screen and (max-width: 900px) {
+  .story-img {
+    max-width: 300px;
+    max-height: 600;
+    object-fit: cover;
+  }
+}
+
+.btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
