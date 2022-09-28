@@ -64,7 +64,7 @@ function MapForPlacingMarker() {
       </InteractiveMap>
       <div className="add-btn-container">
         <button
-          className="button  is-danger is-light is-small my-2"
+          className="button  is-danger  is-small my-2"
           onClick={(e) => {
             e.preventDefault()
             setButtonStyle({

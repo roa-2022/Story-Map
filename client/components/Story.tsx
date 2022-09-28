@@ -72,7 +72,7 @@ function Story() {
                   className="button is-danger is-light mx-2 "
                   onClick={addSaved}
                 >
-                  <i className="fa-regular fa-heart mx-3"></i> Save Story
+                  <i className="fa-regular fa-heart mx-3"></i>
                 </button>
               </IfAuthenticated>
               <IfNotAuthenticated>
@@ -85,10 +85,10 @@ function Story() {
               </IfNotAuthenticated>
               {user == story.auth0_id && (
                 <button
-                  className="button is-danger is-light mx-2 "
+                  className="button is-warning is-light mx-2 "
                   onClick={handleDelete}
                 >
-                  <i className="fa-regular fa-trash-can mx-3"></i>
+                  <i className="fa-regular  fa-trash-can mx-3"></i>
                 </button>
               )}
               {user == story.auth0_id && (

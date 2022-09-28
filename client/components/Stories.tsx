@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
 import { fetchSavedStories } from '../actions/savedStories'
-import { IfAuthenticated } from './Authenticated'
+import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
@@ -69,6 +69,19 @@ export default function Search() {
                 Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
               </Link>
             </IfAuthenticated>
+            <IfNotAuthenticated>
+              <Link to="/add">
+                <button
+                  className="button is-danger"
+                  title="Disabled button"
+                  disabled
+                >
+                  {' '}
+                  Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
+                </button>
+              </Link>
+              <p className='my-4 is-size-5'>Log In to add a story</p>
+            </IfNotAuthenticated>
           </form>
         </div>
 
