@@ -1,7 +1,5 @@
 import { SEARCH_REGION } from '../actions/search'
 
-
-
 const reducer = (state = [], action) => {
     const { type, payload } = action
     switch (type) {
@@ -11,6 +9,5 @@ const reducer = (state = [], action) => {
             return state
     }
 }
-
 
 export default reducer

@@ -7,5 +7,5 @@ exports.up = function (knex) {
 }
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('usersStories')
+  return knex.schema.dropTable('users_stories')
 }

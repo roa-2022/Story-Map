@@ -4,7 +4,6 @@ const db = require('../db/regions')
 
 const router = express.Router()
 
-
 router.get('/', async (req, res) => {
   try {
     const regionsArr = await db.getRegions()
@@ -13,8 +12,5 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: err.message })
   }
 })
-
-
-
 
 module.exports = router

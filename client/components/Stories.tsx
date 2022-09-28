@@ -3,19 +3,11 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchStories } from '../actions/stories'
 import { fetchSavedStories } from '../actions/savedStories'
-import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
+import { IfAuthenticated } from './Authenticated'
 
 export default function Search() {
   const stories = useSelector((state: any) => state.stories)
-
-  useEffect(() => {
-    dispatch(fetchStories())
-  }, [])
-
   const [region, setRegion] = useState('')
-  const [toggle, setToggle]: any = useState(false)
-  const [success, setSuccess]: any = useState(false)
-  const [maoriRegion, setMaoriRegion] = useState('')
   const savedStories = useSelector((state: any) => state.savedStories)
   const token = useSelector((state: any) => state.user.token)
 
@@ -28,13 +20,7 @@ export default function Search() {
 
   const changeHandler = (e) => {
     setRegion(e.target.value as string)
-    setToggle(true)
-    setMaoriRegion('')
-    setSuccess(false)
   }
-  // const addSaved = () => {
-  //   dispatch(fetchAddSavedStory(story, token))
-  // }
 
   return (
     <>
@@ -78,9 +64,11 @@ export default function Search() {
                 </div>
               </div>
             </div>
-            <Link to="/add" className="button is-success">
-              Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
-            </Link>
+            <IfAuthenticated>
+              <Link to="/add" className="button is-success">
+                Add Story <i className="fa-regular fa-paper-plane mx-4"></i>
+              </Link>
+            </IfAuthenticated>
           </form>
         </div>
 

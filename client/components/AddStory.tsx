@@ -3,7 +3,7 @@ import MapForPlacingMarker from './MapForPlacingMarker'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-import { fetchAddStory } from '../actions/addStory'
+import { fetchAddStory } from '../actions/stories'
 
 function AddStory() {
   const dispatch = useDispatch()
@@ -36,23 +36,12 @@ function AddStory() {
   }
 
   return (
-    <section className="add-container">
-      <div className="add-box">
-        <div className="add-box-text"></div>
+    <section className="container">
+      <div className="box">
+        <div className="addbox-text">
+        </div>
         <div className="form-container">
-          <form
-            style={{
-              width: '40%',
-              margin: 'auto',
-              textAlign: 'center',
-              borderRadius: '20%',
-              backgroundColor: 'rgb(252, 245, 229)',
-              padding: '20px',
-              marginTop: '30px',
-            }}
-            className="grid-stacked"
-            onSubmit={handleSubmit}
-          >
+          <form  className="grid-stacked" onSubmit={handleSubmit}>
             <h1>Add your Story</h1>
             <div className="field">
               <label htmlFor="region_id" className="label">
@@ -158,14 +147,7 @@ function AddStory() {
               </label>
               <div className="control">
                 <br />
-                <textarea
-                  name="story_text"
-                  className="text-area"
-                  onChange={handleChange}
-                  placeholder="Write your story here"
-                  rows={10}
-                  cols={70}
-                />
+               
               </div>
             </div>
             <MapForPlacingMarker />
