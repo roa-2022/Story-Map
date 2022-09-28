@@ -78,7 +78,6 @@ function MapForPlacingMarker() {
           <i className="fa-solid fa-location-dot mx-2"></i>
         </button>
       </div>
-
       <p style={buttonStyle}>Marker Placed!</p>
     </div>
   )
