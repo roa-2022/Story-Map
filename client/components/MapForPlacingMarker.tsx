@@ -16,36 +16,30 @@ import InteractiveMap, {
 import { API_KEY } from '../../secrets'
 
 function MapForPlacingMarker() {
-  
   const viewCoordinatesRedux = useSelector((state: any) => state.map)
   const dispatch = useDispatch()
 
   const initialState = {
     longitude: 174.774,
     latitude: -41.2969,
-    zoom: 3.5
+    zoom: 3.5,
   }
 
-  const [viewCoordinatesState, setViewCoordinatesState] = useState({...viewCoordinatesRedux})
-  
+  const [viewCoordinatesState, setViewCoordinatesState] = useState({
+    ...viewCoordinatesRedux,
+  })
+
   function saveViewStateToRedux() {
-    dispatch(updateViewCoordinates({...viewCoordinatesState}))
+    dispatch(updateViewCoordinates({ ...viewCoordinatesState }))
   }
-  
+
   const [buttonStyle, setButtonStyle] = useState({
     display: 'none',
-    color: '#4BB543'
+    color: '#4BB543',
   })
 
   return (
-    <div 
-      style={{ 
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-   
-      }}
-    >
+    <div  className='small-map-add-story'>
       <InteractiveMap
         initialViewState={{ ...initialState }}
         style={{ height: 300, width: '100%' }}
@@ -60,31 +54,31 @@ function MapForPlacingMarker() {
         <NavigationControl position="top-left" />
         <ScaleControl />
 
-          <Marker
-            key={'centred-marker'}
-            longitude={viewCoordinatesState.longitude}
-            latitude={viewCoordinatesState.latitude}
-          >
-            <Pin />
-          </Marker>
+        <Marker
+          key={'centred-marker'}
+          longitude={viewCoordinatesState.longitude}
+          latitude={viewCoordinatesState.latitude}
+        >
+          <Pin />
+        </Marker>
       </InteractiveMap>
-
-      <button className='button is-primary is-small mx-4'
-      onClick={(e) => {
-          e.preventDefault()
-          setButtonStyle({
-            display: 'block',
-            color: '#4BB543'
-          })
-          saveViewStateToRedux()
-        }}
-      >
-        <b>Add</b><i className="fa-solid fa-location-dot mx-2"></i>
-      </button>
-      
-      <p style={buttonStyle}>
-        Marker Placed!
-      </p>
+      <div className="add-btn-container">
+        <button
+          className="button  is-danger  is-small my-2"
+          onClick={(e) => {
+            e.preventDefault()
+            setButtonStyle({
+              display: 'block',
+              color: '#4BB543',
+            })
+            saveViewStateToRedux()
+          }}
+        >
+          <b>Place marker</b>
+          <i className="fa-solid fa-location-dot mx-2"></i>
+        </button>
+      </div>
+      <p style={buttonStyle}>Marker Placed!</p>
     </div>
   )
 }

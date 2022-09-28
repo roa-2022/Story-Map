@@ -47,9 +47,9 @@ function Nav() {
                       </Link>
                     </IfAuthenticated>
                     <IfAuthenticated>
-                    <a className="navbar-item" href="/saved">
-                    Saved Stories
-                    </a>
+                      <a className="navbar-item" href="/saved">
+                        Saved Stories
+                      </a>
                     </IfAuthenticated>
                   </div>
                 </div>

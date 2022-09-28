@@ -51,20 +51,7 @@ function Register() {
             <div className="box p-4 m-4">
               <div className="mx-3">
               <h3 className="subtitle is-3">Create Your Profile</h3>
-              <h5 className="subtitle is-5">Please complete the form below to create your profile.</h5>
-                <div className="field">
-                  <label className="label">Email</label>
-                  <div className="control has-icons-left">
-                    <input
-                      className="input"
-                      type="text"
-                      placeholder="Your Email Address"
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-envelope"></i>
-                    </span>
-                  </div>
-                </div>
+              <h5 className="subtitle is-5">Enter Your New Username Below</h5>
 
                 <div className="field">
                   <label className="label">Username</label>

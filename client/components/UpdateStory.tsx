@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-
+import Stories from './Stories'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchUpdateStories } from '../actions/stories'
+
+import MapForPlacingMarker from './MapForPlacingMarker'
 
 import Map from './Map'
 
@@ -15,8 +17,9 @@ function UpdateStory() {
   const story = stories[0]
   const [dataForm, setDataForm] = useState(story)
 
+  const viewCoordinates = useSelector((state: any) => state.map)
+
   const handleSubmit = (e) => {
-    console.log(dataForm)
     e.preventDefault()
     dispatch(fetchUpdateStories(dataForm, token))
     navigate('/stories')
@@ -25,81 +28,113 @@ function UpdateStory() {
     setDataForm({
       ...dataForm,
       [e.target.name]: e.target.value,
+      latitude: viewCoordinates.latitude,
+      longitude: viewCoordinates.longitude,
     })
   }
   return (
-    <section className="add-container">
-      <div className="add-box"></div>
-      <div className="add-box">
-        <div className="add-box-text">
-          <h2>Update your Story</h2>
-        </div>
-        {story && (
-          <div className="form-container">
+    <section className="story-section">
+      <div className="story-container">
+        <div className="form-container box">
+          {stories.length == 1 ? (
             <form className="grid-stacked" onSubmit={handleSubmit}>
+              <h1 className="title">
+                <i className="fa-regular fa-pen-to-square mx-3"></i>Edit your
+                Story
+              </h1>
               <div className="input-group">
-                <label htmlFor="author">Author: </label>
+                <label className="label" htmlFor="author">
+                  Author:{' '}
+                </label>
                 <input
+                  className="input input-width"
                   type="text"
                   name="author"
                   defaultValue={story.author}
                   onChange={handleChange}
                 />
               </div>
-              <div>
-                <label htmlFor="title">Title: </label>
+              <div className="field">
+                <label className="label mt-4" htmlFor="title">
+                  Title:{' '}
+                </label>
                 <input
+                  className="input input-width"
                   type="text"
                   name="title"
                   defaultValue={story.title}
                   onChange={handleChange}
                 />
               </div>
-              <div>
-                <label htmlFor="synopsis">Synopsis: </label>
-                <input
-                  type="text"
+              <div className="control">
+                <label className="label" htmlFor="synopsis">
+                  Synopsis:{' '}
+                </label>
+                <textarea
+                  className="textarea"
                   name="synopsis"
                   defaultValue={story.synopsis}
                   onChange={handleChange}
+                  rows={3}
+                  cols={50}
                 />
               </div>
-              <div>
-                <label htmlFor="story_text">Type your story: </label>
+              <div className="field">
+                <label className="label mt-2" htmlFor="story_text">
+                  Type your story:{' '}
+                </label>
                 <br />
                 <textarea
+                  className="textarea"
                   name="story_text"
                   defaultValue={story.story_text}
                   onChange={handleChange}
                   placeholder="Write your story here"
-                  rows={10}
+                  rows={5}
                   cols={50}
                 />
               </div>
               <div>
-                <label htmlFor="latitude">Latitude: </label>
+                <label className="label" htmlFor="latitude">
+                  Latitude:
+                </label>
                 <input
-                  type="text"
+                  className="input "
+                  type="text "
                   name="latitude"
-                  defaultValue={story.latitude}
-                  onChange={handleChange}
+                  value={viewCoordinates.latitude}
+                  readOnly
                 />
-                <label htmlFor="longitude">Longitude: </label>
+                <label className="label mt-2" htmlFor="longitude">
+                  Longitude:{' '}
+                </label>
                 <input
+                  className="input "
                   type="text"
                   name="longitude"
-                  defaultValue={story.longitude}
-                  onChange={handleChange}
+                  value={viewCoordinates.longitude}
+                  readOnly
                 />
               </div>
+              <div className="map-section">
+                <p className="map-title is-size-6 px-1 mt-5 mb-2 has-text-weight-medium">
+                  Place your marker on the Map and press the Add{' '}
+                  <i className="fa-solid fa-location-dot mx-2"></i> button
+                </p>
+                <MapForPlacingMarker />
+                <div className="map-container"></div>
+              </div>
               <div>
-                <button className="btn-add-venue">Update</button>
+                <button className="button  is-success is-medium mt-2">
+                  Update
+                </button>
               </div>
             </form>
-          </div>
-        )}
+          ) : (
+            <Stories />
+          )}
+        </div>
       </div>
-      <Map />
     </section>
   )
 }

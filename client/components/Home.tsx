@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import { Link } from 'react-router-dom'
 
 function Home() {
@@ -39,19 +40,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="hero is-small has-background-light">
-        <div className="hero-body">
-          <div className="content has-text-centered">
-            <p>
-              <strong> Kōrero O Te Whenua App</strong> by <p>Korero team. Dev Academy alimni. </p>.
-              <a href="https://github.com/roa-2022/Story-Map">
-                <i className="fa-brands fa-github"></i> {' '}
-              </a>
-              
-            </p>
-          </div>
-        </div>
-      </section>
+      <Footer/>
     </>
   )
 }

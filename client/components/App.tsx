@@ -20,9 +20,12 @@ import { getUser } from '../apis/users'
 import { useCacheUser } from '../auth0-utils'
 
 function App() {
+
   useCacheUser()
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  
   const { isAuthenticated, getAccessTokenSilently } = useAuth0()
 
   useEffect(() => {
