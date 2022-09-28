@@ -5,4 +5,6 @@ function getRegions(db = conn) {
 
 }
 
-module.exports = getRegions
+module.exports = {
+  getRegions 
+}
