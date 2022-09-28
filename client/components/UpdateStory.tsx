@@ -16,7 +16,6 @@ function UpdateStory() {
   const [dataForm, setDataForm] = useState(story)
 
   const handleSubmit = (e) => {
-    console.log(dataForm)
     e.preventDefault()
     dispatch(fetchUpdateStories(dataForm, token))
     navigate('/stories')
