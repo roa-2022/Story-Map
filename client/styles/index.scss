@@ -7,6 +7,8 @@
 @import "./variables.scss";
 
 // views Style
+@import './home.scss';
+@import './stories.scss';
 @import './story.scss';
 
 // Import only what you need from Bulma
@@ -33,112 +35,4 @@
 
 
 
-// Landing page
-
-.korero-title{
-  font-size: 8rem!important;
-  line-height: 0.9;
-  font-weight: 100;
-}
-
-.box-home{
-  line-height: 1.6;
-}
-.hero .is-fullheight{
-  background: rgb(99, 72, 72);
-}
-
-.hero-1 {
-  @extend .hero;
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('https://upload.wikimedia.org/wikipedia/commons/2/24/Mount_Ishizuchi.jpg')
-};
-
-.hero-1 {
-  @extend .hero;
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('../../server/public/images/lake-view.jpg')
-};
-
-.btn-home{
-  background-color:$color-dark-blue;
-}
-// Stories by region style
-.search-view{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-
-}
-.section-container{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-.cards-container{
-display: flex;
-flex-wrap: wrap;
-
-}
-
-.section-search{
-  display: grid;
-  max-width: 70vw;
-
-}
-
-.search-container{
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  }
-
- .card{
-  min-width: 200px;
- }
-.card-content {
-  min-height: 400px;
-}
-
-// Single story view
-
-// .story-main-container{
-//   max-width: 65vw;
-//   border: 1px solid red;
-// }
-.story-img{
-  max-width: 300px;
-  max-height: 600;
-  object-fit: cover;
-};
-
-.story-grid{
-  border: 1px solid black;
-  max-height: 80vh;
-}
-
-.story-text{
-  text-align: left;
-
-}
-
-.box-txt{
-  max-width: 400px;
-}
-.container-grid-story{
-  gap:20px;
- 
-}
-// breakpoint change for grid change row to column txt-img
-
-  @media screen and (max-width: 720px){
-  .container-grid-story{    
-    flex-direction: column ;
-}
-  };
-
-  .story-txt {
-max-width: 400px;
-  }
+/
