@@ -23,7 +23,7 @@ npm run dev
 
 ------------------------------------------
 
-## Human Skills
+## Human Skills Group Plan
 
 ### Wellbeing: Stress profiles and needs
 * Amy:  is going through SOT interviews. Needs to be shown empathy and is prompt to chat about what's going on for her with HS or talk to other team members.
